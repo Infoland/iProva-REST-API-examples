@@ -35,7 +35,7 @@ function displayIProvaVersion()
             request.setRequestHeader("Accept","application/vnd.example.api+json");
             request.setRequestHeader("x-api-version", "1");
         },
-        url: "http://iprova/api/versions/api" ,
+        url: "http://iprova/api/versions/iprova" ,
         contentType: "application/json",
         success: function(result)
         {
