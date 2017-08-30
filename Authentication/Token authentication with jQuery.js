@@ -6,7 +6,7 @@ var tokenID;
 $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
   alert(JSON.stringify(jqxhr));
 });
-
+ 
 // Create token and call function to get the iProva version
 $.ajax({
     method: "POST",
