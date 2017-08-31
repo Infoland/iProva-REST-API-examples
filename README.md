@@ -1,7 +1,5 @@
 # Overview
-This describes the resources that make up the iProva API v1. This page is structered in a way that the most important information is presented on top. The actual routes are all documented in [Swagger][swagger_v1]. The most recent version of the swagger.json can be found [here][swaggerjson].
-
-We are very interested in your opinion about the iProva REST API. Please [mail][api_email] us comments, problems or questions so we can keep improving our API, documenation and the technical implementation.
+This describes the resources that make up the iProva API v1. This page is structered in a way that the most important information is presented first.
 
 ## Versioning
 By default, all requests receive the latest version of the iProva API. Currently this is v1. We encourage to explicitly request this version via one of the following ways:
@@ -159,11 +157,7 @@ The result of this call will always be a generic `paging_envelope`. This envelop
 ```
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
-[change_log]: <changelog.md>
-[swagger_v1]:<../swagger>
-[swaggerjson]:../swagger/docs/v1
+[change_log]: <Changelog.md>
 [tokens]: <Tokens.md>
-[api_email]: <mailto:s.v.loon@infoland.nl>
 [verbs]: <Verbs.md>
 [client_errors]:<ClientErrors.md>
-[examples]:<https://github.com/Infoland/iProva-REST-API-examples>
