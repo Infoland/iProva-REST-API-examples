@@ -1,6 +1,12 @@
-var apiKey = "set api key";
-var userName = "j.t.kirk";
-var tokenID;
+/*
+This example shows how credential authentication is handled with jQuery.
+Of course you should never expose your apiKey in the front end.
+Also a token can expire after a while. It is possible to implement a sliding token expiration system. There is a different example for that.
+*/
+
+var _apiKey = "set api key";
+var _userName = "j.t.kirk";
+var _tokenID;
 
 // Globally handle all ajax errors
 $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
@@ -10,14 +16,14 @@ $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
 // Create token and call function to get the iProva version
 $.ajax({
     method: "POST",
+	url: "http://iprova/api/tokens",
     beforeSend: function(request) 
     {
         request.setRequestHeader("x-api-version", "1");
         request.setRequestHeader("Accept","application/vnd.example.api+json");
     },
-    url: "http://iprova/api/tokens",
     contentType: "application/json",
-    data: JSON.stringify({"api_key":apiKey,"username":userName}),
+    data: JSON.stringify({"api_key":_apiKey,"username":_userName}),
     success: function (result)
     {
         tokenID = result;
@@ -28,14 +34,14 @@ $.ajax({
 function displayIProvaVersion()
 {
   $.ajax({
-        method: "POST",
+        method: "GET",
+		url: "http://iprova/api/versions/iprova" ,
         beforeSend: function(request) 
         {
-            request.setRequestHeader("Authorization", "token " + tokenID);
+            request.setRequestHeader("Authorization", "token " + _tokenID);
             request.setRequestHeader("Accept","application/vnd.example.api+json");
             request.setRequestHeader("x-api-version", "1");
         },
-        url: "http://iprova/api/versions/iprova" ,
         contentType: "application/json",
         success: function(result)
         {
