@@ -13,7 +13,7 @@ $.ajax({
 	url: "http://iprova/api/version/api",
     beforeSend: function(request) 
     {
-        request.setRequestHeader("x-api-version", "1"); // Custom header
+        request.setRequestHeader("X-Api-Version", "1"); // Custom header
         request.setRequestHeader("Accept","application/vnd.example.api+json");
     },
     contentType: "application/json",

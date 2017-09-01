@@ -1,16 +1,14 @@
 # Overview
-This describes the resources that make up the iProva API v1. This page is structered in a way that the most important information is presented first.
+This document describes the resources that make up the iProva API v1. This document is structured in a way that the most important information is presented first.
 
 ## Versioning
 By default, all requests receive the latest version of the iProva API. Currently this is v1. We encourage to explicitly request this version via one of the following ways:
 
 - Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=1`.
-- Via a custom header: `x-Api-version: 1`.
-- Via the query string: `api/card_file/cards?api-version=1`.
+- Via a custom header: `X-Api-Version: 1`.
+- Via the query string: `api/card_files/cards/1?api-version=1`.
 
 The major versions might not be completely backwards compatible with older major versions. Minor versions denote only extensions in the API. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in the following major version.
-
-The API version can be retrieved by calling: `GET api/versions/api`.
 
 ## Schema
 All API access is possible over the same protocols as the iProva.
@@ -51,7 +49,7 @@ var example =
 ### Summary representations
 When you fetch a list of resources, the response includes a subset of the attributes for that resource. This is the "summary" representation of the resource. Some attributes are computationally expensive for the API to provide. For performance reasons, the summary representation excludes those attributes. To obtain those attributes, fetch the "detailed" representation or, when supported, pass `include_<attribute>=true` via the query string.
 
-**Example**: When you get a list of cards the image attribute is not filled because this would send the image as a Base64 string. You can include the image by including a query string parameter `GET api/card_file/data_types/1/cards?include_image=true`.
+**Example**: When you get a list of cards the image attribute is not filled because this would send the image as a Base64 string. You can include the image by including a query string parameter `GET api/card_files/1/cards?include_image=true`.
 
 ### Detailed representations
 When you fetch an individual resource, the response typically includes all attributes for that resource. This is the "detailed" representation of the resource. 
@@ -59,9 +57,9 @@ When you fetch an individual resource, the response typically includes all attri
 **Example**: When you get an individual repository, you get the detailed representation of the repository. Here, we fetch the a card `GET api/card_file/card/1`.
 
 ## Parameters
-Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter. For example: `GET api/card_file/card/1?include_image=true`.
+Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter. For example: `GET api/card_files/card/1?include_image=true`.
 
-For POST, PUT, PATCH, and DELETE requests the model parameter should be put in the body. They should be encoded as JSON with a Content-Type of 'application/json'. For example: `POST api/card_file/card/1/image` with body `'{"name":"Hammer", "base64":""}'`.
+For POST, PUT, PATCH, and DELETE requests the model parameter should be put in the body. They should be encoded as JSON with a Content-Type of 'application/json'. For example: `POST api/card_files/card/1/image` with body `'{"name":"Hammer", "base64":""}'`.
 
 ## HTTP Verbs
 The following verbs are used in the API. See the [Verbs][verbs] page for further information.
@@ -115,7 +113,7 @@ When the user is already logged in in iProva, iProva has set an authentication c
 ## Pagination
 Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. 
 
-**Example**: `GET api/card_file/data_types/1/cards?limit=50&offset=10` 
+**Example**: `GET api/card_files/1/cards?limit=50&offset=10` 
 
 This call will return (at most) 50 cards, starting at card number 11.
 
@@ -140,9 +138,9 @@ X-Pagination-Total: 1048
 
 However, because some proxy servers don't allow unknown headers and remove them from the response, and some client might not be able to access the response headers it is possible to get this metadata in the actual result of the call. This can be done by passing the `envelope` query string parameter and setting it to true. 
 
-**Example**: `GET api/card_file/data_types/1/cards?limit=50&offset=10&envelope=true`
+**Example**: `GET api/card_files/1/cards?limit=50&offset=10&envelope=true`
 
-The result of this call will always be a generic `paging_envelope`. This envelope contains two properties: "data" and "pagination". "data" contains the actual result of the request, and "pagination" contains the metadata about the pagination that would normally be present in the response headers:
+The result of this call will always be a generic wrapping envelope. This envelope contains two properties: "data" and "pagination". "data" contains the actual result of the request, and "pagination" contains the metadata about the pagination that would normally be present in the response headers:
 
 ```javascript
 {
