@@ -38,6 +38,7 @@ var data_type =
 ```
 
 Dates are returned in format `yyyyMMdd` and date with times are returned in format `yyyyMMddHHmmss`.
+Dates are always in UTC format
 ```javascript
 var example = 
 {
@@ -103,7 +104,7 @@ For more information about token authentication see [Tokens][Tokens]
 ### Via Credentials
 If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header. The header should contain the string "credentials" followed by the string "u:" and the username, a whitespace, the string "pwd:" and the password. `Authorization: credentials u:j.t.kirk pwd:P@$$w0rd`. 
 
-In this situation, passing an API key is still required. The API key can be passed via the "api_key" querystring parameter, or via an "api_key" http header.
+In this situation, passing an API key is still required. The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
 
