@@ -13,7 +13,7 @@ Added|**GET** `api/documents/document_media/{document_media_item_id}/download`|D
 Added|**GET** `api/hyperlinks/{hyperlink_id}`|Gets information of the target of a hyperlink. The {hyperlink_id} can be found by reading the data-hyperlinkid attribute of an anchor tag in an html document
 Added|**GET** `api/portals/themes`|Gets the list of portal themes for the current user.
 Fixed|**GET** `api/card_files/cards` and sub routes|last_modified_datetime of cards were never filled
-Documentation|-|Mentioned all returned datetimes are always in UTC format
+Fixed|**GET** routes returning a date|Made it clear an UTC date is returned
 
 ## Changes in iProva 5.5.0
 
