@@ -12,7 +12,7 @@ Added|**GET** `api/documents/bulk_exports`|Get meta data and the output of bulk 
 Added|**GET** `api/documents/document_media/{document_media_item_id}/download`|Download a media item (audio, video) from a document. The media item is found in documents using a <mediaitem> tag. The attribute "data-document-media-item-id" contains the "document_media_item_id" parameter you need to pass to this method
 Added|**GET** `api/hyperlinks/{hyperlink_id}`|Gets information of the target of a hyperlink. The {hyperlink_id} can be found by reading the data-hyperlinkid attribute of an anchor tag in an html document
 Added|**GET** `api/portals/themes`|Gets the list of portal themes for the current user.
-Fixed|All card routes|last_modified_datetime of cards were never filled
+Fixed|**GET** `api/card_files/cards` and sub routes|last_modified_datetime of cards were never filled
 Documentation|-|Mentioned all returned datetimes are always in UTC format
 
 ## Changes in iProva 5.5.0
