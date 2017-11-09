@@ -92,7 +92,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 When a 4xx or 500 HTTP status code is returned the reason phrase is set to be as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
 
 ## Authentication
-There are three ways to authenticate yourself iProva API v1. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
+There are four ways to authenticate yourself iProva API. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
 
 ### API Keys
 To access the API, you need an API-Key. In iProva we have two different kinds of API keys. One that allows you to impersonate any given iProva user, and one that simply allows you to access the API. The first one is used for Token authentication. The second one is used for credentials authentication.
@@ -104,9 +104,20 @@ For more information about token authentication see [Tokens][Tokens]
 ### Via Credentials
 If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header. The header should contain the string "credentials" followed by the string "u:" and the username, a whitespace, the string "pwd:" and the password. `Authorization: credentials u:j.t.kirk pwd:P@$$w0rd`. 
 
-In this situation, passing an API key is still required. The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
+In this situation, passing an API key is still required. 
+The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
+
+### Via Windows Authentication 
+
+<small>Windows Authentication is available from iProva 5.7</small>
+
+When iProva is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
+If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user. 
+
+In this situation, passing an API key is required. 
+The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
 ### Via iProva Cookie
 When the user is already logged in in iProva, iProva has set an authentication cookie in the browser. When accessing the API when this cookie is set the API will automatically authenticate you using this cookie.
