@@ -6,7 +6,8 @@ Also a token can expire after a while. It is possible to implement a sliding tok
 
 var _apiKey = "set api key";
 var _userName = "j.t.kirk";
-var _tokenID;
+var _password = "set password";
+var _bearerTokenID;
 
 // Globally handle all ajax errors
 $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
@@ -16,17 +17,18 @@ $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
 // Create token and call function to get the iProva version
 $.ajax({
     method: "POST",
-	url: "http://iprova/api/tokens",
+	url: "http://iprova/api/bearer_tokens",
     beforeSend: function(request) 
     {
         request.setRequestHeader("x-api-version", "1");
-        request.setRequestHeader("Accept","application/vnd.example.api+json");
+        request.setRequestHeader("x-api_key", _apiKey);
+        request.setRequestHeader("Accept", "application/vnd.example.api+json");
+        request.setRequestHeader("Authorization", "credentials u:" + _userName + " pwd:" + _password);
     },
     contentType: "application/json",
-    data: JSON.stringify({"api_key":_apiKey,"username":_userName}),
     success: function (result)
     {
-        tokenID = result;
+        _bearerTokenID = result;
         displayIProvaVersion();
     }
 });
@@ -38,7 +40,7 @@ function displayIProvaVersion()
         url: "http://iprova/api/versions/iprova",
         beforeSend: function (request) 
         {
-            request.setRequestHeader("Authorization", "token " + _tokenID);
+            request.setRequestHeader("Authorization", "bearer " + _bearerTokenID);
             request.setRequestHeader("Accept", "application/vnd.example.api+json");
             request.setRequestHeader("x-api-version", "1");
         },

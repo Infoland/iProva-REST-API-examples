@@ -1,6 +1,14 @@
 ﻿# Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.6.1.0
+
+Change|Route|Remarks
+|--|--|--|
+Fixed|-|Users having two factor authentication enabled now also have to pass a security code to the api when authenticating. For more info, see the general usage information of the API
+Added|-|From this version on, the preferred way of authenticating is using bearer tokens. For more info, see the general usage information of the API
+Added|**POST** `api/bearer_tokens` |Added this route to be able to generate a bearer token for the new bearer authentication
+
 ## Changes in iProva 5.6.0.3
 
 Change|Route|Remarks
