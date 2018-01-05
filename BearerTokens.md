@@ -15,4 +15,4 @@ For a real life example of calling the API using a token, see [Bearer token exam
 ## Sliding expiration
 Bearer Tokens have a fixed expiration date of 2 weeks after generation. However, using the bearer token, you can request a new bearer token. So by getting a new bearer token within 2 weeks, it is possible to implement your own sliding expiration
 
-[BearerTokenExample]: <Authentication/BearerToken authentication with jQuery.js>
+[BearerTokenExample]: <Authentication/BearerToken%20authentication%20with%20jQuery.js>
