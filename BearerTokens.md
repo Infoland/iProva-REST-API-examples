@@ -10,7 +10,9 @@ This will return a bearer token for the user j.t.kirk. All subsequent calls to t
 
 For more information see the documentation of the tokens API.
 
-For a real life example of calling the API using a token, see [Examples][ex_insert_card]
+For a real life example of calling the API using a token, see [Bearer token example][BearerTokenExample].
 
 ## Sliding expiration
 Bearer Tokens have a fixed expiration date of 2 weeks after generation. However, using the bearer token, you can request a new bearer token. So by getting a new bearer token within 2 weeks, it is possible to implement your own sliding expiration
+
+[BearerTokenExample]: <Authentication/BearerToken authentication with jQuery.js>
