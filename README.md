@@ -79,7 +79,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |Code|Name|Explanation|
 |--|--|--|
 |**200**|OK|Always returned when route did not create resources and a response payload is returned.|
-|**201**|Created|Returned when one or more resources are created, a response payload should return (links to) the created resources.|
+|**201**|Created|Returned when one or more resources are created. The response body contains the id of the created entity. The response headers contains a "location" with the route to get newly created entity.|
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
 |**206**|Partial Content|Returned when streaming a file as a response of a call, and the servers sends a partial response.|
@@ -123,6 +123,42 @@ When the user is already logged in in iProva, iProva has set an authentication c
 To be able to make calls to the API with a user for which two factor authentication is enabled, you need to pass an extra Http header containing the current security code. This header is called "x-two-factor-code". The value of this header should be the current code.
 
 To avoid having to enter a new verification code each 30 seconds, you can use the bearer_tokens route to get a bearer token for the user with two factor authentication enabled. All subsequent calls can be authenticated using bearer authorization, without having to specify a security code anymore.
+
+## Filtering
+Filtering is implemented in two ways. Both are restful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
+
+If a route filtering it will always have implemented both ways.
+
+If multiple filter rules are applied as an "and" operator.
+
+### Filtering via the querystring
+Filtering via the querystring is as easy as setting the optional filter rules. The notation is always `rule_name=value`.
+
+**Example**: `GET api/entities?name=JCI&entity_ids=1,2,3,4` 
+
+The value has a certain notation for its type.
+
+| Type | Format | Examples
+|--|--|--|
+| **text** | text value | name=John%20Doe
+| **list** | Comma separated values | entity_ids=1,2,3,4
+
+This is very easy, but can limiting when you want to a lot of filter value. In that case you can use the stored filter mechanism.
+
+### Filtering via stored filter
+Using the filter mechanism consists of two steps: creating the filter and retrieving the items with the filter id. The paths always consists of the normal route used to filter via the querystring appended  with "/filter".
+
+`POST api/entities/filter` with a filter object as post data:
+
+```javascript
+{
+  "entity_ids" : [1,2,3],
+  "name": "John Doe"
+}
+```
+
+This returns Created (201) response with the id of the filter and 'location' header with the route for retrieving the entities using the filter:
+`GET api/enitities/filter/9289c2bd-26bc-422e-ba68-3d2768489bea`
 
 ## Pagination
 Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. 
