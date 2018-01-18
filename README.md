@@ -82,6 +82,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |**201**|Created|Returned when one or more resources are created, a response payload should return (links to) the created resources.|
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
+|**206**|Partial Content|Returned when streaming a file as a response of a call, and the servers sends a partial response.|
 |**400**|Bad Request|Returned when any of the input is wrong or a combination of input would cause an illegal operation.|
 |**401**|Unauthorized|Returned when anything with the credentials is wrong. It is always possible to receive this status code.|
 |**403**|Forbidden|Returned when the authenticated user is forbidden to use a certain aspect of a route.|
@@ -97,7 +98,7 @@ There are four ways to authenticate yourself iProva API. When the authentication
 ### API Keys
 To access the API, you need an API-Key. In iProva we have two different kinds of API keys. One that allows you to impersonate any given iProva user, and one that simply allows you to access the API. The first one is used for Token authentication. The second one is used for credentials authentication.
 
-### Via Token (preferred authentication method)
+### Via Token (preferred authentication method for trusted applications)
 The token can be sent via the Authorization header with the string "token" followed by the token id. `Authorization: token e8f66f95-7ab2-404e-b557-879788b900de`. 
 For more information about token authentication see [Tokens][Tokens]
 
@@ -109,6 +110,7 @@ The API key can be passed via the "api_key" querystring parameter, or via an "x-
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
 
+
 ### Via Windows Authentication 
 
 <small>Windows Authentication is available from iProva 5.7</small>
@@ -119,8 +121,21 @@ If you want to authenticate using windows credentials you must add the custom he
 In this situation, passing an API key is required. 
 The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
+### Via a JWT bearer token (preferred way of connecting as a specific user)
+When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`. 
+
+Of course the consumer should keep in mind that this would require the token to be sent via a http header, so only use this in combination with HTTPs.
+
+For more information about JWT bearer token authentication see [Bearer Tokens][BearerTokens]
+
+
 ### Via iProva Cookie
 When the user is already logged in in iProva, iProva has set an authentication cookie in the browser. When accessing the API when this cookie is set the API will automatically authenticate you using this cookie.
+
+### Two factor authentication
+To be able to make calls to the API with a user for which two factor authentication is enabled, you need to pass an extra Http header containing the current security code. This header is called "x-two-factor-code". The value of this header should be the current code.
+
+To avoid having to enter a new verification code each 30 seconds, you can use the bearer_tokens route to get a bearer token for the user with two factor authentication enabled. All subsequent calls can be authenticated using bearer authorization, without having to specify a security code anymore.
 
 ## Pagination
 Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. 
@@ -169,5 +184,6 @@ The result of this call will always be a generic wrapping envelope. This envelop
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 [change_log]: <Changelog.md>
 [tokens]: <Tokens.md>
+[BearerTokens]: <BearerTokens.md>
 [verbs]: <Verbs.md>
 [client_errors]:<ClientErrors.md>
