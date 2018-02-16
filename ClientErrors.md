@@ -1,14 +1,20 @@
-﻿# Client errors
+# Client errors
 This page describes the supported client errors in more detail.
 
 ## 400 Bad Request
-Returned when any of the input is wrong or a combination of input would cause an illegal operation. Most of the time the reason phrase will be altered to present extra information to the consumer so the problem can be pin pointed.
+Returned when any of the input is wrong or a combination of input would cause an illegal operation. Most of the time the reason phrase will be altered to present extra information to the consumer so the problem can be pinpointed.
 
- - When an argument is incorrect the reason phrase will be altered and nothing will be in the body
- - When an argument contains invalid fields the reason phrase will be altered, but also the body will be filled with extra information.
+ - When an argument is incorrect the reason phrase will be altered and a message will be in the body
+```javascript
+{
+  "Message": "text should be filled"
+}
+```
+ - When an argument contains invalid fields the reason phrase will be altered to "Modelstate is invalid", but also the body will be filled with extra information.
 ```javascript
 [
-  "text should be filled"
+  "text should be filled",
+  "number should be > 0"
 ]
 ```
 
@@ -27,6 +33,7 @@ Returned when something is wrong with the API. The reason phrase will never be a
 ```javascript
 {
     "message":"Internal server occurred",
-    "error_code": "3fb901f5-7330-4be6-805e-59d1d1a2fd07"
+    "error_code": "3fb901f5-7330-4be6-805e-59d1d1a2fd07",
+    "error_date": "20180216143520123"
 }
 ```
