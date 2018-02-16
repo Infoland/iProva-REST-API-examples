@@ -45,6 +45,7 @@ Some POSTs support disabling strict validation with a parameter called "strict_v
     ]
   }
 ```
+See the [validation codes][validationcodes] page for further information about the validation codes.
 
 The POST verb is not idempotent by definition.
 
@@ -68,3 +69,4 @@ The DELETE verb is used to delete one or more resources
 The DELETE verb is idempotent.
 
 [idempontency]:<http://www.restapitutorial.com/lessons/idempotency.html>
+[validationcodes]: <ValidationCodes.md>
