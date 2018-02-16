@@ -79,7 +79,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |Code|Name|Explanation|
 |--|--|--|
 |**200**|OK|Always returned when route did not create resources and a response payload is returned.|
-|**201**|Created|Returned when one or more resources are created. The response body contains the id of the created entity. The response headers contains a "location" with the route to get newly created entity.|
+|**201**|Created|Returned when one or more resources are created.|
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
 |**206**|Partial Content|Returned when streaming a file as a response of a call, and the servers sends a partial response.|
