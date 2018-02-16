@@ -17,7 +17,34 @@ The GET verb is used to retrieve resources. It will return a 200 OK With Content
 The GET verb is idempotent in all cases. 
 
 ## POST
-The POST verb is used to create a new resource. It will return a 201 Created with the route the new resource or 204 No Content status code on success.
+The POST verb is used to create a new resource. It will return a 201 Created with the route the new resource in the header of the response. The response body contains the id of the created identity:
+```javascript
+  "b3af58cb-edac-43ed-a357-45585e8860ec"
+```
+Some POSTs support disabling strict validation with a parameter called "strict_validation". If this parameter is set to False, the response body contains the id of the created identity along with validation messages:
+```javascript
+  {
+    "created_identifier": "b3af58cb-edac-43ed-a357-45585e8860ec",
+    "messages": 
+    [
+      {
+        "code": "missing_value",
+        "message": "no value was specified for field with id 123",
+        "identifier": "123"
+      },
+      {
+        "code": "invalid_value",
+        "message": "invalid value was specified for field with id 456",
+        "identifier": "456"
+      },
+      {
+        "code": "invalid_field",
+        "message": "invalid field with id 789",
+        "identifier": "789"
+      }
+    ]
+  }
+```
 
 The POST verb is not idempotent by definition.
 
