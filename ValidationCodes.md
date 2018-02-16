@@ -2,11 +2,32 @@
 This page describes the validation codes in more detail.
 These validation codes can be returned returned in the response body of a POST.
 
-## 9001 Missing Value
+## Missing Value
 Indicates that a value is required but was not specified in the request.
+```javascript
+      {
+        "code": "missing_value",
+        "message": "no value was specified for field with id 123",
+        "identifier": "123"
+      }
+```
 
-## 9002 Invalid Value
+## Invalid Value
 Indicates that a value is invalid according its type or business rules.
+```javascript
+      {
+        "code": "invalid_value",
+        "message": "invalid value was specified for field with id 456",
+        "identifier": "456"
+      }
+```
 
-## 9003 Invalid Field
+## Invalid Field
 Indicates that an invalid field was specified.
+```javascript
+      {
+        "code": "invalid_field",
+        "message": "invalid field with id 789",
+        "identifier": "789"
+      }
+```
