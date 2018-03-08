@@ -260,4 +260,17 @@ namespace BulkExportDownload
         [DataMember]
         internal bool can_download;
     }
+    
+    class SaveLocation
+    {
+        public string id { get; set; }
+        public string location { get; set; }
+
+        public SaveLocation(string id, string location)
+        {
+            this.id = id;
+            this.location = location;
+        }
+    }
+    
 }
