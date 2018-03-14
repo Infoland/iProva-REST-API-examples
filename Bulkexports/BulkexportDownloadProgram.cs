@@ -23,6 +23,7 @@ namespace BulkExportDownload
     {
         static internal string emailBody;
         static internal List<SaveLocation> saveLocations = new List<SaveLocation>();
+        const string backUpDirPrefix = "back_up_";
         static void Main(string[] args)
         {
             //populate list of SaveLocation with the SaveLocations setting
@@ -45,7 +46,6 @@ namespace BulkExportDownload
                 string bulkExportId = saveLoc.id;
                 string savePath = saveLoc.location;
                 string zipPath = savePath + "\\" + bulkExportId + ".zip";
-                string extractPath = savePath + "\\" + bulkExportId;
 
                 BulkExport bulkExport = readBulkExportFromApi(client, bulkExportId, credentials);
                 if (bulkExport == null)
@@ -68,18 +68,19 @@ namespace BulkExportDownload
                 {
                     try
                     {
-                        DeleteBackups(bulkExportId, extractPath, savePath);
-                        BackupBulkExport(zipPath, extractPath);
+                        DeleteBackups(bulkExportId, savePath);
+                        BackupBulkExport(savePath);
 
                         //download new bulkexport, continue to next bulkexport if this fails. Errormessage is added to mail inside the DownloadBulkExport method
                         if (!DownloadBulkExport(client, bulkExportId, credentials, zipPath, bulkExport.name))
                             continue;
 
                         //extract new bulkexport
-                        ExtractBulkExport(zipPath, extractPath);
+                        ExtractBulkExport(zipPath, savePath);
 
                         //delete backup if download en extract succeeds
-                        DeleteBackups(bulkExportId, extractPath, savePath);
+                        DeleteBackups(bulkExportId, savePath);
+                        DeleteZip(zipPath);
                     }
                     catch (Exception e)
                     {
@@ -93,7 +94,6 @@ namespace BulkExportDownload
                     string message = "The bulkexport '" + bulkExport.name + "' could not be downloaded, because the status of the bulkexport is '" + bulkExport.state + "'";
                     addMessageToEmailBody(message);
                 }
-
             }
             if (emailBody != "")
             {
@@ -130,7 +130,7 @@ namespace BulkExportDownload
             }
             else
             {
-                string message = "Could not download zip-file";
+                string message = "Could not download zip-file, status code: " + response.StatusCode;
                 if (response.ErrorMessage != null)
                 {
                     message += ":\n " + response.ErrorMessage;
@@ -141,27 +141,14 @@ namespace BulkExportDownload
 
         }
 
-        static private void DeleteBackups(string bulkExportId, string extractPath, string savePath)
+        static private void DeleteBackups(string bulkExportId, string savePath)
         {
             Console.WriteLine("deleting backups for bulkexport " + bulkExportId);
-            //delete old zipfiles
-            DirectoryInfo directoryInfo = new DirectoryInfo(savePath);
-            FileInfo[] files = directoryInfo.GetFiles(bulkExportId + ".zip_*");
-
-            foreach (FileInfo file in files)
-            {
-                try
-                {
-                    file.Delete();
-                }
-                catch
-                { //dont care
-                }
-            }
 
             //delete old extract directories
-            DirectoryInfo[] extractDirs = directoryInfo.GetDirectories(bulkExportId + "_*");
-            foreach (DirectoryInfo dir in extractDirs)
+            DirectoryInfo directoryInfo = new DirectoryInfo(savePath);
+            DirectoryInfo[] backUpDirs = directoryInfo.GetDirectories(backUpDirPrefix + "*");
+            foreach (DirectoryInfo dir in backUpDirs)
             {
                 try
                 {
@@ -173,17 +160,28 @@ namespace BulkExportDownload
             }
         }
 
-        private static void BackupBulkExport(string zipPath, string extractPath)
+        static private void DeleteZip(string zipPath)
+        {
+            FileInfo zipInfo = new FileInfo(zipPath);
+            zipInfo.Delete();
+        }
+
+
+        private static void BackupBulkExport(string savePath)
         {
             Console.WriteLine("creating backup");
 
-            if (File.Exists(zipPath))
+            if (Directory.Exists(savePath))
             {
-                File.Move(zipPath, zipPath + "_" + DateTime.Now.ToString("yyyy-mm-dd_HH.mm.ss"));
-            }
-            if (Directory.Exists(extractPath))
-            {
-                Directory.Move(extractPath, extractPath + "_" + DateTime.Now.ToString("yyyy-mm-dd_HH.mm.ss"));
+                string backUpDir = backUpDirPrefix + DateTime.Now.ToString("yyyy-mm-dd_HH.mm.ss");
+                Directory.CreateDirectory(Path.Combine(savePath,backUpDir));
+
+                foreach(string filepath in Directory.GetFiles(savePath))
+                {
+                    string fileName = Path.GetFileName(filepath);
+                    string targetFilePath = Path.Combine(savePath, backUpDir, fileName);
+                    File.Move(filepath, targetFilePath);
+                }
             }
         }
 
@@ -217,10 +215,10 @@ namespace BulkExportDownload
             }
         }
 
-        static private void ExtractBulkExport(string zipPath, string extractPath)
+        static private void ExtractBulkExport(string zipPath, string savePath)
         {
             Console.WriteLine("Extracting zip-file");
-            ZipFile.ExtractToDirectory(zipPath, extractPath);
+            ZipFile.ExtractToDirectory(zipPath, savePath);
         }
 
         static private void addMessageToEmailBody(string message)
@@ -242,7 +240,7 @@ namespace BulkExportDownload
             client.Port = 25;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Host = "smtprelay.infoland.local";
+            client.Host = Properties.Settings.Default.MailServer;
             mail.Subject = "Error downloading bulkexports";
             mail.Body = emailBody;
             client.Send(mail);
@@ -267,17 +265,4 @@ namespace BulkExportDownload
         [DataMember]
         internal bool can_download;
     }
-    
-    class SaveLocation
-    {
-        public string id { get; set; }
-        public string location { get; set; }
-
-        public SaveLocation(string id, string location)
-        {
-            this.id = id;
-            this.location = location;
-        }
-    }
-    
 }
