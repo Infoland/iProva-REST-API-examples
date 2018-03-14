@@ -79,7 +79,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |Code|Name|Explanation|
 |--|--|--|
 |**200**|OK|Always returned when route did not create resources and a response payload is returned.|
-|**201**|Created|Returned when one or more resources are created, a response payload should return (links to) the created resources.|
+|**201**|Created|Returned when one or more resources are created.|
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
 |**206**|Partial Content|Returned when streaming a file as a response of a call, and the servers sends a partial response.|
@@ -93,7 +93,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 When a 4xx or 500 HTTP status code is returned the reason phrase is set to be as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
 
 ## Authentication
-There are four ways to authenticate yourself iProva API v1. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
+There are four ways to authenticate yourself iProva API. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
 
 ### API Keys
 To access the API, you need an API-Key. In iProva we have two different kinds of API keys. One that allows you to impersonate any given iProva user, and one that simply allows you to access the API. The first one is used for Token authentication. The second one is used for credentials authentication.
@@ -105,9 +105,21 @@ For more information about token authentication see [Tokens][Tokens]
 ### Via Credentials
 If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header. The header should contain the string "credentials" followed by the string "u:" and the username, a whitespace, the string "pwd:" and the password. `Authorization: credentials u:j.t.kirk pwd:P@$$w0rd`. 
 
-In this situation, passing an API key is still required. The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
+In this situation, passing an API key is still required. 
+The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
+
+
+### Via Windows Authentication 
+
+<small>Windows Authentication is available from iProva 5.7</small>
+
+When iProva is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
+If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user. 
+
+In this situation, passing an API key is required. 
+The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
 ### Via a JWT bearer token (preferred way of connecting as a specific user)
 When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`. 
@@ -116,6 +128,7 @@ Of course the consumer should keep in mind that this would require the token to 
 
 For more information about JWT bearer token authentication see [Bearer Tokens][BearerTokens]
 
+
 ### Via iProva Cookie
 When the user is already logged in in iProva, iProva has set an authentication cookie in the browser. When accessing the API when this cookie is set the API will automatically authenticate you using this cookie.
 
@@ -123,6 +136,42 @@ When the user is already logged in in iProva, iProva has set an authentication c
 To be able to make calls to the API with a user for which two factor authentication is enabled, you need to pass an extra Http header containing the current security code. This header is called "x-two-factor-code". The value of this header should be the current code.
 
 To avoid having to enter a new verification code each 30 seconds, you can use the bearer_tokens route to get a bearer token for the user with two factor authentication enabled. All subsequent calls can be authenticated using bearer authorization, without having to specify a security code anymore.
+
+## Filtering
+Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
+
+If a route filtering it will always have implemented both ways.
+
+If there are multiple filter rules, they are applied as an "and" operator.
+
+### Filtering via the querystring
+Filtering via the querystring is as easy as setting the optional filter rules. The notation is always `rule_name=value`.
+
+**Example**: `GET api/entities?name=JCI&entity_ids=1,2,3,4` 
+
+The value has a certain notation for its type.
+
+| Type | Format | Examples
+|--|--|--|
+| **text** | text value | name=John%20Doe
+| **list** | Comma separated values | entity_ids=1,2,3,4
+
+This is very easy, but can be limiting when you want to filter on a lot of values. In that case you can use the stored filter mechanism.
+
+### Filtering via stored filter
+Using the filter mechanism consists of two steps: creating the filter and retrieving the items with the filter id. The paths always consists of the normal route used to filter via the querystring appended  with "/filter".
+
+`POST api/entities/filter` with a filter object as post data:
+
+```javascript
+{
+  "entity_ids" : [1,2,3],
+  "name": "John Doe"
+}
+```
+
+This returns a Created (201) response with the id of the filter and 'location' header with the route for retrieving the entities using the filter:
+`GET api/enitities/filter/9289c2bd-26bc-422e-ba68-3d2768489bea`
 
 ## Pagination
 Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. 
