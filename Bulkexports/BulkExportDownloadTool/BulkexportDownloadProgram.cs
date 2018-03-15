@@ -1,10 +1,3 @@
-/*
-
-This C# console application code example shows how to download a bulk export using the REST API in C#
-Use the BulkExportDownloadApp.config file to set the configuration
-
-*/
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
