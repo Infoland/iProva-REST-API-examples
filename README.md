@@ -38,7 +38,7 @@ var data_type =
 ```
 
 Dates are returned in format `yyyyMMdd` and date with times are returned in format `yyyyMMddHHmmss`.
-Dates are always in UTC format
+Dates are always in the UTC time zone and in ISO format.
 ```javascript
 var example = 
 {
