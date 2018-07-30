@@ -1,6 +1,35 @@
 ﻿# Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.8.0
+
+Change|Route|Remarks
+|--|--|--|
+Added|**ANY** `api/users`| User management
+Added|**ANY** `api/user_groups`| User group management
+Added|**GET** `api/users/properties`| Retrieve custom user properties
+Added|**GET** `api/user_groups/properties`| Retrieve custom user group properties
+Added|**GET** `api/positions`| Retrieve positions
+Added|**GET** `api/organization_units`| Retrieve organisation units
+
+
+## Changes in iProva 5.7.0.5
+Change|Route|Remarks
+|--|--|--|
+Added|**GET** `api/tokens/token` | Retrieves a token for the currently authenticated used
+Added|**GET** `api/cards/by_btle` | Get cards by blte code
+
+## Changes in iProva 5.7.0
+
+Change|Route|Remarks
+|--|--|--|
+Added|| Added support for Windows Authentication and SAML-tokens
+Added|**GET** `api/cases/mobile_forms`| Retrieval of mobile forms
+Added|**GET** `api/card_files/{id}/mobile_forms`|Retrieves the mobile forms linked to a card file
+Added|**POST** `api/cases`| Create new case in the cases module (for mobile forms)
+Added|**GET** `api/frameworks/items` | Retrieves a set of framework items
+Added|**GET** `api/frameworks/{id}/items` | Get framework items for a single framework
+
 ## Changes in iProva 5.6.1.0
 
 Change|Route|Remarks
@@ -8,6 +37,8 @@ Change|Route|Remarks
 Fixed|-|Users having two factor authentication enabled now also have to pass a security code to the api when authenticating. For more info, see the general usage information of the API
 Added|-|From this version on, the preferred way of authenticating is using bearer tokens. For more info, see the general usage information of the API
 Added|**POST** `api/bearer_tokens` |Added this route to be able to generate a bearer token for the new bearer authentication
+
+
 
 ## Changes in iProva 5.6.0.3
 
