@@ -12,7 +12,7 @@ In this example the following fields are used:
 - Field with id 1009: numeric field
 - Field with id 1010: attachment field
 - Field with id 1011: framework item field
-- Field with id 1012: i+Data field
+- Field with id 1012: card file (i+Data) field
 */
 
 var _tokenID = "get token"; // See authorization examples how to get a secure token
