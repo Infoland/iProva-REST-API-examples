@@ -1,6 +1,21 @@
 ﻿# Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.9.0
+
+Change|Route|Remarks
+|--|--|--|
+Added|**POST** `api/documents/{document_id}/hits`| Post a hit on a document
+Added|**GET** `api/documents/{document_id}/fields`| Get fields of a document
+Added|**GET** `api/identityproviders/{provider_id}/Conflicts`| Get identity provider conflicts
+Added|**POST** `api/identityproviders/{provider_id}/Conflicts`| Create an identity provider conflict
+Added|**DELETE** `api/identityproviders/{provider_id}/Conflicts/{id}`| Delete an identity provider conflict
+Added|**GET** `api/organization_units/{organization_unit_id}`| Get an organization unit
+Added|**POST** `api/organization_units/filter`| Create a filter for organization units
+Added|**GET** `api/organization_units/filter/{filter_id}`| Get the results of an organization unit filter
+Added|**PATCH** `api/user_groups/{user_group_id}`| Patch a user group
+Added|**PATCH** `api/users/{user_id}`| Patch a user
+
 ## Changes in iProva 5.8.0
 
 Change|Route|Remarks
