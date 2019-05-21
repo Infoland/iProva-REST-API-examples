@@ -1,6 +1,14 @@
 ﻿# Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.11.0
+
+Change|Route|Remarks
+|--|--|--|
+Added|**ANY** `/api/risks/risk_templates/`| Risk template API
+Added|**GET** `api/themes/{theme_id}/images/{image_id}`| Get a specific image from a theme
+Added|**ANY** `/api/users/password_requests`| API to request new password for a user
+
 ## Changes in iProva 5.9.0
 
 Change|Route|Remarks
