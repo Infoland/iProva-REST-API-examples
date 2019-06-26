@@ -5,6 +5,7 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
+Added|**ANY** `/api/reports/`| Reports API to get and generate reports
 Added|**ANY** `/api/risks/risk_templates/`| Risk template API
 Added|**GET** `api/themes/{theme_id}/images/{image_id}`| Get a specific image from a theme
 Added|**ANY** `/api/users/password_requests`| API to request new password for a user
