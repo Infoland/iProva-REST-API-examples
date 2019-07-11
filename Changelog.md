@@ -5,7 +5,7 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
-Changed|**PATCH** `/api/users/{user_id}`| Extra properties are not supported for PATCH
+Changed|**PATCH** `/api/users/{user_id}`| Extra properties are now supported for PATCH
 
 ## Changes in iProva 5.11.0
 
