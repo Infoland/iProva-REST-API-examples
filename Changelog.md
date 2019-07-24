@@ -1,6 +1,14 @@
 ﻿# Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.12
+Change|Route|Remarks
+|--|--|--|
+Changed|**POST** `/api/users/filter`| Added support to filter by manager_id
+Changed|**POST** `/api/users/filter`| Added support for more complex operations instead of only eq
+Changed|**POST** `/api/user_groups/filter`| Added support for more complex operations instead of only eq
+Changed|**POST** `/api/user_groups/filter`| Added support to filter by member_id
+
 ## Changes in iProva 5.11.0.1
 
 Change|Route|Remarks
