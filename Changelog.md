@@ -8,6 +8,7 @@ Changed|**POST** `/api/users/filter`| Added support to filter by manager_id
 Changed|**POST** `/api/users/filter`| Added support for more complex operations instead of only eq
 Changed|**POST** `/api/user_groups/filter`| Added support for more complex operations instead of only eq
 Changed|**POST** `/api/user_groups/filter`| Added support to filter by member_id
+Changed|**PATCH** `/api/user_groups/` | Patching user groups now also patches the members (this functionality was missing)
 
 ## Changes in iProva 5.11.0.1
 
