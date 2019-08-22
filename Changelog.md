@@ -4,11 +4,13 @@ This page defines all the changes that were done in the API. There is a differen
 ## Changes in iProva 5.12
 Change|Route|Remarks
 |--|--|--|
-Changed|**POST** `/api/users/filter`| Added support to filter by manager_id
-Changed|**POST** `/api/users/filter`| Added support for more complex operations instead of only eq
-Changed|**POST** `/api/user_groups/filter`| Added support for more complex operations instead of only eq
-Changed|**POST** `/api/user_groups/filter`| Added support to filter by member_id
+Changed|**POST** `/api/users/filter`| - Added support to filter by manager_id.<br>- Added support for more complex operations instead of only eq
+Changed|**POST** `/api/user_groups/filter`| - Added support for more complex operations instead of only eq<br>- Added support to filter by member_id
 Changed|**PATCH** `/api/user_groups/` | Patching user groups now also patches the members (this functionality was missing)
+Added|**GET** `/api/risks/{risk_id}/measures` | Get a list of measures for a risk
+Added|**GET** `/api/risks/measures` | Get a list of all measures.
+Added|**GET** `/api/scheduled_tasks` | Gets a list of all scheduled tasks.
+Added|**PUT** `/api/setting/{setting_name}` | Changes the value of a setting
 
 ## Changes in iProva 5.11.0.1
 
