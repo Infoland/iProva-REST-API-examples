@@ -90,7 +90,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |**500**|Internal Server Error|Returned whenever this occurs something is wrong with the API. It is always possible to receive this status code.|
 
 ## Client Errors
-When a 4xx or 500 HTTP status code is returned the reason phrase is set to be as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
+When a 4xx or 500 HTTP status code is returned the response body contains a json object describing the error as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
 
 ## Authentication
 There are four ways to authenticate yourself iProva API. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
