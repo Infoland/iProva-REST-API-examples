@@ -1,6 +1,41 @@
 ﻿# Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.13
+
+### General changes
+
+In this version we introduced version 2 of the API. ALl calls without a specific version parameter set in it, will automatically use the latest version of the API. This new version only influences the result of authentication attempts. For instance, when logging in with a user that requires a 2 factor code, the return data for this has changed.
+The reason for this change is that we now support HTTP 2.0 for the API. Version 1 of the API highly relied on the ReasonPhrase property of the response message to be delivered to the consumer of the API. Since the ReasonPhrase is no longer supported in HTTP 2.0, we needed to change this implementation. We now implement application/problem+json as defined in [RFC7807](https://tools.ietf.org/html/rfc7807). We still try to deliver the ReasonPhrase property, but existing implementation should be converted to reading the error from the body of the response message.
+
+Example:
+
+**Request:**
+/api/users/00000000-0000-0000-0000-000000000000 
+
+**Old result:** <br>
+400 with ReasonPhrase: user_id was not valid
+
+**New result:**<br>
+400 with body:
+<br>{<br>
+  &nbsp;&nbsp;"type": "https://iprova.nl/probs/badrequest",<br>
+  &nbsp;&nbsp;"title": "user_id was not valid"<br>
+}
+
+### Route changes
+
+Change|Route|Remarks
+|--|--|--|
+Added|**ANY** /api/documents/comments|API for getting and manipulating comments on documents
+Added|**ANY** /api/keywords|API for getting and manipulating keywords
+Added|**ANY** /api/risks/assessments|Api for getting and manipulating risk assessments
+Added|**ANY** /api/risks/risk_matrices|Api for getting and manipulating risk matrices
+Added|**GET** /api/question_lists/survey_studies/{id}|API for getting survey studies
+Added|**POST** /api/users/password_strength_requests|Api for getting the strength of the given password
+
+
+
 ## Changes in iProva 5.12
 Change|Route|Remarks
 |--|--|--|
