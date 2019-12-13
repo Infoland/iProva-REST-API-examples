@@ -10,18 +10,20 @@ The reason for this change is that we now support HTTP 2.0 for the API. Version 
 
 Example:
 
-**Request:**
-/api/users/00000000-0000-0000-0000-000000000000 
+**Request:**<br>
+**GET**  /api/users/00000000-0000-0000-0000-000000000000 
 
 **Old result:** <br>
 400 with ReasonPhrase: user_id was not valid
 
 **New result:**<br>
-400 with body:
-<br>{<br>
-  &nbsp;&nbsp;"type": "https://iprova.nl/probs/badrequest",<br>
-  &nbsp;&nbsp;"title": "user_id was not valid"<br>
+400 with response body:
+```javascript
+{
+  "type": "https://iprova.nl/probs/badrequest",
+  "title": "user_id was not valid"
 }
+```
 
 ### Route changes
 
