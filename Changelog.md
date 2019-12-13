@@ -6,7 +6,7 @@ This page defines all the changes that were done in the API. There is a differen
 ### General changes
 
 In this version we introduced version 2 of the API. ALl calls without a specific version parameter set in it, will automatically use the latest version of the API. This new version only influences the result of authentication attempts. For instance, when logging in with a user that requires a 2 factor code, the return data for this has changed.
-The reason for this change is that we now support HTTP 2.0 for the API. Version 1 of the API highly relied on the ReasonPhrase property of the response message to be delivered to the consumer of the API. Since the ReasonPhrase is no longer supported in HTTP 2.0, we needed to change this implementation. We now implement application/problem+json as defined in [RFC7807](https://tools.ietf.org/html/rfc7807). We still try to deliver the ReasonPhrase property, but existing implementation should be converted to reading the error from the body of the response message.
+The reason for this change is that we now support HTTP 2.0 for the API. Version 1 of the API heavily relied on the ReasonPhrase property of the response message to be delivered to the consumer of the API. Since the ReasonPhrase is no longer supported in HTTP 2.0, we needed to change this implementation. We now implement application/problem+json as defined in [RFC7807](https://tools.ietf.org/html/rfc7807). We still try to deliver the ReasonPhrase property, but existing implementation should be converted to reading the error from the body of the response message.
 
 Example:
 
