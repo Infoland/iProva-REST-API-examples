@@ -2,30 +2,36 @@
 This page describes the supported client errors in more detail.
 
 ## 400 Bad Request
-Returned when any of the input is wrong or a combination of input would cause an illegal operation. Most of the time the reason phrase will be altered to present extra information to the consumer so the problem can be pinpointed.
+Returned when any of the input is wrong or a combination of input would cause an illegal operation. Most of the time the response message will contain a property "title" to present extra information to the consumer so the problem can be pinpointed.
 
- - When an argument is incorrect the reason phrase will be altered and a message will be in the body
+ - When an argument is incorrect the response body will contain a problem+json object (see [RFC7807](https://tools.ietf.org/html/rfc7807)) with the error details
 ```javascript
 {
-  "Message": "text should be filled"
+  "type": "https://iprova.nl/probs/badrequest",
+  "title": "user_id was not valid"
 }
-```
- - When an argument contains invalid fields the reason phrase will be altered to "Modelstate is invalid", but also the body will be filled with extra information.
-```javascript
-[
-  "text should be filled",
-  "number should be > 0"
-]
 ```
 
 ## 401 Unauthorized
 Returned when anything with the credentials is wrong. It is always possible to receive this status code. No extra information will be presented in the body.
 
 ## 403 Forbidden
-Returned when the authenticated user is forbidden to use a certain aspect of a route. The reason phrase is sometimes altered to give the consumer more information about what went wrong, as long as that does not cause a security risk.
+Returned when the authenticated user is forbidden to use a certain aspect of a route. Sometimes the response body contains a property "title" to give the consumer more information about what went wrong, as long as that does not cause a security risk.
+```javascript
+{
+  "type": "https://iprova.nl/probs/forbidden",
+  "title": "user is not authorized to delete user"
+}
+```
 
 ## 404 Not Found
-Returned when a resource could not be found. Most of the time the reason phrase is altered to give the consumer more information about what could not be found.
+Returned when a resource could not be found. Most of the time the response message will contain a property "title" to give the consumer more information about what could not be found.
+```javascript
+{
+  "type": "https://iprova.nl/probs/notfound",
+  "title": "user not found"
+}
+```
 
 ## 500 Internal server error
 Returned when something is wrong with the API. The reason phrase will never be altered. The body will contain an error_code. The error_code returned can be used to look up the error in iProva.
