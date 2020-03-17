@@ -1,6 +1,15 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+## Changes in iProva 5.14.0
+
+Change|Route|Remarks
+|--|--|--|
+Added|**GET** `api/license`| Get info about the current license
+Added|**PATCH** `api/question_lists/{question_list_id}`| Updates properties of a question list
+Added|**ANY** `api/question_lists/{question_list_id}/review_comments`| Gets review comments of a question list
+Added|**ANY** `api/question_lists/review_comments/`| Get and mutate review comments
+Added|**GET** `api/schedules/`| Gets schedules
 
 ## Changes in iProva 5.13.1
 
@@ -8,6 +17,8 @@ Change|Route|Remarks
 |--|--|--|
 Added|**POST** `api/user_groups/{user_group_id}/members`| Add member to a user group
 Added|**DELETE** `api/user_groups/{user_group_id}/members/{user_id}`| Remove user from user group
+Added|**PATCH** `api/documents/{document_id}/v{version}`| Changes properties of a document
+Added|**POST** `api/documents`| Creates a new document
 
 ## Changes in iProva 5.13
 
