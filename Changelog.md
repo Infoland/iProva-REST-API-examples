@@ -1,6 +1,14 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
+
+## Changes in iProva 5.14.1
+
+Change|Route|Remarks
+|--|--|--|
+Change|**POST** `api/user_groups/{user_group_id}/members`| Updated to enable adding multiple members in one call. *The user_id value is deprecated* and replaced with user_ids. 
+Added|**DELETE** `api/user_groups/{user_group_id}/members`| Remove multiple users from user group
+
 ## Changes in iProva 5.14.0
 
 Change|Route|Remarks
