@@ -52,11 +52,9 @@ Added|**GET** `/support_access` | Get support access information
 Added|**PUT** `/support_access` | Update support access information
 Added|**POST** `/support_access` | Posts a new support access
 Added|**PATCH** `/support_access` | Patches support access information
-
 Added|**GET** `/settings/max_days_old_news_articles` | specific route for max_days_old_news_articles setting GET
 Added|**GET** `/settings/enabled_auto_labeling` | specific route for enabled_auto_labeling setting GET
 Added|**PUT** `/settings/enabled_auto_labeling` | specific route for enabled_auto_labeling setting PUT
-
 Changed|**PATCH** `/documents/read_confirmations/{read_confirmation_id}` | its now possible to also send a description for the read confirmation
 
 
