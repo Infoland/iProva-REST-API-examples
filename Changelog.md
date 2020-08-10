@@ -2,11 +2,69 @@
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
 
+## Changes in iProvba 5.15
+
+### General changes
+The base path was changed from /iProva to /iProva/API and the /api/ prefix is removed from all routes. This doesn't change anything for consumers.
+
+Setting routes are now more specific for the setting you want to get e.g
+`/settings/max_days_old_news_articles`. The old GET route for settings `/settings/{name}` will still continue to work for backward compatibility.
+
+### Route changes
+
+Change|Route|Remarks
+|--|--|--|
+Added|**GET** `/application_parts` | Get application parts for the user
+Added|**PATCH** `/application_parts/{application_part_id}` | Partially update an application part
+Added|**GET** `/cases/case_types` | Gets case types
+Added|**GET** `/portals/content_items` | Gets the content items
+Added|**GET** `/portals/{portal_id}/content_items` | Gets the content items based on the portal id
+Added|**GET** `/documents/{document_id}/v{version}/quick_feedback` | Get the quickfeedback on all versions of a document
+Added|**POST** `/documents/{document_id}/v{version}/quick_feedback` | Posts quick feedback for a document
+Added|**PUT** `/documents/{document_id}/v{version}/quick_feedback/{quick_feedback_id}` | Posts quick feedback for a document
+Added|**GET** `/documents/{document_id}/quick_feedback` | Get the quickfeedback on all versions of a document
+Added|**POST** `/documents/filter` | Stores a filter to be used to GET documents in a follow up call
+Added|**GET** `/documents/filter/{filter_id}` | Gets documents using a previously POSTed filter
+Added|**POST** `/documents/{document_id}/version` | Creates a new version of a document
+Added|**PUT** `/documents/{document_id}/v{version}/upload` | Upload the contents of a specific version binary document
+Added|**GET** `/favorites` | Get favorites for the logged in user
+Added|**GET** `/users/me/favorites` | Get favorites for the logged in user
+Added|**DELETE** `/favorites/{favorite_id}` | Delete favorite by id
+Added|**PATCH** `/favorites/{favorite_id}` | Update a favorite
+Added|**DELETE** `/users/me/favorites/{favorite_id}` | Delete favorite by id
+Added|**PATCH** `/users/me/favorites/{favorite_id}` | Update an favorite
+Added|**GET** `/cases/fields` | Gets fields
+Added|**GET** `/cases/case_types/{case_type_id}/fields` | Gets fields for a case type
+Added|**POST** `/portals/news_articles` | Creates a news article
+Added|**GET** `/portals/{portal_id}/news_articles` | Get all news articles published on a portal
+Added|**GET** `/portals/news_articles/{news_article_id}` | Gets a single news article by id
+Added|**DELETE** `/portals/news_articles/{news_article_id}` | Delete an article by id
+Added|**PATCH** `/portals/news_articles/{news_article_id}` | Updates a news article
+Added|**POST** `/portals/news_articles/{news_article_id}/portal_ids/{portal_id}` | Connects news article to a portal
+Added|**DELETE** `/portals/news_articles/{news_article_id}/portal_ids/{portal_id}` | Disconnect a news article from a portal
+Added|**GET** `/portals` | Get all the portals the current user may see
+Added|**GET** `/users/me/portals` | Get all the portals the current user may see
+Added|**GET** `/portals/{portal_id}` | Get portal by id
+Added|**PATCH** `/portals/{portal_id}` | Updates a portal
+Added|**GET** `/portals/{portal_id}/hyperlinks` | Get the portal hyperlinks
+Added|**GET** `/portals/{portal_id}/information` | Get the information for a portal
+Added|**GET** `/support_access` | Get support access information
+Added|**PUT** `/support_access` | Update support access information
+Added|**POST** `/support_access` | Posts a new support access
+Added|**PATCH** `/support_access` | Patches support access information
+
+Added|**GET** `/settings/max_days_old_news_articles` | specific route for max_days_old_news_articles setting GET
+Added|**GET** `/settings/enabled_auto_labeling` | specific route for enabled_auto_labeling setting GET
+Added|**PUT** `/settings/enabled_auto_labeling` | specific route for enabled_auto_labeling setting PUT
+
+Changed|**PATCH** `/documents/read_confirmations/{read_confirmation_id}` | its now possible to also send a description for the read confirmation
+
+
 ## Changes in iProva 5.14.1
 
 Change|Route|Remarks
 |--|--|--|
-Change|**POST** `api/user_groups/{user_group_id}/members`| Updated to enable adding multiple members in one call. *The user_id value is deprecated* and replaced with user_ids. 
+Change|**POST** `api/user_groups/{user_group_id}/members`| Updated to enable adding multiple members in one call. *The user_id value is deprecated* and replaced with user_ids.
 Added|**DELETE** `api/user_groups/{user_group_id}/members`| Remove multiple users from user group
 
 ## Changes in iProva 5.14.0
@@ -38,7 +96,7 @@ The reason for this change is that we now support HTTP 2.0 for the API. Version 
 Example:
 
 **Request:**<br>
-**GET**  /api/users/00000000-0000-0000-0000-000000000000 
+**GET**  /api/users/00000000-0000-0000-0000-000000000000
 
 **Old result:** <br>
 400 with ReasonPhrase: user_id was not valid
