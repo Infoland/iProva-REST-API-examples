@@ -2,13 +2,7 @@
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
 
-## Changes in iProvba 5.15
-
-### General changes
-The base path was changed from /iProva to /iProva/API and the /api/ prefix is removed from all routes. This doesn't change anything for consumers.
-
-Setting routes are now more specific for the setting you want to get e.g
-`/settings/max_days_old_news_articles`. The old GET route for settings `/settings/{name}` will still continue to work for backward compatibility.
+## Changes in iProva 5.15.0
 
 ### Route changes
 
@@ -21,7 +15,7 @@ Added|**GET** `/portals/content_items` | Gets the content items
 Added|**GET** `/portals/{portal_id}/content_items` | Gets the content items based on the portal id
 Added|**GET** `/documents/{document_id}/v{version}/quick_feedback` | Get the quickfeedback on all versions of a document
 Added|**POST** `/documents/{document_id}/v{version}/quick_feedback` | Posts quick feedback for a document
-Added|**PUT** `/documents/{document_id}/v{version}/quick_feedback/{quick_feedback_id}` | Posts quick feedback for a document
+Added|**PUT** `/documents/{document_id}/v{version}/quick_feedback/{quick_feedback_id}` | Update an existing quick feedback
 Added|**GET** `/documents/{document_id}/quick_feedback` | Get the quickfeedback on all versions of a document
 Added|**POST** `/documents/filter` | Stores a filter to be used to GET documents in a follow up call
 Added|**GET** `/documents/filter/{filter_id}` | Gets documents using a previously POSTed filter
