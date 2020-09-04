@@ -52,9 +52,9 @@ The POST verb is not idempotent by definition.
 We do not use the POST verb to fully update resources
 
 ## PATCH
-The PATCH verb is used to partially update a resource. The attributes which should not be updated should not be set or set to nothing when requesting the PATCH route. It will return 204 No Content status codes on succes.
+The PATCH verb is used to partially update a resource. Only attributes which are send in the request are updated. When an attribute is not send it will not by updated. The request will return 204 No Content status codes on succes.
 
-For instance, a card resource has multiple fields. A PATCH request may accept one or more of the attributes to update the resource. |
+For instance, a card resource has multiple fields. A PATCH request may accept one or more of the attributes to update the resource. 
 
 The PATCH verb is idempotent in the API, except in some cases, see the "idempotence" chapter.
 
