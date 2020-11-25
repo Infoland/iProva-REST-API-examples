@@ -7,7 +7,7 @@ async public Task<BulkExport> DownloadBulkExportAsync(string id)
     var client = new HttpClient();
     var message = new HttpRequestMessage()
     {
-        RequestUri = new Uri($"http://iprova/api/documents/{id}"),
+        RequestUri = new Uri($"http://iprova/api/documents/bulk_exports/{id}"),
         Method = HttpMethod.Get
     };
 
