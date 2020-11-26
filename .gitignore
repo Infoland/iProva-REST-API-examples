@@ -2,4 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/iProva-REST-API-examples/v15
+/.vs
+/Bulkexports/BulkExportDownloadTool/.vs
+/Bulkexports/BulkExportDownloadTool/bin
+/Bulkexports/BulkExportDownloadTool/obj
+/Bulkexports/BulkExportDownloadTool/packages

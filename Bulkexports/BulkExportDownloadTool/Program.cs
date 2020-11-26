@@ -180,32 +180,37 @@ namespace BulkExportDownload
 
         static private bool DownloadBulkExport(RestClient client, string id, string credentials, string zipPath, string bulkExportName)
         {
+            bool blnSuccess = false;
+
             Console.WriteLine("downloading zip-file for bulkexport " + id);
-            RestRequest request = new RestRequest("api/documents/bulk_exports/{bulk_export_id}/download", Method.GET);
-            request.AddUrlSegment("bulk_export_id", id); // replaces matching token in request.Resource
-
-            // easily add HTTP Headers
-            request.AddHeader("Authorization", credentials);
-            request.AddHeader("x-api-version", "1");
-            request.AddHeader("x-api_key", Properties.Settings.Default.ApiKey);
-
-            IRestResponse response = client.Execute(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            using (var fileStream = new FileStream(zipPath, FileMode.Create))
             {
-                byte[] zip = response.RawBytes;
-                File.WriteAllBytes(zipPath, zip);
-                return true; //success
+                RestRequest request = new RestRequest("api/documents/bulk_exports/{bulk_export_id}/download", Method.GET)
+                {
+                    ResponseWriter = (responseStream) => responseStream.CopyTo(fileStream)
+                };
+                request.AddUrlSegment("bulk_export_id", id); // replaces matching token in request.Resource
+
+                // easily add HTTP Headers
+                request.AddHeader("Authorization", credentials);
+                request.AddHeader("x-api-version", "1");
+                request.AddHeader("x-api_key", Properties.Settings.Default.ApiKey);
+
+                client.DownloadData(request);
+
+                if (fileStream.Length > 0)
+                    blnSuccess = true;
+                else
+                    blnSuccess = false;
             }
-            else
+
+            if (!blnSuccess)
             {
                 string message = "Could not download zip-file for bulkexport " + bulkExportName;
-                if (response.ErrorMessage != null)
-                {
-                    message += ": " + response.ErrorMessage;
-                }
                 addMessageToEmailBody(message);
-                return false; //failure
             }
+
+            return blnSuccess;
         }
 
         static private void ExtractBulkExport(string zipPath, string savePath)
