@@ -10,7 +10,6 @@ Change|Route|Remarks
 |--|--|--|
 Added|**GET** `/apps` | Get apps licensed for this iprova
 Changed|**GET** `/settings` | Get all settings returns several new settings
-Added|**GET** `/settings/{setting_name}` | Can get the value of specific new settings
 Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
 Added|**ANY** `/teams` | Manage teams
 Changed |**GET** `/users/me/tasks` | Added possibility to get a selection of tasks with an offset and limit
@@ -20,7 +19,6 @@ Added |**ANY** `/tasks/{task_id}` | Manage task
 Added|**GET** `/users/me/notifications` | Get all the notificatons of a the logged in user
 Added |**ANY** `/notifications/{notification_id}` | Manage notification
 Changed |**GET** `/users` | Added possibility to filter on 'has_email'
-Changed |**GET** `/documents/{document_id}` | Added 'include_parsed_header' to fill the parsed_header attribute
 Changed |**GET** `/documents/{document_id}/fields` | Added 'shown_to_readers' filter to see all fields, only fields which are shown to readers, or only fields which are not shown to readers
 Added |**GET** `/documents/quick_codes/{quick_code}` | Get quick code
 Added |**GET** `/documents/{document_id}/print_templates` | Get print templates for a document
