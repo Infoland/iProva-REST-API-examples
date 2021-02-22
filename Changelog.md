@@ -8,20 +8,12 @@ Added|**GET** `/apps` | Get apps licensed for this iprova
 Changed|**GET** `/settings` | Get all settings returns several new settings
 Added|**GET** `/settings/{setting_name}` | Can get the value of specific new settings
 Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
-Added|**GET** `/teams` | Get all the teams
-Added|**GET** `/teams/{team_id}` | Get a team
-Added|**GET** `/teams/{team_id}/memberships` | Get memberships of a team
-Added|**GET** `/teams/{team_id}/members` | Get members of a team
-Added|**GET** `/teams/{team_id}/managers` | Get managers of a team
-Added|**GET** `/teams/filter/{filter_id}` | Get all the teams filtered on an already stored filter
-Added|**POST** `/teams/filter` | Create a filter to filter a list of teams with
-Added|**GET** `/teams/{team_id}/tasks` | Get all the tasks of a team
-Added|**GET** `/teams/{team_id}/notifications` | Get all the notifications of a team
+Added|**ANY** `/teams` | Manage teams
 Changed |**GET** `/users/me/tasks` | Added possibility to get a selection of tasks with an offset and limit
 Changed |**GET** `/tasks/{task_id}` | When task exists, but user does not have permissions to view it a 403 is returned instead of a 404
-Added |**DELETE** `/tasks/{task_id}` | Possible to delete task
-Added |**POST** `/tasks/{task_id}` | Possible to create a task
+Added |**ANY** `/tasks/{task_id}` | Possible to manage task
 Added|**GET** `/users/me/notifications` | Get all the notificatons of a the logged in user
+Added |**ANY** `/notifications/{notification_id}` | Possible to manage notifications
 Changed |**GET** `/users` | Added possibility to filter on 'has_email'
 
 
