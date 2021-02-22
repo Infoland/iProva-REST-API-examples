@@ -3,6 +3,9 @@ This page defines all the changes that were done in the API. There is a differen
 
 ## Changes in iProva 5.16.0
 ### Route changes
+
+In this release teams were introduced as a completely new resource. Tasks were extended a lot and notifications were introduced as a separate resource from tasks. The document resource got some extra extensions. The content_items filter resource was also extended a lot, so it can be used to further drill down via filter fields.
+
 Change|Route|Remarks
 |--|--|--|
 Added|**GET** `/apps` | Get apps licensed for this iprova
@@ -17,8 +20,6 @@ Added |**ANY** `/tasks/{task_id}` | Manage task
 Added|**GET** `/users/me/notifications` | Get all the notificatons of a the logged in user
 Added |**ANY** `/notifications/{notification_id}` | Manage notification
 Changed |**GET** `/users` | Added possibility to filter on 'has_email'
-Added |**GET** `/community_articles/{community_article_id}` | Get community article
-Added |**PATCH** `/community_articles/{community_article_id}` | Update community article was read flag for the logged in user
 Changed |**GET** `/documents/{document_id}` | Added 'include_parsed_header' to fill the parsed_header attribute
 Changed |**GET** `/documents/{document_id}/fields` | Added 'shown_to_readers' filter to see all fields, only fields which are shown to readers, or only fields which are not shown to readers
 Added |**GET** `/documents/quick_codes/{quick_code}` | Get quick code
@@ -37,12 +38,11 @@ Changed |**GET** `/portals/{portal_id}/news_articles` | Added 'include_portals' 
 Changed |**GET** `/portals/content_items` | Added 'include_search_suggestion_correction' query parameter to indicate search suggestion correction header should be filled if possible
 Changed |**GET** `/portals/content_items/filter/{filter_id}` | Added 'include_search_suggestion_correction' query parameter to indicate search suggestion correction header should be filled if possible
 Added  |**GET** `/portals/content_items/filter/{filter_id}/filter_fields` | Returns the filter fields which can be used to drill further down the filter
-
-
-
-
-
-
+Added  |**DELETE** `/portals/content_items/filter/{filter_id}/filter_fields/{filter_field_id}` | Delete a filter field from the filter
+Added  |**POST** `/portals/content_items/filter/{filter_id}/filter_fields` | Adds a filter field to the filter
+Added  |**GET** `/portals/default_portal_settings` | Returns the default settings for the portals
+Added |**GET** `/community_articles/{community_article_id}` | Get community article
+Added |**PATCH** `/community_articles/{community_article_id}` | Update community article was read flag for the logged in user
 
 ## Changes in iProva 5.15.0
 
