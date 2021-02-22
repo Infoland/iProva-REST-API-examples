@@ -12,17 +12,31 @@ Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
 Added|**ANY** `/teams` | Manage teams
 Changed |**GET** `/users/me/tasks` | Added possibility to get a selection of tasks with an offset and limit
 Changed |**GET** `/tasks/{task_id}` | When task exists, but user does not have permissions to view it a 403 is returned instead of a 404
-Added |**ANY** `/tasks/{task_id}` | Possible to manage task
+Added |**POST** `/tasks` | Create a task
+Added |**ANY** `/tasks/{task_id}` | Manage task
 Added|**GET** `/users/me/notifications` | Get all the notificatons of a the logged in user
-Added |**ANY** `/notifications/{notification_id}` | Possible to manage notifications
+Added |**ANY** `/notifications/{notification_id}` | Manage notification
 Changed |**GET** `/users` | Added possibility to filter on 'has_email'
 Added |**GET** `/community_articles/{community_article_id}` | Get community article
 Added |**PATCH** `/community_articles/{community_article_id}` | Update community article was read flag for the logged in user
 Changed |**GET** `/documents/{document_id}` | Added 'include_parsed_header' to fill the parsed_header attribute
 Changed |**GET** `/documents/{document_id}/fields` | Added 'shown_to_readers' filter to see all fields, only fields which are shown to readers, or only fields which are not shown to readers
+Added |**GET** `/documents/quick_codes/{quick_code}` | Get quick code
 Added |**GET** `/documents/{document_id}/print_templates` | Get print templates for a document
 Added |**POST** `/documents/{document_id}/v{version}/email` | Email a (specific version of a) document to somebody
 Added |**ANY** `/favorites` | Manage favorites of the logged in user
+Added |**POST** `/hyperlinks` | Create a hyperlink
+Changed |**GET** `/portals/collections` | Returns all the collections
+Changed |**GET** `/portals` | Added 'includeBackGroundImage' query parameter to indicate that the background_image property needs to be filled
+Changed |**GET** `/portals/{portal_id}` | Added 'includeBackGroundImage' query parameter to indicate that the background_image property needs to be filled
+Changed |**GET** `/portals/{portal_id}/collections` | Returns the collections set on a portal
+Added  |**GET** `/portals/{portal_id}/reports` | Returns the reports of a portal
+Added  |**GET** `/portals/{portal_id}/diagrams` | Returns the diagrams of a portal
+Added  |**GET** `/portals/{portal_id}/diagrams/{diagram_id}` | Returns the data of a diagram of a portal
+Changed |**GET** `/portals/{portal_id}/news_articles` | Added 'include_portals' query parameter to indicate that the portals property needs to be filled
+Changed |**GET** `/portals/content_items` | Added 'include_search_suggestion_correction' query parameter to indicate search suggestion correction header should be filled if possible
+Changed |**GET** `/portals/content_items/filter/{filter_id}` | Added 'include_search_suggestion_correction' query parameter to indicate search suggestion correction header should be filled if possible
+Added  |**GET** `/portals/content_items/filter/{filter_id}/filter_fields` | Returns the filter fields which can be used to drill further down the filter
 
 
 
