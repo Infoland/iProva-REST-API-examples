@@ -2,6 +2,7 @@
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
 
 ## Changes in iProva 5.16.0
+### Route changes
 Change|Route|Remarks
 |--|--|--|
 Added|**GET** `/apps` | Get apps licensed for this iprova
@@ -15,9 +16,19 @@ Added |**ANY** `/tasks/{task_id}` | Possible to manage task
 Added|**GET** `/users/me/notifications` | Get all the notificatons of a the logged in user
 Added |**ANY** `/notifications/{notification_id}` | Possible to manage notifications
 Changed |**GET** `/users` | Added possibility to filter on 'has_email'
+Added |**GET** `/community_articles/{community_article_id}` | Get community article
+Added |**PATCH** `/community_articles/{community_article_id}` | Update community article was read flag for the logged in user
+Changed |**GET** `/documents/{document_id}` | Added 'include_parsed_header' to fill the parsed_header attribute
+Changed |**GET** `/documents/{document_id}/fields` | Added 'shown_to_readers' filter to see all fields, only fields which are shown to readers, or only fields which are not shown to readers
+Added |**GET** `/documents/{document_id}/print_templates` | Get print templates for a document
+Added |**POST** `/documents/{document_id}/v{version}/email` | Email a (specific version of a) document to somebody
+Added |**ANY** `/favorites` | Manage favorites of the logged in user
 
 
-### Route changes
+
+
+
+
 
 ## Changes in iProva 5.15.0
 
