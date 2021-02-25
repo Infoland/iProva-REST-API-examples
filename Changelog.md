@@ -1,14 +1,14 @@
 # Changelog
-This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of iProva. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new iProva version without creating a new API version.
+This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
-## Changes in iProva 5.16.0
+## Changes in Zenya 6.0
 ### Route changes
 
 In this release teams were introduced as a completely new resource. Tasks were extended a lot and notifications were introduced as a separate resource from tasks. The document resource got some extra extensions. The content_items filter resource was also extended a lot, so it can be used to further drill down via filter fields.
 
 Change|Route|Remarks
 |--|--|--|
-Added|**GET** `/apps` | Get apps licensed for this iprova
+Added|**GET** `/apps` | Get apps licensed for this Zenya instance
 Changed|**GET** `/settings` | Get all settings returns several new settings
 Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
 Added|**ANY** `/teams` | Manage teams
