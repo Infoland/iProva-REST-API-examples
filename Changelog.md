@@ -8,6 +8,7 @@ In this release teams were introduced as a completely new resource. Tasks were e
 
 Change|Route|Remarks
 |--|--|--|
+Change|**ALL**|All routes|Because a "ReadOnly" mode has been introduced, you should assume that every route creating, updating and removing a resource call return a 400
 Added|**GET** `/apps` | Get apps licensed for this Zenya instance
 Changed|**GET** `/settings` | Get all settings returns several new settings
 Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
