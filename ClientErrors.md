@@ -10,12 +10,11 @@ Returned when any of the input is wrong or a combination of input would cause an
   "type": "https://iprova.nl/probs/badrequest",
   "title": "user_id was not valid"
 }
+```
 
 A 400 will be returned when the body contains something which cannot be found.
 
 A 400 can be returned when the product is in "read only" mode and the call would have manipulated the resource.
-
-```
 
 ## 401 Unauthorized
 Returned when anything with the credentials is wrong. It is always possible to receive this status code. No extra information will be presented in the body.
