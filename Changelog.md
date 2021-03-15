@@ -8,7 +8,7 @@ In this release teams were introduced as a completely new resource. Tasks were e
 
 Change|Route|Remarks
 |--|--|--|
-Change|**ALL**|All routes|Because a "ReadOnly" mode has been introduced, you should assume that every route creating, updating and removing a resource call return a 400
+Change|**ANY** all routes |The API started listening to the "ReadOnly" mode. You should assume that every route manipulating a resource call return a 400 when the product is in this mode.
 Added|**GET** `/apps` | Get apps licensed for this Zenya instance
 Changed|**GET** `/settings` | Get all settings returns several new settings
 Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
@@ -38,6 +38,7 @@ Changed |**GET** `/portals/content_items/filter/{filter_id}` | Added 'include_se
 Added  |**GET** `/portals/content_items/filter/{filter_id}/filter_fields` | Returns the filter fields which can be used to drill further down the filter
 Added  |**DELETE** `/portals/content_items/filter/{filter_id}/filter_fields/{filter_field_id}` | Delete a filter field from the filter
 Added  |**POST** `/portals/content_items/filter/{filter_id}/filter_fields` | Adds a filter field to the filter
+Added  |**GET** `/portals/recommended_links | Get a list of recommended links. Can be filtered on text. Contains content_item resources when possible.
 Added  |**GET** `/portals/default_portal_settings` | Returns the default settings for the portals
 Added |**GET** `/community_articles/{community_article_id}` | Get community article
 Added |**PATCH** `/community_articles/{community_article_id}` | Update community article was read flag for the logged in user
