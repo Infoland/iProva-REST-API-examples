@@ -13,9 +13,10 @@ Added|**GET** `/apps` | Get apps licensed for this Zenya instance
 Changed|**GET** `/settings` | Get all settings returns several new settings
 Added|**GET** `/users/me/teams` | Get all the teams of the logged in user
 Added|**ANY** `/teams` | Manage teams
-Added |**GET** `/users/me/tasks` | Added possibility to get a selection of tasks with an offset and limit
-Added |**GET** `/teams/{team_id}/tasks` | Added possibility to get a selection of tasks with an offset and limit
-Added |**ANY** `/tasks/{task_id}` | Manage a task
+Changed |**GET** `/users/me/tasks` | Added possibility to get a selection of tasks with an offset and limit
+Changed |**GET** `/tasks/{task_id}` | When task exists, but user does not have permissions to view it a 403 is returned instead of a 404
+Added |**POST** `/tasks` | Create a task
+Added |**ANY** `/tasks/{task_id}` | Manage task
 Added|**GET** `/users/me/notifications` | Get all the notificatons of a the logged in user
 Added |**ANY** `/notifications/{notification_id}` | Manage a notification
 Changed |**GET** `/users` | Added possibility to filter on 'has_email'
