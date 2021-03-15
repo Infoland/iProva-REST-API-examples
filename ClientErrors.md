@@ -42,7 +42,7 @@ A 404 is not returned when something passed in the body is not found, in that ca
 A 404 is not returned when the logged in user does not have read permissions, in that case a 403 should be returned.
 
 ## 500 Internal server error
-Returned when something is wrong with the API. The reason phrase will never be altered. The body will contain an error_code. The error_code returned can be used to look up the error in iProva.
+Returned when something is wrong with the API. The reason phrase will never be altered. The body will contain an error_code. The error_code returned can be used to look up the error in the product.
 
 ```javascript
 {
