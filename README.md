@@ -87,6 +87,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |**401**|Unauthorized|Returned when anything with the credentials is wrong. It is always possible to receive this status code.|
 |**403**|Forbidden|Returned when the authenticated user is forbidden to use a certain aspect of a route.|
 |**404**|Not Found|Returned when a resource could not be found.|
+|**429**|Too Many Requests|Some routes can return a 429 when you have sent too many requests to them.|
 |**500**|Internal Server Error|Returned whenever this occurs something is wrong with the API. It is always possible to receive this status code.|
 
 ## Client Errors
