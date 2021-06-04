@@ -1,6 +1,12 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+## Changes in Zenya 6.0.2
+### Route changes
+Change|Route|Remarks
+|--|--|--|
+Changed |**GET** `/portals` | Removed `has_reports` property. To check wheter or not a portal has content items that should be shown on the management info page, you can call: **GET** `/portals/{portal_id}/content_items?limit=1&show_on_management_info_page=true` If this route returns a content_item, the portal contains one of more content items that should be shown on the management info page.
+
 ## Changes in Zenya 6.0
 ### Route changes
 
