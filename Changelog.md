@@ -6,6 +6,8 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
+Added|-|Added `basic` authentication method
+Deprecate|-|Deprecated `credentials` authentication. Use basic authentication from now on instead
 Added|**GET** `/categories` | Get categories, in order according to settings
 Added|**GET** `/documents/{document_id}/v{version}` | Get meta data of a specific version of a document
 Added|**POST** `/documents/{document_id}/v{version}/checks` | Adds a new document version check
