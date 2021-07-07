@@ -1,6 +1,36 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+## Changes in Zenya 6.1.0
+### Route changes
+
+Change|Route|Remarks
+|--|--|--|
+Added|-|Added `basic` authentication method
+Deprecate|-|Deprecated `credentials` authentication. Use basic authentication from now on instead
+Added|**GET** `/categories` | Get categories, in order according to settings
+Added|**GET** `/documents/{document_id}/v{version}` | Get meta data of a specific version of a document
+Added|**POST** `/documents/{document_id}/v{version}/checks` | Adds a new document version check
+Added|**GET** `/documents/{document_id}/{state}` | Get the meta data of a document
+Added|**GET** `/documents/{document_id}/{state}/contents` | Get contents of document the format depends on the document type
+Added|**GET** `/documents/{document_id}/{state}/download` | Download the contents of a binary document
+Added|**GET** `/documents/{document_id}/{state}/fields` | Gets the fields of the given document
+Added|**GET** `/documents/document_types/{document_type_id}/paragraphs` | Gets paraghraphs of a document type
+Removed|**GET** `/documents/{document_id}/print_templates` | Removed route and added /documents/print_templates as the alternative
+Added|**GET** `/documents/print_templates` | Gets print templates
+Removed|**POST** `/hyperlink` | This route is depricated, /hyperlinks is added as a replacement
+Added|**POST** `/hyperlinks` | Creates hyperlinks
+Removed|**GET** `/settings` | This route is depricated
+Removed|**GET** `/settings/{name}` | This route is depricated, route is split up in multiple sub-routes
+Changed|**PUT** `/support_access` | Changed 400 response, 400 now returns when there is no active support access
+Changed|**GET** `/teams` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/teams/{team_id}` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/teams/{team_id}/members` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/teams/{team_id}/managers` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/teams/filter/{filter_id}` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/users/me/teams` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/users` | Added user_group_id and name_logincode_email_contains parameters
+
 ## Changes in Zenya 6.0.2
 ### Route changes
 Change|Route|Remarks
@@ -67,7 +97,7 @@ Added|**ANY** `/documents/filter` and all sub routes |Get and store filters to u
 Added|**POST** `/documents/{document_id}/version` | Creates a new version of a document
 Added|**PUT** `/documents/{document_id}/v{version}/upload` | Upload the contents of a specific version binary document
 Added|**ANY** `/favorites` and sub routes | Get and manage favorites for the logged in user
-Added|**GET** `/cases/fields` | Gets all fields 
+Added|**GET** `/cases/fields` | Gets all fields
 Added|**GET** `/cases/case_types/{case_type_id}/fields` | Gets fields for a case type
 Added|**ANY** `/portals/news_articles` and all sub routes | Get and manage news articles
 Added|**ANY** `/portals` and sub routes | Get and manages portals
