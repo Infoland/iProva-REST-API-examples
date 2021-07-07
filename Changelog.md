@@ -8,41 +8,25 @@ Change|Route|Remarks
 |--|--|--|
 Added|**GET** `/categories` | Get categories, in order according to settings
 Added|**GET** `/documents/{document_id}/v{version}` | Get meta data of a specific version of a document
-Added|**GET** `/documents/{document_id}/v{version}/checks` | Adds a new document version check
+Added|**POST** `/documents/{document_id}/v{version}/checks` | Adds a new document version check
 Added|**GET** `/documents/{document_id}/{state}` | Get the meta data of a document
 Added|**GET** `/documents/{document_id}/{state}/contents` | Get contents of document the format depends on the document type
-Added|**GET** `/documents/{document_id}/{state}/downloads` | Download the contents of a binary document
+Added|**GET** `/documents/{document_id}/{state}/download` | Download the contents of a binary document
 Added|**GET** `/documents/{document_id}/{state}/fields` | Gets the fields of the given document
 Added|**GET** `/documents/document_types/{document_type_id}/paragraphs` | Gets paraghraphs of a document type
-Removed|**POST** `/hyperlink` | Removed hyperlink route because it was inconsistent with the parameters it expects, /hyperlinks is added as a replacement
-Added|**POST** `/hyperlinks` | Creates hyperlinks
 Removed|**GET** `/documents/{document_id}/print_templates` | Removed route and added /documents/print_templates as the alternative
 Added|**GET** `/documents/print_templates` | Gets print templates
-Removed|**GET** `/settings` | Route is split up in multiple sub-routes
-Removed|**GET** `/settings/{name}` | Route is split up in multiple sub-routes
-Changed|**GET** `/settings/portal_usage_enabled` | Removed 403 response
-Added|**GET** `/settings/maintenance_mode` | Retrieves if maintenance mode is currently enabled
-Added|**GET** `/settings/privacy_policy` | Gets the privacy policy
-Added|**GET** `/settings//settings/case_id_length` | Gets case id length
-Added|**GET** `/settings/autologin` | Gets auto login value
-Added|**GET** `/settings/system_default_language` | Gets system default language
-Added|**GET** `/settings/product_name` | Gets the product name
-Added|**GET** `/settings/show_disclaimer` | Gets if the disclaimer needs to displayed
-Added|**GET** `/settings/disclaimer_text` | Gets the disclaimer text
-Added|**GET** `/settings/show_keep_me_logged_on` | Gets if the keep me logged in option is enabled
-Added|**GET** `/settings/user_selection_filterfields` | Get selected user selector filter fields
-Added|**GET** `/settings/users_can_change_and_request_password` | Gets if the user may change password or request password change
-Added|**GET** `/settings/user_selection_filterfields` | Get selected user selector filter fields
-Added|**GET** `/settings/min_password_strength` | Gets current minimal password strength
-Added|**GET** `/settings/enabled_languages` | Gets enabled languages
-Added|**GET** `/settings/user_selection_filterfields` | Get selected user selector filter fields
+Removed|**POST** `/hyperlink` | This route is depricated, /hyperlinks is added as a replacement
+Added|**POST** `/hyperlinks` | Creates hyperlinks
+Removed|**GET** `/settings` | This route is depricated
+Removed|**GET** `/settings/{name}` | This route is depricated, route is split up in multiple sub-routes
 Changed|**PUT** `/support_access` | Changed 400 response, 400 now returns when there is no active support access
 Changed|**GET** `/teams` | Added 403 response for when the current user is not allowed to view teams
-Changed|**GET** `/users/me/teams` | Added 403 response for when the current user is not allowed to view teams
 Changed|**GET** `/teams/{team_id}` | Added 403 response for when the current user is not allowed to view teams
 Changed|**GET** `/teams/{team_id}/members` | Added 403 response for when the current user is not allowed to view teams
 Changed|**GET** `/teams/{team_id}/managers` | Added 403 response for when the current user is not allowed to view teams
 Changed|**GET** `/teams/filter/{filter_id}` | Added 403 response for when the current user is not allowed to view teams
+Changed|**GET** `/users/me/teams` | Added 403 response for when the current user is not allowed to view teams
 Changed|**GET** `/users` | Added user_group_id and name_logincode_email_contains parameters
 
 ## Changes in Zenya 6.0.2
