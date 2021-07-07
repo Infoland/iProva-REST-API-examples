@@ -104,7 +104,7 @@ The token can be sent via the Authorization header with the string "token" follo
 For more information about token authentication see [Tokens][Tokens]
 
 ### Via Credentials (Basic authentication)
-If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header via basic authetication. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format `<username>:<password>` `Authorization: Basic ai50Lmtpcms6UEAkJHcwcmQ=`. 
+If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header via basic authetication. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format `<username>:<password>` `Authorization: Basic ai50Lmtpcms6UEAkJHcwcmQ=`. See also https://datatracker.ietf.org/doc/html/rfc7617
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
 
