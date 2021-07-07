@@ -12,6 +12,10 @@ Returned when any of the input is wrong or a combination of input would cause an
 }
 ```
 
+A 400 will be returned when the body contains something which cannot be found.
+
+A 400 can be returned when the product is in "read only" mode and the call would have manipulated the resource.
+
 ## 401 Unauthorized
 Returned when anything with the credentials is wrong. It is always possible to receive this status code. No extra information will be presented in the body.
 
@@ -33,8 +37,15 @@ Returned when a resource could not be found. Most of the time the response messa
 }
 ```
 
-## 500 Internal server error
-Returned when something is wrong with the API. The reason phrase will never be altered. The body will contain an error_code. The error_code returned can be used to look up the error in iProva.
+A 404 is not returned when something passed in the body is not found, in that case a 400 is returned.
+
+A 404 is not returned when the logged in user does not have read permissions, in that case a 403 should be returned.
+
+## 429 Too Many Requests
+Returned indicates the consumer has sent too many requests in a given amount of time ("rate limiting").
+
+## 500 Internal Server Error
+Returned when something is wrong with the API. The reason phrase will never be altered. The body will contain an error_code. The error_code returned can be used to look up the error in the product.
 
 ```javascript
 {

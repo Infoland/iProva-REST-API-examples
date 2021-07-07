@@ -1,8 +1,8 @@
 # Overview
-This document describes the resources that make up the iProva API v1. This document is structured in a way that the most important information is presented first.
+This document describes the resources that make up the Zenya API v1. This document is structured in a way that the most important information is presented first.
 
 ## Versioning
-By default, all requests receive the latest version of the iProva API. Currently this is v1. We encourage to explicitly request this version via one of the following ways:
+By default, all requests receive the latest version of the Zenya API. Currently this is v1. We encourage to explicitly request this version via one of the following ways:
 
 - Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=1`.
 - Via a custom header: `X-Api-Version: 1`.
@@ -11,10 +11,10 @@ By default, all requests receive the latest version of the iProva API. Currently
 The major versions might not be completely backwards compatible with older major versions. Minor versions denote only extensions in the API. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in the following major version.
 
 ## Schema
-All API access is possible over the same protocols as the iProva.
+All API access is possible over the same protocols as the product.
 ```javascript
-var iprova = "https://iprova.yourcompany.nl";
-var api = "https://iprova.yourcompany.nl/api";
+var zenya = "https://zenya.yourcompany.nl";
+var api = "https://zenya.yourcompany.nl/api";
 ```
 
 Blank fields are included as `null` instead of being omitted.
@@ -94,10 +94,10 @@ The following HTTP status codes can be returned by the services. Check the docum
 When a 4xx or 500 HTTP status code is returned the response body contains a json object describing the error as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
 
 ## Authentication
-There are four ways to authenticate yourself iProva API. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
+There are four ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
 
 ### API Keys
-To access the API, you need an API-Key. In iProva we have two different kinds of API keys. One that allows you to impersonate any given iProva user, and one that simply allows you to access the API. The first one is used for Token authentication. The second one is used for credentials authentication.
+To access the API, you need an API-Key. In the product we have two different kinds of API keys. One that allows you to impersonate any given user, and one that simply allows you to access the API. The first one is used for Token authentication. The second one is used for credentials authentication.
 
 ### Via Token (preferred authentication method for trusted applications)
 The token can be sent via the Authorization header with the string "token" followed by the token id. `Authorization: token e8f66f95-7ab2-404e-b557-879788b900de`. 
@@ -114,9 +114,9 @@ Of course the consumer should keep in mind that this would require the password 
 
 ### Via Windows Authentication 
 
-<small>Windows Authentication is available from iProva 5.7</small>
+<small>Windows Authentication is available from version 5.7.0</small>
 
-When iProva is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
+When the product is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
 If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user. 
 
 In this situation, passing an API key is required. 
@@ -130,8 +130,8 @@ Of course the consumer should keep in mind that this would require the token to 
 For more information about JWT bearer token authentication see [Bearer Tokens][BearerTokens]
 
 
-### Via iProva Cookie
-When the user is already logged in in iProva, iProva has set an authentication cookie in the browser. When accessing the API when this cookie is set the API will automatically authenticate you using this cookie.
+### Via a cookie
+When the user is already logged in, the product has set an authentication cookie in the browser. When accessing the API when this cookie is set the API will automatically authenticate you using this cookie.
 
 ### Two factor authentication
 To be able to make calls to the API with a user for which two factor authentication is enabled, you need to pass an extra Http header containing the current security code. This header is called "x-two-factor-code". The value of this header should be the current code.
