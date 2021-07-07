@@ -103,14 +103,10 @@ To access the API, you need an API-Key. In iProva we have two different kinds of
 The token can be sent via the Authorization header with the string "token" followed by the token id. `Authorization: token e8f66f95-7ab2-404e-b557-879788b900de`. 
 For more information about token authentication see [Tokens][Tokens]
 
-### Via Credentials
-If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header. The header should contain the string "credentials" followed by the string "u:" and the username, a whitespace, the string "pwd:" and the password. `Authorization: credentials u:j.t.kirk pwd:P@$$w0rd`. 
-
-In this situation, passing an API key is still required. 
-The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
+### Via Credentials (Basic authentication)
+If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header via basic authetication. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format `<username>:<password>` `Authorization: Basic ai50Lmtpcms6UEAkJHcwcmQ=`. 
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
-
 
 ### Via Windows Authentication 
 
