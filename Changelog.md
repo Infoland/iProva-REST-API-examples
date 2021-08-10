@@ -1,6 +1,11 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+## Changes in Zenya 6.1.0 update 1
+Change|Route|Remarks
+|--|--|--|
+Changed|reports/generate_requests/{id}/download|Added file_type parameter (default pdf), which can be used to download the docx or xlsx version (when supported by the report type)
+
 ## Changes in Zenya 6.1.0
 ### Route changes
 
