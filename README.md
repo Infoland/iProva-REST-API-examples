@@ -19,7 +19,7 @@ var api = "https://zenya.yourcompany.nl/api";
 
 Blank fields are included as `null` instead of being omitted.
 ```javascript
-var card = 
+var card =
 {
 	"card_id" : 22,
 	"image" : null
@@ -28,7 +28,7 @@ var card =
 
 All resources and attributes of the resources are snake cased.
 ```javascript
-var data_type = 
+var data_type =
 {
 	"data_type_id" : 512,
 	"singular_name" : "Car",
@@ -40,7 +40,7 @@ var data_type =
 Dates are returned in format `yyyyMMdd` and date with times are returned in format `yyyyMMddHHmmss`.
 Dates are always in the UTC time zone and in ISO format.
 ```javascript
-var example = 
+var example =
 {
 	"inserted_date" : 19830409,
 	"start_datetime" : 200604240830
@@ -53,7 +53,7 @@ When you fetch a list of resources, the response includes a subset of the attrib
 **Example**: When you get a list of cards the image attribute is not filled because this would send the image as a Base64 string. You can include the image by including a query string parameter `GET api/card_files/1/cards?include_image=true`.
 
 ### Detailed representations
-When you fetch an individual resource, the response typically includes all attributes for that resource. This is the "detailed" representation of the resource. 
+When you fetch an individual resource, the response typically includes all attributes for that resource. This is the "detailed" representation of the resource.
 
 **Example**: When you get an individual repository, you get the detailed representation of the repository. Here, we fetch the a card `GET api/card_file/card/1`.
 
@@ -96,11 +96,8 @@ When a 4xx or 500 HTTP status code is returned the response body contains a json
 ## Authentication
 There are four ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
 
-### API Keys
-To access the API, you need an API-Key. In the product we have two different kinds of API keys. One that allows you to impersonate any given user, and one that simply allows you to access the API. The first one is used for Token authentication. The second one is used for credentials authentication.
-
 ### Via Token (preferred authentication method for trusted applications)
-The token can be sent via the Authorization header with the string "token" followed by the token id. `Authorization: token e8f66f95-7ab2-404e-b557-879788b900de`. 
+The token can be sent via the Authorization header with the string "token" followed by the token id. `Authorization: token e8f66f95-7ab2-404e-b557-879788b900de`.
 For more information about token authentication see [Tokens][Tokens]
 
 ### Via Credentials (Basic authentication)
@@ -108,18 +105,18 @@ If the username and password of a user are known these credentials can be direct
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
 
-### Via Windows Authentication 
+### Via Windows Authentication
 
 <small>Windows Authentication is available from version 5.7.0</small>
 
 When the product is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
-If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user. 
+If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user.
 
-In this situation, passing an API key is required. 
+In this situation, passing an API key is required.
 The API key can be passed via the "api_key" querystring parameter, or via an "x-api_key" http header.
 
 ### Via a JWT bearer token (preferred way of connecting as a specific user)
-When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`. 
+When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`.
 
 Of course the consumer should keep in mind that this would require the token to be sent via a http header, so only use this in combination with HTTPs.
 
@@ -134,6 +131,10 @@ To be able to make calls to the API with a user for which two factor authenticat
 
 To avoid having to enter a new verification code each 30 seconds, you can use the bearer_tokens route to get a bearer token for the user with two factor authentication enabled. All subsequent calls can be authenticated using bearer authorization, without having to specify a security code anymore.
 
+### Icons
+Some resources have a icon field, this field contains a string representing the technical name of the icon. Eg. ```thumb_up```.
+All icons come from the following set: https://fonts.google.com/icons
+
 ## Filtering
 Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
 
@@ -144,7 +145,7 @@ If there are multiple filter rules, they are applied as an "and" operator.
 ### Filtering via the querystring
 Filtering via the querystring is as easy as setting the optional filter rules. The notation is always `rule_name=value`.
 
-**Example**: `GET api/entities?name=JCI&entity_ids=1,2,3,4` 
+**Example**: `GET api/entities?name=JCI&entity_ids=1,2,3,4`
 
 The value has a certain notation for its type.
 
@@ -171,9 +172,9 @@ This returns a Created (201) response with the id of the filter and 'location' h
 `GET api/enitities/filter/9289c2bd-26bc-422e-ba68-3d2768489bea`
 
 ## Pagination
-Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. 
+Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters.
 
-**Example**: `GET api/card_files/1/cards?limit=50&offset=10` 
+**Example**: `GET api/card_files/1/cards?limit=50&offset=10`
 
 This call will return (at most) 50 cards, starting at card number 11.
 
@@ -196,7 +197,7 @@ X-Pagination-Returned: 50
 X-Pagination-Total: 1048
 ```
 
-However, because some proxy servers don't allow unknown headers and remove them from the response, and some client might not be able to access the response headers it is possible to get this metadata in the actual result of the call. This can be done by passing the `envelope` query string parameter and setting it to true. 
+However, because some proxy servers don't allow unknown headers and remove them from the response, and some client might not be able to access the response headers it is possible to get this metadata in the actual result of the call. This can be done by passing the `envelope` query string parameter and setting it to true.
 
 **Example**: `GET api/card_files/1/cards?limit=50&offset=10&envelope=true`
 
