@@ -59,7 +59,33 @@ May return a 400 when the product is in "read only" mode.
 ## PATCH
 The PATCH verb is used to partially update a resource. Only attributes which are sent in the request are updated. When an attribute is not sent it will not by updated. The request will return 204 No Content status codes on succes.
 
-For instance, a card resource has multiple fields. A PATCH request may accept one or more of the attributes to update the resource.
+For instance, a card resource has multiple fields. A PATCH request may accept one or more of the attributes to update the resource. In the following example the name is set to "test", the description is clear, visiblity is set to true and all other possible properties are not updated:
+```
+patch_request 
+{
+  name : "test"
+  description : ""
+  visible : true
+}
+```
+
+In the following example only name is updated to test:
+```
+patch_request 
+{
+  name : "test"
+}
+```
+
+In the following example only name is updated to test, and it depends on the actual implementation of the api if the mode is clear or just ignored:
+```
+patch_request 
+{
+  name : "test"
+  mode : null
+}
+```
+It would be safer to just leave the mode property from the instance, but in most cases the implementation would just ignore it. In case of doubt check the swagger documenation of the PATCH action.
 
 The PATCH verb is idempotent in the API, except in some cases, see the "idempotence" chapter.
 
