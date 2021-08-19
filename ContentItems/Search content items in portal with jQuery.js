@@ -1,5 +1,5 @@
 /*
-This example shows how to search for contentitems in a specific portal.
+This example shows how to search for content items in a specific portal.
 */
 
 var _tokenID = "get token"; // See authorization examples how to get a secure token
