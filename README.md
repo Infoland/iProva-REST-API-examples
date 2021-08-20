@@ -130,7 +130,7 @@ To avoid having to enter a new verification code each 30 seconds, you can use th
 
 ### Icons
 Some resources have a icon field, this field contains a string representing the technical name of the icon. Eg. ```thumb_up```.
-All icons come from the following set: https://fonts.google.com/icons
+All icons come from the following fonts: https://fonts.google.com/icons & https://materialdesignicons.com/ (mdi)
 
 ## Filtering
 Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
