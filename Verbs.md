@@ -61,7 +61,7 @@ The PATCH verb is used to partially update a resource. Only attributes which are
 
 For instance, a card resource has multiple fields. A PATCH request may accept one or more of the attributes to update the resource. In the following example the name is set to "test", the description is clear, visiblity is set to true and all other possible properties are not updated:
 ```
-patch_request 
+patch_request
 {
   name : "test"
   description : ""
@@ -71,7 +71,7 @@ patch_request
 
 In the following example only name is updated to test:
 ```
-patch_request 
+patch_request
 {
   name : "test"
 }
@@ -79,13 +79,13 @@ patch_request
 
 In the following example only name is updated to test, and it depends on the actual implementation of the api if the mode is clear or just ignored:
 ```
-patch_request 
+patch_request
 {
   name : "test"
   mode : null
 }
 ```
-It would be safer to just leave the mode property from the instance, but in most cases the implementation would just ignore it. In case of doubt check the swagger documenation of the PATCH action.
+It would be safer to just leave the mode property from the instance, but in most cases the implementation would just ignore it. In case of doubt check the swagger documentation of the PATCH action.
 
 The PATCH verb is idempotent in the API, except in some cases, see the "idempotence" chapter.
 

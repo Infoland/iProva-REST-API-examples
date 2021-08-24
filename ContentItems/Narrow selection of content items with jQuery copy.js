@@ -5,90 +5,107 @@ Check
 
 var _tokenID = "get token"; // See authorization examples how to get a secure token
 
-function getContentItems(portalId, searchText)
+async function getContentItems()
 {
-	var filterId;
-	//Create filter (use search text and portal ID)
-	$.ajax({
-		method: "POST",
-		url: "http://iprova/api/portals/content_items/filter",
-		beforeSend: function (request)
-		{
-			request.setRequestHeader("Authorization", "token " + _tokenID);
-			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "1");
-		},
-		contentType: "application/json",
-		data: JSON.stringify({
-			"text_contains": searchText,
-			"portal_id": portalId
-		  }),
-		success: function (result)
-		{
-			filterId = result.created_identifier;
+	//Set headers
+	$.ajaxSetup({
+		headers: {
+			"Authorization": "token " + _tokenID,
+			"Accept": "application/vnd.example.api+json",
+			"x-api-version": "1"
 		}
 	});
 
+	var portalId = 100;
+	var searchText = "example"
+
+	//Create filter (use search text and portal ID)
+	var filterId = (await CreateFilter(searchText, portalId)).created_identifier;
 
 	if (filterId) {
 		//Get possible filter fields and options
-		var filterFieldId;
-		var filterFieldOptionId;
-		$.ajax({
-			method: "GET",
-			url: "http://iprova/api/portals/content_items/filter/" + filterId + "/filter_fields",
-			beforeSend: function (request)
-			{
-				request.setRequestHeader("Authorization", "token " + _tokenID);
-				request.setRequestHeader("Accept", "application/vnd.example.api+json");
-				request.setRequestHeader("x-api-version", "1");
-			},
-			contentType: "application/json",
-			success: function (result)
-			{
-				//Get the filter field id, and filter field option id
-				filterFieldId = result[0].filter_field_id;
-				filterFieldOptionId = result[0].filter_field_options[0].filter_field_option_id;
-			}
-		});
+		var filterOptions = await GetFilterOptions(filterId);
+		var filterFieldId = filterOptions[0].filter_field_id;
+		var filterFieldOptionId = filterOptions[0].filter_field_options[0].filter_field_option_id;
 
 		if (filterFieldId && filterFieldOptionId) {
 			//Add filter options to filter
-			$.ajax({
-				method: "POST",
-				url: "http://iprova/api/portals/content_items/filter/" + filterId + "/filter_fields/" + filterFieldId,
-				beforeSend: function (request)
-				{
-					request.setRequestHeader("Authorization", "token " + _tokenID);
-					request.setRequestHeader("Accept", "application/vnd.example.api+json");
-					request.setRequestHeader("x-api-version", "1");
-				},
-				contentType: "application/json",
-				data: JSON.stringify({
-					"filter_option_id": filterFieldOptionId
-				}),
-				success: function (result)
-				{
-					filterId = result.created_identifier;
-				}
-			});
+			filterId = (await AddFilterOptionToFilter(filterId, filterFieldId, filterFieldOptionId)).created_identifier;
 
 			//Get content items using filter
-			$.ajax({
-				method: "GET",
-				url: "http://iprova/api/portals/content_items/filter/" + filterId,
-				beforeSend: function (request)
-				{
-					request.setRequestHeader("Authorization", "token " + _tokenID);
-					request.setRequestHeader("Accept", "application/vnd.example.api+json");
-					request.setRequestHeader("x-api-version", "1");
-				},
-				contentType: "application/json",
-				success: function (result)
-				{
-					alert("Number of content items: " + result.length);
-				}
-			});
+			var contentItems = (await GetContentItems(filterId));
+			console.log("Number of content items found: " + contentItems);
 		}
 	}
+}
+
+async function CreateFilter(searchText, portalId) {
+    let result;
+
+    try {
+        result = await $.ajax({
+			method: "POST",
+			url: "http://iprova/api/portals/content_items/filter",
+			contentType: "application/json",
+			data: JSON.stringify({
+				"text_contains": searchText,
+				"portal_id": portalId
+			  })
+		});
+
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function GetFilterOptions(filterId) {
+    let result;
+
+    try {
+        result = await $.ajax({
+			method: "GET",
+			url: "http://iprova/api/portals/content_items/filter/" + filterId + "/filter_fields",
+			contentType: "application/json"
+		});
+
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function AddFilterOptionToFilter(filterId, filterFieldId, filterFieldOptionId) {
+    let result;
+
+    try {
+        result = await $.ajax({
+			method: "POST",
+			url: "http://iprova/api/portals/content_items/filter/" + filterId + "/filter_fields/" + filterFieldId,
+			contentType: "application/json",
+			data: JSON.stringify({
+				"filter_option_id": filterFieldOptionId
+			})
+		});
+
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function GetContentItems(filterId) {
+    let result;
+
+    try {
+        result = await $.ajax({
+			method: "GET",
+			url: "http://iprova/api/portals/content_items/filter/" + filterId,
+			contentType: "application/json",
+		});
+
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
 }
