@@ -3,11 +3,15 @@ This page defines all the changes that were done in the API. There is a differen
 
 
 ## Changes in Zenya 6.2.0
-### Route changes
 
-Change|Route|Remarks
-|--|--|--|
-Deprecate|**GET** `card_files/cards/{card_id:int}/questionlisttemplates` | The `icon_base64` property is a static value representing a transparent pixel
+### Deprecated **icon_base64** properties
+Icons are no longer images and are only a name and color. Therefore the icon_base64 properties on mobile forms and question lists are deprecated. The properties have a static value representing a transparent pixel.
+Affected routes:
+- **GET** `card_files/cards/{card_id:int}/questionlisttemplates`
+- **GET** `/cases/mobile_forms`
+- **GET** `/cases/mobile_forms/{form_id}`
+- **GET** `/card_files/{card_file_id}/mobile_forms` 
+
 
 ## Changes in Zenya 6.1.0 update 1
 Change|Route|Remarks
