@@ -128,6 +128,9 @@ To be able to make calls to the API with a user for which two factor authenticat
 
 To avoid having to enter a new verification code each 30 seconds, you can use the bearer_tokens route to get a bearer token for the user with two factor authentication enabled. All subsequent calls can be authenticated using bearer authorization, without having to specify a security code anymore.
 
+### Query parameter
+When you go to a Zenya url you can pass a [token][Tokens] in the url `?token=<token>` which logs you in automatically.
+
 ## Icons
 Some resources have a icon field, this field contains a string representing the technical name of the icon. Eg. ```thumb_up```.
 All icons come from the following fonts: https://fonts.google.com/icons & https://materialdesignicons.com/ (mdi)
