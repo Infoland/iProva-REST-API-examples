@@ -4,14 +4,9 @@ This page defines all the changes that were done in the API. There is a differen
 
 ## Changes in Zenya 6.2.0
 
-### Deprecated **icon_base64** properties
-Icons are no longer images and are only a name and color. Therefore the icon_base64 properties on mobile forms and question lists are deprecated. The properties have a static value representing a transparent pixel.
-Affected routes:
-- **GET** `card_files/cards/{card_id:int}/questionlisttemplates`
-- **GET** `/cases/mobile_forms`
-- **GET** `/cases/mobile_forms/{form_id}`
-- **GET** `/card_files/{card_file_id}/mobile_forms` 
-
+Change|Route|Remarks
+|--|--|--|
+Deleted|**GET** `card_files/cards/{card_id:int}/questionlisttemplates`, **GET** `/cases/mobile_forms`, **GET** `/cases/mobile_forms/{form_id}`, **GET** `/card_files/{card_file_id}/mobile_forms` |Icons are no longer images and are only a name and color. Therefore the icon_base64 properties on mobile forms and question lists are deprecated. The properties have a static value representing a transparent pixel.
 
 ## Changes in Zenya 6.1.0 update 1
 Change|Route|Remarks
@@ -52,7 +47,10 @@ Changed|**GET** `/users` | Added user_group_id and name_logincode_email_contains
 ### Route changes
 Change|Route|Remarks
 |--|--|--|
+
 Changed |**GET** `/portals` | Removed `has_reports` property. To check wheter or not a portal has content items that should be shown on the management info page, you can call: **GET** `/portals/{portal_id}/content_items?limit=1&show_on_management_info_page=true` If this route returns a content_item, the portal contains one of more content items that should be shown on the management info page.
+
+
 
 ## Changes in Zenya 6.0
 ### Route changes
