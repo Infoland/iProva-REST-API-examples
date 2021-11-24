@@ -7,6 +7,32 @@ This page defines all the changes that were done in the API. There is a differen
 Change|Route|Remarks
 |--|--|--|
 Deprecated attribute|**GET** routes returning content_item |Icons are no longer images and are only a name and color. Therefore the `icon_base64` properties on mobile forms and question lists are deprecated. The properties have a static value representing a transparent pixel. Affected routes: GET card_files/cards/{card_id:int}/questionlisttemplates, GET /cases/mobile_forms, GET /cases/mobile_forms/{form_id}, GET /card_files/{card_file_id}/mobile_forms
+Depricated|**GET** `/cases/forms/{form_id}/icon`|Icons are no longer images and are only a name and color
+Depricated|**GET** `/cases/mobile_forms/{form_id}/icon`|Icons are no longer images and are only a name and color
+Added|**GET**,**PATCH**,**DELETE** `/cases/attachments/{attachment_id}`|Manage case attachments by attachment id
+Added|**GET** `/cases/attachments/{attachment_id}/download`|Downloads the attachment
+Added|**GET**,**PATCH**,**DELETE** `/cases/hyperlinks/{hyperlink_id}`|Manage case hyperlinks
+Added|**GET**,**PATCH**,**DELETE** `/cases/notes/{note_id}`|Manage the notes from a case
+Added|**GET**,**PATCH**,**DELETE** `/cases/to_dos/{to_do_id}`|Manage case todo's
+Added|**POST** `/cases/to_dos/{to_do_id}/attachments`|Adds new attachment
+Added|**POST** `/cases/to_dos/{to_do_id}/notes`|Adds new note to a to do
+Added|**GET** `/cases`|Added new filter parameter case_ids
+Changed|**GET** `/cases/case_types`|Added properties to the return type
+Added|**GET** `/cases/case_types/{case_type_id}`|Get case type by case type id
+Added|**GET** `/case_types/{case_type_id}/permissions`|Get the permissions of a case type by case type id
+Changed|**GET** `/documents/{document_id}/v{version}/comments`|Added new response code 401 when the credentials where incorrect
+Added|**GET** `/documents/{document_id}/comments`|Get a list of comments of a document based on document id, also has the filter system implemented
+Added|**POST** `/documents/{document_id}/comments`|Create a comment which is not directly connected to a document version
+Added|**GET** `/documents/{document_id}/{state}/comments`|Get a list of comments of a document in a specific state based on document id, also has the filter system implemented
+Added|**GET** `/features`|Get all features
+Added|**GET** `/features/{name}`|Get one feature by name
+Added|**GET** `/hyperlinks/{hyperlink_id}`|Retrieves a specific hyperlink
+Changed|**GET** `/organization_units`|More querystring filter parameters added and it's possible to use the filter object. Also added the response code 403 when an anonymous user tries to retrieve organization units
+Changed|**GET** `/organization_units/{organization_unit_id}`|Added response code 403 when a anoymous user tries to retrieve an organization unit
+Added|**POST** `/positions`|Create a new position
+Changed|**GET** `/positions`|More querystring filter parameters added and it's possible to use the filter object. Also added the response code 403 when an anonymous user tries to retrieve positions
+Added|**GET** `/settings/user_time_zone_enabled`|Retrieves feature switch to show/hide user setting for timezone
+Changed|**GET** `/settings/languages`|Added parameter in_own_language
 
 ## Changes in Zenya 6.1.0 update 1
 Change|Route|Remarks
