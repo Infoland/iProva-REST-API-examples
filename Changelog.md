@@ -16,11 +16,11 @@ Added|**GET**,**PATCH**,**DELETE** `/cases/notes/{note_id}`|Manage the notes fro
 Added|**GET**,**PATCH**,**DELETE** `/cases/to_dos/{to_do_id}`|Manage case todo's
 Added|**POST** `/cases/to_dos/{to_do_id}/attachments`|Adds new attachment
 Added|**POST** `/cases/to_dos/{to_do_id}/notes`|Adds new note to a to do
+Added|**POST** `/cases/to_dos/{to_do_id}/hyperlinks`|Adds a new hyperlink to the to do
 Added|**GET** `/cases`|Added new filter parameter case_ids
 Changed|**GET** `/cases/case_types`|Added properties to the return type
-Added|**GET** `/cases/case_types/{case_type_id}`|Get case type by case type id
-Added|**GET** `/case_types/{case_type_id}/permissions`|Get the permissions of a case type by case type id
-Changed|**GET** `/documents/{document_id}/v{version}/comments`|Added new response code 401 when the credentials where incorrect
+Added|**GET** `/cases/case_types/{case_type_id}`|Get case type
+Added|**GET** `/case_types/{case_type_id}/permissions`|Get the permissions of a case type
 Added|**GET** `/documents/{document_id}/comments`|Get a list of comments of a document based on document id, also has the filter system implemented
 Added|**POST** `/documents/{document_id}/comments`|Create a comment which is not directly connected to a document version
 Added|**GET** `/documents/{document_id}/{state}/comments`|Get a list of comments of a document in a specific state based on document id, also has the filter system implemented
@@ -28,7 +28,7 @@ Added|**GET** `/features`|Get all features
 Added|**GET** `/features/{name}`|Get one feature by name
 Added|**GET** `/hyperlinks/{hyperlink_id}`|Retrieves a specific hyperlink
 Changed|**GET** `/organization_units`|More querystring filter parameters added and it's possible to use the filter object. Also added the response code 403 when an anonymous user tries to retrieve organization units
-Changed|**GET** `/organization_units/{organization_unit_id}`|Added response code 403 when a anoymous user tries to retrieve an organization unit
+Changed|**GET** `/organization_units/{organization_unit_id}`|Added response code 403 when an anonymous user tries to retrieve an organization unit
 Added|**POST** `/positions`|Create a new position
 Changed|**GET** `/positions`|More querystring filter parameters added and it's possible to use the filter object. Also added the response code 403 when an anonymous user tries to retrieve positions
 Added|**GET** `/settings/user_time_zone_enabled`|Retrieves feature switch to show/hide user setting for timezone
