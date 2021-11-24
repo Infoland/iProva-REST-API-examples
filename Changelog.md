@@ -33,6 +33,7 @@ Added|**POST** `/positions`|Create a new position
 Changed|**GET** `/positions`|More querystring filter parameters added and it's possible to use the filter object. Also added the response code 403 when an anonymous user tries to retrieve positions
 Added|**GET** `/settings/user_time_zone_enabled`|Retrieves feature switch to show/hide user setting for timezone
 Changed|**GET** `/settings/languages`|Added parameter in_own_language
+Changed|**PATCH** `/users`|Now possible to edit the time zone id and the manager id of the user.
 
 ## Changes in Zenya 6.1.0 update 1
 Change|Route|Remarks
