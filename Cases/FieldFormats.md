@@ -1,7 +1,7 @@
 ## Field output format
 
 | FieldType | Output example |
-| -- | -- | -- |
+| -- | -- |
 | Attachment | <pre>"value": [<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "file_name":"Attachment 1.png"<br>},<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "file_name":"Attachment 2.zip"<br>}]</pre> |
 | Boolean | `value:true` or `"value":false` |
 |Card file|<pre>"value": [<br>{<br>  "card_id": 12,<br>  "display_name":"Card 12 display name"<br>},<br>{<br>  "card_id": 3,<br>  "display_name":"Card 3 display name"<br>}]</pre>
