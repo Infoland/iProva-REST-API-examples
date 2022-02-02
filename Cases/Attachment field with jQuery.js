@@ -8,7 +8,7 @@ or
  - upload an attachment
  - post a new case with the attachment field filled with the uploaded attachment
 
-For details on the format of an attachment field value, see FieldFormats.md
+For details on the format of an attachment field value, see README.md
 
 */
 

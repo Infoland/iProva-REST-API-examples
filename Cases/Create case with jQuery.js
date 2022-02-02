@@ -12,7 +12,7 @@ In this example the following fields are used:
 	the field_id is the value of the "GlobalFieldID" querystring parameter. In this case: 4552
 	It is also possible to set fields based on the field name by passing the "field_name" instead of the "field_id"
 
-For details on the format of the value of all field types, see FieldFormats.md
+For details on the format of the value of all field types, see README.md
 */
 
 var _credentials = "<credentials>"; // See authorization examples how to generate credentials

@@ -8,7 +8,7 @@ or
  - create a reference
  - post a new case with the reference field filled with the created reference
 
-For details on the format of an reference field value, see FieldFormats.md
+For details on the format of an reference field value, see README.md
 
 */
 

@@ -1,31 +1,12 @@
-## Field output format
+## Overview
 
-| FieldType | Output example |
-| -- | -- |
-| Attachment | <pre>"value": [<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "file_name":"Attachment 1.png"<br>},<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "file_name":"Attachment 2.zip"<br>}]</pre> |
-| Boolean | `value:true` or `"value":false` |
-|Card file|<pre>"value": [<br>{<br>  "card_id": 12,<br>  "display_name":"Card 12 display name"<br>},<br>{<br>  "card_id": 3,<br>  "display_name":"Card 3 display name"<br>}]</pre>
-|Date|`"value":"20211212"`
-|EmailAddress|`"value":"somename@domain.com"`
-|Formatted Text|`"value":"Some text with <b>markup</b>"`
-|Formula|`"value":12.3`
-|Framework item|<pre>"value": [<br>{<br>  "framework_item_id": 1,<br>  "title":"framework item 2 title",<br>  "full_number":"1.2",<br>  "framework_name":"framework name",<br>  "include_sub_items":false<br>},<br>{<br>  "framework_item_id": 2,<br>  "title":"framework item 2 title",<br>  "full_number":"2.3.4",<br>  "framework_name":"framework name",<br>  "include_sub_items":true<br>}]</pre>
-|Hierarchical list|<pre>"value": [<br>{<br>  "list_option_id": 3,<br>  "name":"option 1"<br>},<br>{<br>  "list_option_id": 25,<br>  "name":"option 2"<br>}]</pre>
-|Hyperlink|<pre>"value": [<br>{<br>  "hyperlink_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "description":"Description of hyperlink 1"<br>},<br>{<br>  "hyperlink_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "description":"Description of hyperlink 2"<br>}]</pre>
-|List|<pre>"value": [<br>{<br>  "list_option_id": 3,<br>  "name":"option 1"<br>},<br>{<br>  "name":"other value"<br>}]</pre>
-|LookupField|LookupField doesn't have a value
-|Numeric|`"value": 6.67`
-|NumericList|<pre>"value": {<br>  "list_option_id": 3,<br>  "name":"option 1"<br>}</pre>
-|Period|<pre>"value": {<br>  "value": 3,<br>  "period_unit":"days"<br>}</pre>
-|Position|<pre>"value": [<br>{<br>  "position_id": 3,<br>  "position_name":"position 1"<br>},<br>{<br>  "position_id": 25,<br>  "position_name":"position 2"<br>}]</pre>
-|Risk matrix|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
-|Score matrix 3D|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
-|Text|`value: "some text"`
-|Time|`"value":"12:31"`
-|User|<pre>"value": [<br>{<br>  "user_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "user_name":"user a"<br>},<br>{<br>  "user_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "user_name":"user b"<br>}]</pre>
-|WebPage|`"value":"https://www.infoland.nl/"`
+This folder contains examples of creating new cases via the Zenya API. The format of the `value` property of a field differs per field type. Below you can see format examples of input and output per field type
+
 
 ## Field input format
+The below table contains the format in which fields can be set by using the following routes:
+- `POST` /api/cases
+- `PUT` /api/cases/\{case_id}/fields/\{field_id}
 
 |FieldType| Allowed formats | Example(s) |
 |--|--|--|
@@ -51,3 +32,31 @@
 |Time|string in time format (hh:mm)|`"value":"12:31"`
 |User|Guid[]|<pre>"value": [<br>{<br>  "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"</br>}]</pre>
 |WebPage|string in format `<scheme>://<host>/<path>`|`"value":"https://www.infoland.nl/"`
+
+## Field output format
+The below table contains the format in which fields are returned by the `GET` /api/cases/\{case_id} route
+
+| FieldType | Output example |
+| -- | -- |
+| Attachment | <pre>"value": [<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "file_name":"Attachment 1.png"<br>},<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "file_name":"Attachment 2.zip"<br>}]</pre> |
+| Boolean | `value:true` or `"value":false` |
+|Card file|<pre>"value": [<br>{<br>  "card_id": 12,<br>  "display_name":"Card 12 display name"<br>},<br>{<br>  "card_id": 3,<br>  "display_name":"Card 3 display name"<br>}]</pre>
+|Date|`"value":"20211212"`
+|EmailAddress|`"value":"somename@domain.com"`
+|Formatted Text|`"value":"Some text with <b>markup</b>"`
+|Formula|`"value":12.3`
+|Framework item|<pre>"value": [<br>{<br>  "framework_item_id": 1,<br>  "title":"framework item 2 title",<br>  "full_number":"1.2",<br>  "framework_name":"framework name",<br>  "include_sub_items":false<br>},<br>{<br>  "framework_item_id": 2,<br>  "title":"framework item 2 title",<br>  "full_number":"2.3.4",<br>  "framework_name":"framework name",<br>  "include_sub_items":true<br>}]</pre>
+|Hierarchical list|<pre>"value": [<br>{<br>  "list_option_id": 3,<br>  "name":"option 1"<br>},<br>{<br>  "list_option_id": 25,<br>  "name":"option 2"<br>}]</pre>
+|Hyperlink|<pre>"value": [<br>{<br>  "hyperlink_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "description":"Description of hyperlink 1"<br>},<br>{<br>  "hyperlink_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "description":"Description of hyperlink 2"<br>}]</pre>
+|List|<pre>"value": [<br>{<br>  "list_option_id": 3,<br>  "name":"option 1"<br>},<br>{<br>  "name":"other value"<br>}]</pre>
+|LookupField|LookupField doesn't have a value
+|Numeric|`"value": 6.67`
+|NumericList|<pre>"value": {<br>  "list_option_id": 3,<br>  "name":"option 1"<br>}</pre>
+|Period|<pre>"value": {<br>  "value": 3,<br>  "period_unit":"days"<br>}</pre>
+|Position|<pre>"value": [<br>{<br>  "position_id": 3,<br>  "position_name":"position 1"<br>},<br>{<br>  "position_id": 25,<br>  "position_name":"position 2"<br>}]</pre>
+|Risk matrix|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
+|Score matrix 3D|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
+|Text|`value: "some text"`
+|Time|`"value":"12:31"`
+|User|<pre>"value": [<br>{<br>  "user_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151",<br>  "user_name":"user a"<br>},<br>{<br>  "user_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152",<br>  "user_name":"user b"<br>}]</pre>
+|WebPage|`"value":"https://www.infoland.nl/"`
