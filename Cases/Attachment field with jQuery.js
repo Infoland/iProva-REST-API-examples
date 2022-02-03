@@ -14,12 +14,29 @@ For details on the format of an attachment field value, see README.md
 
 var _credentials = "<credentials>"; // See authorization examples how to generate credentials
 
-function createCase() {
+function createTemporaryAttachment() {
+	// Create temporary attachment
+	$.ajax({
+		method: "POST",
+		url: "https://<customer>.zenya.work/api/cases/atachments",
+		beforeSend: function (request) {
+			request.setRequestHeader("Authorization", "Basic " + _credentials);
+			request.setRequestHeader("Accept", "application/vnd.example.api+json");
+			request.setRequestHeader("x-api-version", "3");
+		},
+		contentType: "application/json",
+		data: JSON.stringify(
+			{
+				"file_name": "Attachment 1.txt",
+				"base_64_file": "YXR0YWNobWVudCBleGFtcGxl"
+			}),
+		success: function (result) {
+			createCase(result.created_identifier); //Should return a Guid
+		}
+	});
+}
 
-	//TODO: 
-	// - call api to upload attachment
-	// - fill correct attachment_id in post cases
-
+function createCase(temporaryAttachmentId) {
 	// Create case for form with id '195'
 	$.ajax({
 		method: "POST",
@@ -35,18 +52,15 @@ function createCase() {
 				"form_id": 195,
 				"fields": [
 					{
-						"field_id": 1,
-						"value": 9
-					},
-					{
 						"field_id": 4066,
-						"value": <attachment>
+						"value": [
+							{
+							  "id": temporaryAttachmentId,
+							  "file_name":"Attachment 1.txt"
+							}
+						]
 					}
-				],
-				"gps_location": {
-					"latitude": 51.40,
-					"longitude": 5.41
-				}
+				]
 			}),
 		success: function (result) {
 			alert(result.created_identifier);
