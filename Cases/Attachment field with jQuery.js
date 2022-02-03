@@ -31,12 +31,12 @@ function createTemporaryAttachment() {
 				"base_64_file": "YXR0YWNobWVudCBleGFtcGxl"
 			}),
 		success: function (result) {
-			createCase(result.created_identifier); //Should return a Guid
+			createCaseWithAttachment(result.created_identifier); //Should return a Guid
 		}
 	});
 }
 
-function createCase(temporaryAttachmentId) {
+function createCaseWithAttachment(temporaryAttachmentId) {
 	// Create case for form with id '195'
 	$.ajax({
 		method: "POST",
