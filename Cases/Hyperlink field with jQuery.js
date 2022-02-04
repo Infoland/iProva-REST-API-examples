@@ -39,7 +39,7 @@ function createTemporaryHyperlink() {
 	});
 }
 
-function createCaseWithHyperlink(temporaryAttachmentId) {
+function createCaseWithHyperlink(temporaryHyperlinkId) {
 	// Create case for form with id '195'
 	$.ajax({
 		method: "POST",
@@ -58,7 +58,7 @@ function createCaseWithHyperlink(temporaryAttachmentId) {
 						"field_id": 4066,
 						"value": [
 							{
-							  "id": temporaryAttachmentId,
+							  "id": temporaryHyperlinkId,
 							  "description":"Link to Infoland website"
 							}
 						]
