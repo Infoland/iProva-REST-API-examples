@@ -1,12 +1,12 @@
 # Overview
-This document describes the resources that make up the Zenya API v1. This document is structured in a way that the most important information is presented first.
+This document describes the resources that make up the Zenya API v2. This document is structured in a way that the most important information is presented first.
 
 ## Versioning
-By default, all requests receive the latest version of the Zenya API. Currently this is v1. We encourage to explicitly request this version via one of the following ways:
+By default, all requests receive the latest version of the Zenya API. Currently this is v2. We encourage to explicitly request this version via one of the following ways:
 
-- Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=1`.
-- Via a custom header: `X-Api-Version: 1`.
-- Via the query string: `api/card_files/cards/1?api-version=1`.
+- Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=2`.
+- Via a custom header: `X-Api-Version: 2`.
+- Via the query string: `api/card_files/cards/1?api-version=2`.
 
 The major versions might not be completely backwards compatible with older major versions. Minor versions denote only extensions in the API. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in the following major version.
 
