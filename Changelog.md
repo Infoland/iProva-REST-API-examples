@@ -7,8 +7,8 @@ This page defines all the changes that were done in the API. There is a differen
 Change|Route|Remarks
 |--|--|--|
 Deprecated attribute|**GET** routes returning content_item |Icons are no longer images and are only a name and color. Therefore the `icon_base64` properties on mobile forms and question lists are deprecated. The properties have a static value representing a transparent pixel. Affected routes: GET card_files/cards/{card_id:int}/questionlisttemplates, GET /cases/mobile_forms, GET /cases/mobile_forms/{form_id}, GET /card_files/{card_file_id}/mobile_forms
-Depricated|**GET** `/cases/forms/{form_id}/icon`|Icons are no longer images and are only a name and color
-Depricated|**GET** `/cases/mobile_forms/{form_id}/icon`|Icons are no longer images and are only a name and color
+Deprecated|**GET** `/cases/forms/{form_id}/icon`|Icons are no longer images and are only a name and color
+Deprecated|**GET** `/cases/mobile_forms/{form_id}/icon`|Icons are no longer images and are only a name and color
 Added|**GET**,**PATCH**,**DELETE** `/cases/attachments/{attachment_id}`|Manage case attachments by attachment id
 Added|**GET** `/cases/attachments/{attachment_id}/download`|Downloads the attachment
 Added|**GET**,**PATCH**,**DELETE** `/cases/hyperlinks/{hyperlink_id}`|Manage case hyperlinks
