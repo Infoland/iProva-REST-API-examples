@@ -2,8 +2,7 @@ Explanation of the config file (BulkExportDownload.exe.config):
 
 Url: Contains the full iProva Url of the iProva where the bulk export resides, ie: https://organisationiprovaurl.com
 
-Username: login code of the user that has permissions to download the bulk export (user needs "application management - bulk export" permissions in iProva)
-Note: it is not (yet) allowed to use 2-factor authentication for this user
+Username: Login code of the user that has permissions to download the bulk export (user needs "application management - bulk export" permissions in iProva). Remarks: this should be a non-synchronised user (blue icon). It is not (yet) allowed to use 2-factor authentication for this user
 
 Password: password of the user mentioned under username
 
