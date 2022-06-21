@@ -11,5 +11,3 @@ so for instance:
 ```
 https://infoland.zenya.work/iportal5/?contentitemid=12345678-1234-1234-1234-123456781234
 ```
-
-if your organisation uses single sign-on, users following the link will be authenticated automatically. If not, you will need to generate a token for the user following the link and add it to the querystring.
