@@ -1,6 +1,4 @@
 # Bulk exports
 This is an example how to download a bulk export using C# code.
 
-NB: Currently iProva SaaS supports downloading Bulkexport zip files of max 4 GB size.
-
-NB2: Even though the working of this tool is not guaranteed, Infoland does supply new build releases which are stored in [Releases](https://github.com/Infoland/iProva-REST-API-examples/releases).
+A tool was created as a jumping off point to start implementing an integration. This is more then an example, and people even made releases for it. Therefor it has gotten it's own repo over [here](https://github.com/Infoland/BulkExportDownload)
