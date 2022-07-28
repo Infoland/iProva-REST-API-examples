@@ -1,6 +1,11 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+## Changes in Zenya 7.0.0
+Change|Route|Remarks
+|--|--|--|
+Added | Status code 304 | When using a HEAD verb this code is returned when the resource hasn't been modified.
+Added | Verb HEAD | When only the headers need to be requested.
 
 ## Changes in Zenya 6.2.0
 
