@@ -72,6 +72,7 @@ The following verbs are used in the API. See the [Verbs][verbs] page for further
 | **PUT** | Used for replacing resources.|
 | **PATCH** | Used for updating resources with partial data. |
 | **DELETE** | Used for deleting resources. |
+| **HEAD** | Used retrieving only the headers of the GET request. |
 
 ## HTTP Status Codes
 The following HTTP status codes can be returned by the services. Check the documentation to know which status code will be returned by which route.
@@ -83,6 +84,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
 |**206**|Partial Content|Returned when streaming a file as a response of a call, and the servers sends a partial response.|
+|**304**|Not Modified|Return when the resource requested hasn't been updated since the last time you accessed it.
 |**400**|Bad Request|Returned when any of the input is wrong or a combination of input would cause an illegal operation.|
 |**401**|Unauthorized|Returned when anything with the credentials is wrong. It is always possible to receive this status code.|
 |**403**|Forbidden|Returned when the authenticated user is forbidden to use a certain aspect of a route.|
