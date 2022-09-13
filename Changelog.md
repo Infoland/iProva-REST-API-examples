@@ -7,9 +7,9 @@ Change|Route|Remarks
 |--|--|--|
 Changed|**GET** `/card_files/{card_file_id}/cards/filter/{filter_id}`|Added new querystring parameter include_all_custom_fields, include_field_ids and include_display_name. Removed querystring parameter include_fields.
 Changed|**GET** `/card_files/cards/{card_id}`|Added new querystring parameter include_all_custom_fields, include_field_ids and include_display_name
-Deprecated|**GET** `/card_files/cards/by_qrcode/{qrcode}` | This route is deprecated
-Deprecated|**GET** `/card_files/cards/by_btle` | This route is deprecated
-Deprecated|**GET** `/card_files/cards/by_gps` | This route is deprecated
+Deprecated|**GET** `/card_files/cards/by_qrcode/{qrcode}` | This route is deprecated. Alternative routes: `/card_files/card_file_id:int}/card` or `/card_files/{card_file_id:int}/cards/filter/{filter_id:guid}` and filter out cards with qr code set.
+Deprecated|**GET** `/card_files/cards/by_btle` | This route is deprecated. Alternative routes: `/card_files/card_file_id:int}/card` or `/card_files/{card_file_id:int}/cards/filter/{filter_id:guid}` and filter out cards with btle set.
+Deprecated|**GET** `/card_files/cards/by_gps` | This route is deprecated. Alternative routes: `/card_files/card_file_id:int}/card` or `/card_files/{card_file_id:int}/cards/filter/{filter_id:guid}` and filter out cards with gps set.
 Changed|**GET** `/cases/{case_id}`|Added new querystring parameter include_fields, case_secret and external_user_unique_key
 Changed|**PUT** `/cases/{case_id}/fields`|Added new querystring parameter external_user_unique_key
 Added|**POST** `/cases/{case_id}/reporter_form_email_requests`|Creates a request to e-mail the reporter form for the given case
@@ -38,9 +38,8 @@ Added|**GET** `/cases/preview_forms/{preview_form_id}`|Gets a preview form for a
 Added|**GET** `/cases/preview_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a preview form
 Changed|**GET** `/cases/reporter_forms`|Added new querystring parameter can_report
 Added|**GET** `/cases/reporter_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a form
-Added|**GET** `/saml/saml2`|Retrieves the url to call to authenticate using ADFS with parameters forceauthn, redirect_url, for_token, for_bearer_token and use_current_ip_context
-Deprecated|**GET** `/saml`|This route is deprecated
-Deprecated|**GET** `/saml/adfs`|This route is deprecated
+Deprecated|**GET** `/saml`|This route is deprecated. Alternative route: `saml/saml2`.
+Deprecated|**GET** `/saml/adfs`|This route is deprecated. Alternative route: `saml/saml2`.
 Changed|**GET** `/bearer_tokens/saml2/data`|Added new querystring parameter redirect_url, for_token, for_bearer_token and use_current_ip_context
 Added|**GET** `/settings/measure_cardfile_id`|Retrieves the id of the measure cardfile for this Zenya
 Added|**GET** `/settings/officeonline_enabled`|Gets if office online is enabled
