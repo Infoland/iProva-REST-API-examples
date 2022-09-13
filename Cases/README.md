@@ -34,7 +34,7 @@ The below table contains the format in which fields can be set by using the foll
 |WebPage|string in format `<scheme>://<host>/<path>`|`"value":"https://www.infoland.nl/"`
 
 ## Field output format
-The below table contains the format in which fields are returned by the `GET` /api/cases/\{case_id} route
+The below table contains the format in which fields are returned by the `GET` /api/cases/{case_id} route
 
 | FieldType | Output example |
 | -- | -- |
