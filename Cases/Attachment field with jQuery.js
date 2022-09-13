@@ -18,7 +18,7 @@ function createTemporaryAttachment() {
 	// Create temporary attachment
 	$.ajax({
 		method: "POST",
-		url: "https://<customer>.zenya.work/api/cases/atachments",
+		url: "https://<customer>.zenya.work/api/cases/attachments",
 		beforeSend: function (request) {
 			request.setRequestHeader("Authorization", "Basic " + _credentials);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
