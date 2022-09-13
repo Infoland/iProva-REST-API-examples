@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Authentication"
+    "\\Authentication",
+    "\\Cases",
+    "\\Local settings (.vs)"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\Cases\\FieldFormats.md",
   "PreviewInSolutionExplorer": false
 }
