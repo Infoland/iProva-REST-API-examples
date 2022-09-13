@@ -6,7 +6,7 @@ This folder contains examples of creating new cases via the Zenya API. The forma
 ## Field input format
 The below table contains the format in which fields can be set by using the following routes:
 - `POST` /api/cases
-- `PUT` /api/cases/\{case_id}/fields/\{field_id}
+- `PUT` /api/cases/{case_id}/fields/{field_id}
 
 |FieldType| Allowed formats | Example(s) |
 |--|--|--|
