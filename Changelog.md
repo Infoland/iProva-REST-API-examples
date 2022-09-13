@@ -1,6 +1,56 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+## Changes in Zenya 6.3.0
+
+Change|Route|Remarks
+|--|--|--|
+Changed|**GET** `/card_files/{card_file_id}/cards/filter/{filter_id}`|Added new querystring parameter include_all_custom_fields, include_field_ids and include_display_name. Removed querystring parameter include_fields.
+Changed|**GET** `/card_files/cards/{card_id}`|Added new querystring parameter include_all_custom_fields, include_field_ids and include_display_name
+Deprecated|**GET** `/card_files/cards/by_qrcode/{qrcode}` | This route is deprecated. Alternative routes: `/card_files/card_file_id:int}/card` or `/card_files/{card_file_id:int}/cards/filter/{filter_id:guid}` and filter out cards with qr code set.
+Deprecated|**GET** `/card_files/cards/by_btle` | This route is deprecated. Alternative routes: `/card_files/card_file_id:int}/card` or `/card_files/{card_file_id:int}/cards/filter/{filter_id:guid}` and filter out cards with btle set.
+Deprecated|**GET** `/card_files/cards/by_gps` | This route is deprecated. Alternative routes: `/card_files/card_file_id:int}/card` or `/card_files/{card_file_id:int}/cards/filter/{filter_id:guid}` and filter out cards with gps set.
+Changed|**GET** `/cases/{case_id}`|Added new querystring parameter include_fields, case_secret and external_user_unique_key
+Changed|**PUT** `/cases/{case_id}/fields`|Added new querystring parameter external_user_unique_key
+Added|**POST** `/cases/{case_id}/reporter_form_email_requests`|Creates a request to e-mail the reporter form for the given case
+Added|**GET** `/cases/{case_id}/reporter_form`|Returns if the reporter form PDF is available
+Added|**GET** `/cases/{case_id}/reporter_form/download`|Download the reporter form PDF file
+Added|**POST** `/cases/{case_id}/state_change_requests`|Request a state change
+Added|**POST** `/scheduled_tasks/{scheduled_task_id}/cases`|Create a new case from a scheduled task
+Added|**GET** `/cases/{case_id}/case_forms`|Gets all case_forms for a case
+Added|**GET** `/cases/{case_id}/case_forms/{case_form_id}`|Gets a specific case_form
+Added|**PATCH** `/cases/{case_id}/case_forms/{case_form_id}`|Updates a case_form
+Changed|**GET** `/cases/case_types/{case_type_id}`|Added new querystring parameter include_states, include_subject_tree and external_user_unique_key
+Added|**GET** `/cases/case_types/{case_type_id}/states`|Get states of case type
+Changed|**GET** `/cases/case_types/{case_type_id}/permissions`|Added new querystring parameter assigned_to_me, include_assigned_to_me, include_teams, include_user_groups and include_users
+Changed|**GET** `/portals/{portal_id}/collections`|Added new querystring parameter include_sub_tree
+Added|**GET** `/cases/coordinator_forms/{form_id}/design`|Gets the design of a coordinator form
+Added|**GET** `/cases/coordinator_forms/{form_id}`|Gets a coordinator form for an id
+Added|**GET** `/cases/coordinator_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a coordinator form
+Added|**GET** `/external_sources`|Get external sources
+Added|**GET** `/external_sources/{external_source_id}`|Get a single external source
+Added|**GET** `/external_sources/{external_source_id}/data`|Get the data of the external source
+Added|**GET** `/external_sources/{external_source_id}/data/{filter_id}`|Get the data of the external source using a filter
+Added|**POST** `/external_sources/{external_source_id}/data/filter`|Creates a external source data filter
+Added|**GET** `/frameworks`|Get frameworks
+Added|**GET** `/cases/preview_forms/{preview_form_id}/design`|Gets the design of a preview form
+Added|**GET** `/cases/preview_forms/{preview_form_id}`|Gets a preview form for an id
+Added|**GET** `/cases/preview_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a preview form
+Changed|**GET** `/cases/reporter_forms`|Added new querystring parameter can_report
+Added|**GET** `/cases/reporter_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a form
+Deprecated|**GET** `/saml`|This route is deprecated. Alternative route: `saml/saml2`.
+Deprecated|**GET** `/saml/adfs`|This route is deprecated. Alternative route: `saml/saml2`.
+Changed|**GET** `/bearer_tokens/saml2/data`|Added new querystring parameter redirect_url, for_token, for_bearer_token and use_current_ip_context
+Added|**GET** `/settings/measure_cardfile_id`|Retrieves the id of the measure cardfile for this Zenya
+Added|**GET** `/settings/officeonline_enabled`|Gets if office online is enabled
+Added|**GET** `/cases/subject_trees/{subject_tree_id}/subjects`|Gets subjects from a subject tree in a list
+Added|**GET** `/user_groups/members`|Get members from user groups
+Added|**POST** `/user_groups/members/filter`|Create filter to get members for user groups
+Added|**GET** `/user_groups/members/filter/{filter_id}`|Get members from user groups using a stored filter
+Changed|**GET** `/versions/api`|Added the response code 401 when credentials are incorrect
+Added|**GET** `/cases/workflow_forms/{form_id}`|Gets the workflow form
+Added|**GET** `/cases/workflow_forms/{form_id}/design`|Gets the design of a workflow form
+Added|**GET** `/cases/workflow_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a workflow form
 
 ## Changes in Zenya 6.2.0
 
