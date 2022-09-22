@@ -32,7 +32,7 @@ Added|**GET** `/external_sources/{external_source_id}`|Get a single external sou
 Added|**GET** `/external_sources/{external_source_id}/data`|Get the data of the external source
 Added|**GET** `/external_sources/{external_source_id}/data/{filter_id}`|Get the data of the external source using a filter
 Added|**POST** `/external_sources/{external_source_id}/data/filter`|Creates a external source data filter
-Added|**GET** `/frameworks`|Get frameworks
+Added|**GET** `/frameworks`|Get a list frameworks (/frameworks/items and /frameworks/{id}/items already existed)
 Added|**GET** `/cases/preview_forms/{preview_form_id}/design`|Gets the design of a preview form
 Added|**GET** `/cases/preview_forms/{preview_form_id}`|Gets a preview form for an id
 Added|**GET** `/cases/preview_forms/{form_id}/images/{image_id}/download`|Gets the binary image file of a preview form
