@@ -1,6 +1,12 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+
+## Changes in Zenya 6.3.1 update 2
+Change|Route|Remarks
+|--|--|--|
+Added|**GET** `/documents/{document_id:guid}/reviewers` | Gets the document reviewers (There is a difference between the documentreviewers on the documentversion and the document)
+
 ## Changes in Zenya 6.3.0
 
 Change|Route|Remarks
