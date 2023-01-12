@@ -1,6 +1,7 @@
 # Changelog
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
+
 ## Changes in Zenya 6.4.0
 
 Change|Route|Remarks
@@ -10,6 +11,13 @@ Changed|**GET** `/frameworks/items/filter/{filter_id}`|Added new querystring par
 Changed|**GET** `/frameworks/{framework_id}/items`|Added new querystring parameters include_texts and include_comments.
 Added|**GET** `/settings/allow_saml2_logoff`|Gets if you are allowed to enable/disable saml2 logoff.
 Added|**GET** `/settings/read_confirmation_irrelevant_to_me_enabled`|Gets the value of the setting read confirmation is irrelevant to me.
+
+
+## Changes in Zenya 6.3.1 update 2
+
+Change|Route|Remarks
+|--|--|--|
+Added|**GET** `/documents/{document_id:guid}/reviewers` | Gets the document reviewers (There is a difference between the documentreviewers on the documentversion and the document)
 
 ## Changes in Zenya 6.3.0
 
