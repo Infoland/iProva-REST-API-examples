@@ -2,154 +2,43 @@
 This example shows how to create a new case.
 In this example the following fields are used:
 - Field with id 1: subject field
-- Field with id 1002: text/e-mail/webpage field
-- Field with id 1003: formatted text field
-- Field with id 1004: (hierarchical/numeric) list field
-- Field with id 1005: date field
-- Field with id 1006: user/function field
-- Field with id 1007: checkbox field
-- Field with id 1008: time field
-- Field with id 1009: numeric field
-- Field with id 1010: attachment field
-- Field with id 1011: framework item field
-- Field with id 1012: card file (i+Data) field
+- Field with id 1002: a list field
+
+- the form_id parameter is the id of the reporter form to fill out. It can be found to navigate to the details of the form and hovering of a language version of a form
+
+- the id of a field can be found by navigating to the field details in application management. The field is in in the url of the field. For instance:
+	https://<customer>.zenya.work/iTask/Admin/GlobalFields/GlobalField_Details.aspx?GlobalFieldID=4552
+
+	the field_id is the value of the "GlobalFieldID" querystring parameter. In this case: 4552
+	It is also possible to set fields based on the field name by passing the "field_name" instead of the "field_id"
+
+For details on the format of the value of all field types, see README.md
 */
 
-var _tokenID = "get token"; // See authorization examples how to get a secure token
+var _credentials = "<credentials>"; // See authorization examples how to generate credentials
 
-function createCase()
-{
-	// Create case for form with id '123'
+function createCase() {
+	// Create case for form with id '195'
 	$.ajax({
 		method: "POST",
-		url: "http://iprova/api/cases",
-		beforeSend: function (request) 
-		{
-			request.setRequestHeader("Authorization", "token " + _tokenID);
+		url: "https://<customer>.zenya.work/api/cases",
+		beforeSend: function (request) {
+			request.setRequestHeader("Authorization", "Basic " + _credentials);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "1");
+			request.setRequestHeader("x-api-version", "3");
 		},
 		contentType: "application/json",
 		data: JSON.stringify(
 			{
-				"form_id": 123,
+				"form_id": 195,
 				"fields": [
 					{
 						"field_id": 1,
-						"values": [
-							{
-								"id": "140"
-							}
-						]
+						"value": 9
 					},
 					{
-						"field_id": 1002,
-						"values": [
-							{
-								"value": "This is a test"
-							}
-						]
-					},
-					{
-						"field_id": 1003,
-						"values": [
-							{
-								"value": "<p>This is a <strong>test</strong><p>"
-							}
-						]
-					},
-					{
-						"field_id": 1004,
-						"values": [
-							{
-								"id": "750"
-							},
-							{
-								"id": "751"
-							},
-							{
-								"id": "752"
-							}
-						]
-					},
-					{
-						"field_id": 1005,
-						"values": [
-							{
-								"id": "20180319"
-							}
-						]
-					},
-					{
-						"field_id": 1006,
-						"values": [
-							{
-								"value": "95ab6190-eafd-4a7c-bf2c-012ab87e6fdf"
-							}
-						]
-					},
-					{
-						"field_id": 1007,
-						"values": [
-							{
-								"value": "1"
-							}
-						]
-					},
-					{
-						"field_id": 1008,
-						"values": [
-							{
-								"value": "16:20"
-							}
-						]
-					},
-					{
-						"field_id": 1009,
-						"values": [
-							{
-								"value": 173
-							}
-						]
-					},
-					{
-						"field_id": 1010,
-						"values": [
-							{
-								"value": "<base64-string of attachment 1>",
-								"file_name" : "Attachment1.txt",
-								"description" : "Description of attachment 1"
-							},
-							{
-								"value": "<base64-string of attachment 2>",
-								"file_name" : "Attachment2.txt",
-								"description" : "Description of attachment 2"
-							}
-						]
-					},
-					{
-						"field_id": 1011,
-						"values": [
-							{
-								"id": "789",
-								"include_sub_items": false
-							},
-							{
-								"id": "1234",
-								"include_sub_items": true
-							}
-						]
-					},
-					{
-						"field_id": 1012,
-						"values": [
-							{
-								"id": "804"
-							},
-							{
-								"id": "805"
-							}
-						]
+						"field_id": 4066,
+						"value": [4934, 4935]
 					}
 				],
 				"gps_location": {
@@ -157,8 +46,7 @@ function createCase()
 					"longitude": 5.41
 				}
 			}),
-		success: function (result)
-		{
+		success: function (result) {
 			alert(result.created_identifier);
 		}
 	});

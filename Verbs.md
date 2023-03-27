@@ -20,11 +20,15 @@ The GET verb is idempotent in all cases.
 The POST verb is used to create a new resource.
 It will return a 201 Created with the route to the new resource in the ```location``` header of the response.
 
-The response body can also contain the id of the created identity:
+The response body will also contain the id of the created identity:
 ```javascript
-  "b3af58cb-edac-43ed-a357-45585e8860ec"
+{
+  "created_identifier":"b3af58cb-edac-43ed-a357-45585e8860ec"
+}
 ```
-When there is a parameter called "strict_validation" available the body contains a "created_identifier" field along with validation messages:
+The response body can also contain additional information, but will always at least contain the "created_identifier" property.
+
+When there is a parameter called "strict_validation"  the body will also contain validation messages:
 ```javascript
   {
     "created_identifier": "b3af58cb-edac-43ed-a357-45585e8860ec",
