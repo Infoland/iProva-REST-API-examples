@@ -4,8 +4,12 @@ This page defines all the changes that were done in the API. There is a differen
 
 
 ## Changes in Zenya 7.0.0
+
+
+
 Change|Route|Remarks
 |--|--|--|
+Removed | Windows and i+Sync authentication | The authentication methods *Windows* and *i+Sync* have been removed because it is technically impossible to use these on SaaS deployments.
 Added | Status code 304 | When using a HEAD verb this code is returned when the resource hasn't been modified.
 Added | Verb HEAD | When only the headers need to be requested.
 
@@ -17,6 +21,8 @@ Added | Verb HEAD | When only the headers need to be requested.
 | Changed | **POST** `/question_lists/filled_out/design`                             | Added allow export and allow print in the response. |
 | Changed | **GET** `/question_lists/filled_out/{completed_question_list_id}/design` | Added allow export and allow print in the response. |
 | Added   | **DELETE** `/cases/{case_id}`                                            | Deletes a draft case.                               |
+
+
 
 ## Changes in Zenya 6.4.0
 
