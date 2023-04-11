@@ -107,13 +107,6 @@ If the username and password of a user are known these credentials can be direct
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
 
-### Via Windows Authentication
-
-<small>Windows Authentication is available from version 5.7.0</small>
-
-When the product is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
-If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user.
-
 ### Via a JWT bearer token (preferred way of connecting as a specific user)
 When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`.
 
