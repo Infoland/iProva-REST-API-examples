@@ -23,7 +23,6 @@ Added | **GET** `license` | Get license of Zenya
 Changed |**GET** `portals/recommended_links`| Added `text_is_exactly_with_synonyms` filter
 Added  |**GET** `settings/{setting_names}`| Exposed extra settings via the api
 Breaking change  |**GET** `settings/languages`| Changed the dto returned
-Changed  |**GET** `settings/languages`| Changed the dto returned
 Changed  |**GET** `users`| Added querystring `include_deleted`, which makes it possible to see deleted users.
 
 ## Changes in Zenya 6.5.0
