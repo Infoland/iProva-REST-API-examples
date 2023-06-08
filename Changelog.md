@@ -5,13 +5,26 @@ This page defines all the changes that were done in the API. There is a differen
 
 ## Changes in Zenya 7.0.0
 
-
-
 Change|Route|Remarks
 |--|--|--|
 Removed | Windows and i+Sync authentication | The authentication methods *Windows* and *i+Sync* have been removed because it is technically impossible to use these on SaaS deployments.
 Added | Status code 304 | When using a HEAD verb this code is returned when the resource hasn't been modified.
 Added | Verb HEAD | When only the headers need to be requested.
+Changed | **ANY** `risks/`| Because of the complete re-write of the 'Risks' module all existing routes have been touched and a lot of new have been introduced
+Breaking change | **ANY** `feedback_campaigns/` | Because of the introduction of campaigns routes for the management of the campaigns have been introduced this very small api was moved from `campaigns` to `feedback_campaigns/`
+Added | **ANY** `campaigns/` | Because of the introduction of campaigns routes for the management of the campaigns have been introduced
+Added | **ANY** `boostparticipantapi/` | Because of the introduction of campaigns routes for the participant side of the campaigns have been introduced
+Added | **ANY** `/users/me/application_state/{key}` | State of the user can now be managed
+Added | **GET** `central_permissions` | Get the central permissions of Zenya and if the current user has the permission
+Added | **GET** `central_permissions` | Get the central permissions of Zenya and if the current user has the permission
+Changed | **GET** `content_items` | The validation of `after_last_visited_date_time` change to accept `yyyyMMddhhmmss`, instead of non supported date formats
+Added | **GET** `healthprobe` | Get the health of Zenya
+Added | **GET** `license` | Get license of Zenya
+Changed |**GET** `portals/recommended_links`| Added `text_is_exactly_with_synonyms` filter
+Added  |**GET** `settings/{setting_names}`| Exposed extra settings via the api
+Breaking change  |**GET** `settings/languages`| Changed the dto returned
+Changed  |**GET** `settings/languages`| Changed the dto returned
+Changed  |**GET** `users`| Added querystring `include_deleted`, which makes it possible to see deleted users.
 
 ## Changes in Zenya 6.5.0
 
@@ -21,7 +34,6 @@ Added | Verb HEAD | When only the headers need to be requested.
 | Changed | **POST** `/question_lists/filled_out/design`                             | Added allow export and allow print in the response. |
 | Changed | **GET** `/question_lists/filled_out/{completed_question_list_id}/design` | Added allow export and allow print in the response. |
 | Added   | **DELETE** `/cases/{case_id}`                                            | Deletes a draft case.                               |
-
 
 
 ## Changes in Zenya 6.4.0
