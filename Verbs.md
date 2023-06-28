@@ -109,5 +109,13 @@ The DELETE verb is idempotent.
 
 May return a 400 when the product is in "read only" mode.
 
+## HEAD
+
+This will the same headers as a GET request, but no body. Can be used for the revalidation of cached resources.
+
+The HEAD verb is idempotent.
+
+Will return a 304 when the resource was not modified when requested.
+
 [idempontency]:<http://www.restapitutorial.com/lessons/idempotency.html>
 [validationcodes]: <ValidationCodes.md>

@@ -72,6 +72,7 @@ The following verbs are used in the API. See the [Verbs][verbs] page for further
 | **PUT** | Used for replacing resources.|
 | **PATCH** | Used for updating resources with partial data. |
 | **DELETE** | Used for deleting resources. |
+| **HEAD** | Used retrieving only the headers of the GET request. |
 
 ## HTTP Status Codes
 The following HTTP status codes can be returned by the services. Check the documentation to know which status code will be returned by which route.
@@ -83,6 +84,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
 |**206**|Partial Content|Returned when streaming a file as a response of a call, and the servers sends a partial response.|
+|**304**|Not Modified|Return when the resource requested hasn't been updated since the last time you accessed it.
 |**400**|Bad Request|Returned when any of the input is wrong or a combination of input would cause an illegal operation.|
 |**401**|Unauthorized|Returned when anything with the credentials is wrong. It is always possible to receive this status code.|
 |**403**|Forbidden|Returned when the authenticated user is forbidden to use a certain aspect of a route.|
@@ -104,13 +106,6 @@ For more information about token authentication see [Tokens][Tokens]
 If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header via basic authetication. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format `<username>:<password>` `Authorization: Basic ai50Lmtpcms6UEAkJHcwcmQ=`. See also https://datatracker.ietf.org/doc/html/rfc7617
 
 Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
-
-### Via Windows Authentication
-
-<small>Windows Authentication is available from version 5.7.0</small>
-
-When the product is configured for automatic logon via WindowsAuthentication this authentication can also be used for API calls.
-If you want to authenticate using windows credentials you must add the custom header `x-authenticate: windows` and send the `authorization` header with the value for the Windows user.
 
 ### Via a JWT bearer token (preferred way of connecting as a specific user)
 When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`.
