@@ -4,6 +4,13 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Old changes](ChangeLogs)
 
+## Changes in Zenya 7.1.0
+
+Change|Route|Remarks
+|--|--|--|
+Removed | **ANY** documents/quick_codes | These routes were in the incorrect place
+Added | **ANY** quick_codes | These routes were moved from 'documents' and were extended for 'question list' support
+
 ## Changes in Zenya 7.0.0.3
 
 Change|Route|Remarks
