@@ -10,6 +10,18 @@ Change|Route|Remarks
 |--|--|--|
 Removed | **ANY** documents/quick_codes | These routes were in the incorrect place
 Added | **ANY** quick_codes | These routes were moved from 'documents' and were extended for 'question list' support
+Added | **ANY** risks/risk_id/actions | Manage actions of a risk
+Added | **ANY** risks/{risk_id}/issues/{issue_id}/actions |Manage actions of an issue
+Added | **GET** risks/controls | Extended to be able to get much more information about the controlers
+Added | **GET** risks/controls/{control_id} | Extended to be able to get much more information about the controlers
+Added | **ANY** attachments | Create, get or download attachments
+Added | **GET** campaigns/{campaign_id} | Extended to be able to get much more information about the campaign
+Added | **ANY** campaigns/{campaign_id}/chat_messages | Manage chat messages of a campaign
+Added | **GET** card_files/{card_file_id} | Extended to be able to get information about section of card files
+Added | **GET** card_files/{card_file_id}/fields | Extended to be able to get information about sections of fields of card files
+Added | **ANY** card_files/{card_file_id}/sections | Manage sections of card files
+
+Regel 4406
 
 ## Changes in Zenya 7.0.0.3
 
