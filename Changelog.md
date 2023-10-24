@@ -14,14 +14,18 @@ Added | **ANY** risks/risk_id/actions | Manage actions of a risk
 Added | **ANY** risks/{risk_id}/issues/{issue_id}/actions |Manage actions of an issue
 Added | **GET** risks/controls | Extended to be able to get much more information about the controlers
 Added | **GET** risks/controls/{control_id} | Extended to be able to get much more information about the controlers
+Added | **ANY** risks/controls/{control_id}/control_tests | Manage control tests
+Added | **ANY** risks/controls/{control_id}/custom_control_test_questions | Manage custom control test questions
 Added | **ANY** attachments | Create, get or download attachments
+Added | **GET** events | Get events from the system
 Added | **GET** campaigns/{campaign_id} | Extended to be able to get much more information about the campaign
 Added | **ANY** campaigns/{campaign_id}/chat_messages | Manage chat messages of a campaign
 Added | **GET** card_files/{card_file_id} | Extended to be able to get information about section of card files
 Added | **GET** card_files/{card_file_id}/fields | Extended to be able to get information about sections of fields of card files
 Added | **ANY** card_files/{card_file_id}/sections | Manage sections of card files
+Added | **ANY** portals/{portal_id}/panels | Manage panels of portals
 
-Regel 4406
+Regel 21828
 
 ## Changes in Zenya 7.0.0.3
 
