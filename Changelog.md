@@ -12,8 +12,8 @@ Removed | **ANY** documents/quick_codes | These routes were in the incorrect pla
 Added | **ANY** quick_codes | These routes were moved from 'documents' and were extended for 'question list' support
 Added | **ANY** risks/risk_id/actions | Manage actions of a risk
 Added | **ANY** risks/{risk_id}/issues/{issue_id}/actions |Manage actions of an issue
-Changed | **GET** risks/controls | Extended to be able to get much more information about the controlers
-Changed | **GET** risks/controls/{control_id} | Extended to be able to get much more information about the controlers
+Changed | **GET** risks/controls | Extended to be able to get much more information about the controllers
+Changed | **GET** risks/controls/{control_id} | Extended to be able to get much more information about the controllers
 Added | **ANY** risks/controls/{control_id}/control_tests | Manage control tests
 Added | **ANY** risks/controls/{control_id}/custom_control_test_questions | Manage custom control test questions
 Added | **ANY** attachments | Create, get or download attachments
