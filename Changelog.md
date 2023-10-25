@@ -2,7 +2,29 @@
 
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
-[Old changes](ChangeLogs)
+[Pre 7.0.0 changes](ChangeLogs)
+
+## Changes in Zenya 7.1.0
+
+Change|Route|Remarks
+|--|--|--|
+Removed | **ANY** documents/quick_codes | These routes were in the incorrect place
+Added | **ANY** quick_codes | These routes were moved from 'documents' and were extended for 'question list' support
+Added | **ANY** risks/risk_id/actions | Manage actions of a risk
+Added | **ANY** risks/{risk_id}/issues/{issue_id}/actions |Manage actions of an issue
+Changed | **GET** risks/controls | Extended to be able to get much more information about the controllers
+Changed | **GET** risks/controls/{control_id} | Extended to be able to get much more information about the controllers
+Added | **ANY** risks/controls/{control_id}/control_tests | Manage control tests
+Added | **ANY** risks/controls/{control_id}/custom_control_test_questions | Manage custom control test questions
+Added | **ANY** attachments | Create, get or download attachments
+Added | **GET** events | Get events from the system
+Changed | **GET** campaigns/{campaign_id} | Extended to be able to get much more information about the campaign
+Added | **ANY** campaigns/{campaign_id}/chat_messages | Manage chat messages of a campaign
+Added | **ANY** campaigns/{campaign_id}/target_groups | Manage target groups of a campaign
+Changed | **GET** card_files/{card_file_id} | Extended to be able to get information about section of card files
+Changed | **GET** card_files/{card_file_id}/fields | Extended to be able to get information about sections of fields of card files
+Added | **ANY** card_files/{card_file_id}/sections | Manage sections of card files
+Added | **ANY** portals/{portal_id}/panels | Manage panels of portals
 
 ## Changes in Zenya 7.0.0.3
 
