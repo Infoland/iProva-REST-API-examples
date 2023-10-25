@@ -2,7 +2,7 @@
 
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
-[Old changes](ChangeLogs)
+[Pre 7.0.0 changes](ChangeLogs)
 
 ## Changes in Zenya 7.1.0
 
@@ -20,12 +20,11 @@ Added | **ANY** attachments | Create, get or download attachments
 Added | **GET** events | Get events from the system
 Added | **GET** campaigns/{campaign_id} | Extended to be able to get much more information about the campaign
 Added | **ANY** campaigns/{campaign_id}/chat_messages | Manage chat messages of a campaign
+Added | **ANY** campaigns/{campaign_id}/target_groups | Manage target groups of a campaign
 Added | **GET** card_files/{card_file_id} | Extended to be able to get information about section of card files
 Added | **GET** card_files/{card_file_id}/fields | Extended to be able to get information about sections of fields of card files
 Added | **ANY** card_files/{card_file_id}/sections | Manage sections of card files
 Added | **ANY** portals/{portal_id}/panels | Manage panels of portals
-
-Regel 21828
 
 ## Changes in Zenya 7.0.0.3
 
