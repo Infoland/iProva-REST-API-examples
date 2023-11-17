@@ -4,6 +4,14 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.1.0.2
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **ANY** documents | The `document` DTO now gets a `language` property
+Added | **GET** {portal_id}/panels/{panel_id} | Gets a portal panel
+Fixed | **POST** {portal_id}/panels | Now returns panel id as defined in the data contract
+
 ## Changes in Zenya 7.1.0
 
 Change|Route|Remarks
