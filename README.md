@@ -127,8 +127,16 @@ To avoid having to enter a new verification code each 30 seconds, you can use th
 When you go to a Zenya url you can pass a [token][Tokens] in the url `?token=<token>` which logs you in automatically.
 
 ## Icons
-Some resources have a icon field, this field contains a string representing the technical name of the icon. Eg. ```thumb_up```.
-All icons come from the following fonts: https://fonts.google.com/icons & https://materialdesignicons.com/ (mdi). For custom portal panels, we introduced a new icon pack, utilizing the material symbols pack to support a broader range of icons. All the symbols come from the following font: https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp
+Resources can have an icon. These are represented in two types: an icon dto or the name of the icon.
+
+The icon dto contains the name, color and which icon pack is used. 
+
+When only the name is used, the route documentation or the property name should indicate the variant used. When both are not supplied, you may assume MI and MDI to be the default.
+
+The following packs are used
+- [Material Icon](https://fonts.google.com/icons/)
+- [Material design icon](https://materialdesignicons.com/)
+- [Material symbol](https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp)
 
 ## Filtering
 Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
