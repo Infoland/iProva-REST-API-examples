@@ -128,7 +128,7 @@ When you go to a Zenya url you can pass a [token][Tokens] in the url `?token=<to
 
 ## Icons
 Some resources have a icon field, this field contains a string representing the technical name of the icon. Eg. ```thumb_up```.
-All icons come from the following fonts: https://fonts.google.com/icons & https://materialdesignicons.com/ (mdi)
+All icons come from the following fonts: https://fonts.google.com/icons & https://materialdesignicons.com/ (mdi). For custom portal panels, we introduced a new icon pack, utilizing the material symbols pack to support a broader range of icons. All the symbols come from the following font: https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp
 
 ## Filtering
 Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
