@@ -5,6 +5,8 @@ This page defines all the changes that were done in the API. There is a differen
 [Pre 7.0.0 changes](ChangeLogs)
 
 ## Changes in Zenya 7.2.0.0
+
+Change|Route|Remarks
 |--|--|--|
 Changed | **ANY** Panels | The image property was changed to an icon object
 Changed | **GET** /portals/{portal_id} | The image property was changed to an icon object
