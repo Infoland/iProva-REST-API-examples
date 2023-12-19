@@ -37,13 +37,14 @@ var data_type =
 };
 ```
 
-Dates are returned in format `yyyyMMdd` and date with times are returned in format `yyyyMMddHHmmss`.
+Dates are returned in format `yyyyMMdd`, times are returned in format `HHmmss` and date with times are returned in format `yyyyMMddHHmmss`.
 Dates are always in the UTC time zone and in ISO format.
 ```javascript
 var example =
 {
 	"inserted_date" : 19830409,
-	"start_datetime" : 200604240830
+	"start_datetime" : 200604240830,
+	"publish_time" : 091659
 };
 ```
 
