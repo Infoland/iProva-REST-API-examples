@@ -55,9 +55,9 @@ Changed | **GET** user_groups/members | Removed parameter user_group_ids
 Breaking change | **GET** users | Removed parameter name_logincode_email_contains (renamed to name_login_code_email_contains)
 Changed | **GET** users/{user_id} | Removed parameter include_statistics
 Removed | **PUT** users/{user_id} | This route was removed
-Breaking change | **ANY** user_groups/members | Removed this route. User the User controller to filter on user group id instead
-Breaking change | **ANY** user_groups/members/filter | Removed this route. User the User controller to filter on user group id instead
-Breaking change | **ANY** user_groups/members/filter/{filter_id} | Removed this route. User the User controller to filter on user group id instead
+Breaking change | **ANY** user_groups/members | Removed this route. Use the User controller to filter on user group id instead
+Breaking change | **ANY** user_groups/members/filter | Removed this route. Use the User controller to filter on user group id instead
+Breaking change | **ANY** user_groups/members/filter/{filter_id} | Removed this route. Use the User controller to filter on user group id instead
 
 ## Changes in Zenya 7.1.0.2
 
