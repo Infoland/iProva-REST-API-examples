@@ -8,7 +8,7 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
-Added | V5 of the API | Version 5 of the API contains a reimplementation of the users and user_groups api
+Added | V5 of the API | Version 5 of the API has been introduced. This api version contains breaking changes in the users and user_groups api's. For now, the default api version will remain 4. In a future version the default api version will change to 5. If you use the users or user_groups api's, please upgrade to version 5 of the api to prevent errors in the future
 Changed | **GET** attachments | Added GET operation
 Changed | **GET** attachments/{attachment_id}/download | Added parameter fileType for thumbnail/preview functionality
 Breaking change | **GET** campaigns | Introduced paging and property filtering
