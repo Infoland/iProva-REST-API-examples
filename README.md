@@ -2,7 +2,9 @@
 This document describes the resources that make up the Zenya API v5. This document is structured in a way that the most important information is presented first.
 
 ## Versioning
-By default, all requests receive the default version of the Zenya API. Most of the time that is the latest version, but currently this is v4. We encourage to explicitly request a version via any of the following ways:
+By default, all requests receive the default version of the Zenya API which is currently v4.
+
+We encourage to explicitly request a version via any of the following ways:
 
 - Via a header: `X-Api-Version: 5`.
 - Via the query string: `api/card_files/cards/1?api-version=5`.
