@@ -4,6 +4,58 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.2.0.0
+
+Change|Route|Remarks
+|--|--|--|
+Added | V5 of the API | Version 5 of the API has been introduced. This api version contains breaking changes in the users and user_groups api's. For now, the default api version will remain 4. In a future version the default api version will change to 5. If you use the users or user_groups api's, please upgrade to version 5 of the api to prevent errors in the future
+Changed | **GET** attachments | Added GET operation
+Changed | **GET** attachments/{attachment_id}/download | Added parameter fileType for thumbnail/preview functionality
+Breaking change | **GET** campaigns | Introduced paging and property filtering
+Breaking change | **GET** campaigns/{campaign_id} | Introduced property filtering
+Changed | **PATCH** campaigns/{campaign_id} | Added option to archive campaigns
+Added | **ANY** chat_messages/{chat_message_id}/opinions | Added functionality to manage chat message opinions
+Added | **ANY** consequence_categories | Added functionality for consequence categories in Risk
+Changed | **ANY** Panels | The image property was changed to an icon object
+Changed | **GET** portals/{portal_id} | The image property was changed to an icon object
+Changed | **GET** risks | Introduced filtering on card ids and on archived status
+Added | **ANY** risks/{risk_id}/causes/suggestions | Added suggestions functionality for causes
+Added | **ANY** risks/{risk_id}/consequences/suggestions | Added suggestions functionality for consequences
+Added | **ANY** risks/{risk_id}/controls/suggestions | Added suggestions functionality for controls
+Changed | **GET** risks/{risk_id}/issues/{issue_id}/attachments/{attachment_id}/download | Added parameter fileType for thumbnail/preview functionality
+Changed | **GET** risks/{risk_id}/risk_evaluations | Added filtering on evaluation types
+Changed | **GET** risks/controls | Added functionality to filter on card ids and archived status
+Changed | **GET** risks/controls/{control_id}/control_tests | Added property filtering for review information
+Changed | **GET** risks/controls/{control_id}/control_tests/{control_test_id} | Added property filtering for review information
+Changed | **GET** risks/controls/{control_id}/control_tests/ {control_test_id}/attachments/{attachment_id}/download | Added parameter fileType for thumbnail/preview functionality
+Added | **ANY** risks/controls/{control_id}/control_tests/{control_test_id}/control_test_reviews | Added control test review functionality
+Changed | **GET** risks/controls/{control_id}/issues/ {issue_id}/attachments/{attachment_id}/download | Added parameter fileType for thumbnail/preview functionality
+Added | **ANY** risks/controls/filter | Added functionality to make complex filters for controls
+Added | **ANY** risks/filter | Added functionality to make complex filters for risks
+Added | **ANY** tags | Added functionality to manage global tags which can be added to Zenya entities
+Added | **ANY** timeline_events/{timeline_event_id}/opinions | Added functionality to manage timeline event opinions
+Changed | **GET** user_groups | Added property filtering for total number of user groups
+Changed | **GET** user_groups | Added functionality for filtering on user_ids, names and group types
+Changed | **PATCH** user_groups/{user_group_id} | Added functionality to apply strict validation
+Changed | **GET** user_groups/filter/{filter_id} | Added property filtering for total number of user groups
+Changed | **GET** user_groups/members | Added parameter userGroupIds
+Changed | **GET** users | Added property filtering for total number of users, and the list of user groups
+Changed | **GET** users | Added property filtering for name and manager
+Changed | **GET** users/{user_id} | Added property filtering for user groups
+Changed | **GET** users/filter/{filter_id} | Added property filter for total number of users, and the list of user groups
+Changed | **GET** users/me | Added property filter for the list of user groups
+Removed | **ANY** risks/{risk_id}/inherent_scores | Functionality of how inherent scores are determined was changed
+Changed | **GET** user_groups | Removed parameters include_start_portals, include_system_groups, include_members, 
+Changed | **GET** user_groups/{user_group_id} | Removed parameter include_start_portal
+Removed | **PUT** user_groups/{user_group_id} | This route was removed
+Removed | **ANY** user_groups/{user_group_id}/members | This route was removed
+Removed | **ANY** user_groups/{user_group_id}/members/{user_id} | This route was removed
+Changed | **GET** user_groups/filter/{filter_id} | Removed parameter includeMembers
+Changed | **GET** user_groups/members | Removed parameter user_group_ids
+Breaking change | **GET** users | Removed parameter name_logincode_email_contains (renamed to name_login_code_email_contains)
+Changed | **GET** users/{user_id} | Removed parameter include_statistics
+Removed | **PUT** users/{user_id} | This route was removed
+
 ## Changes in Zenya 7.1.0.2
 
 Change|Route|Remarks

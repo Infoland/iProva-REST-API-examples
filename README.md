@@ -1,12 +1,14 @@
 # Overview
-This document describes the resources that make up the Zenya API v4. This document is structured in a way that the most important information is presented first.
+This document describes the resources that make up the Zenya API v5. This document is structured in a way that the most important information is presented first.
 
 ## Versioning
-By default, all requests receive the latest version of the Zenya API. Currently this is v4. We encourage to explicitly request this version via one of the following ways:
+By default, all requests receive the default version of the Zenya API which is currently v4.
 
-- Via a header: `X-Api-Version: 4`.
-- Via the query string: `api/card_files/cards/1?api-version=4`.
-- Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=4`.
+We encourage to explicitly request a version via any of the following ways:
+
+- Via a header: `X-Api-Version: 5`.
+- Via the query string: `api/card_files/cards/1?api-version=5`.
+- Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=5`.
 
 The major versions might not be completely backwards compatible with older major versions. Minor versions denote only extensions in the API. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in the following major version.
 
@@ -37,13 +39,14 @@ var data_type =
 };
 ```
 
-Dates are returned in format `yyyyMMdd` and date with times are returned in format `yyyyMMddHHmmss`.
+Dates are returned in format `yyyyMMdd`, times are returned in format `HHmmss` and date with times are returned in format `yyyyMMddHHmmss`.
 Dates are always in the UTC time zone and in ISO format.
 ```javascript
 var example =
 {
 	"inserted_date" : 19830409,
-	"start_datetime" : 200604240830
+	"start_datetime" : 200604240830,
+	"publish_time" : 091659
 };
 ```
 
@@ -127,8 +130,16 @@ To avoid having to enter a new verification code each 30 seconds, you can use th
 When you go to a Zenya url you can pass a [token][Tokens] in the url `?token=<token>` which logs you in automatically.
 
 ## Icons
-Some resources have a icon field, this field contains a string representing the technical name of the icon. Eg. ```thumb_up```.
-All icons come from the following fonts: https://fonts.google.com/icons & https://materialdesignicons.com/ (mdi)
+Resources can have an icon. These are represented in two types: an icon dto or the name of the icon.
+
+The icon dto contains the name, color and which icon pack is used. 
+
+When only the name is used, the route documentation or the property name should indicate the variant used. When both are not supplied, you may assume MI and MDI to be the default.
+
+The following packs are used
+- [Material Icon](https://fonts.google.com/icons/)
+- [Material design icon](https://materialdesignicons.com/)
+- [Material symbol](https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp)
 
 ## Filtering
 Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
