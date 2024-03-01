@@ -4,6 +4,13 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.2.0.3
+
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** "cases/safer_causes/{safer_cause_id:int}/cases | Added functionality to create new case for a safer cause
+Changed | **GET** campaigns | Added option to include the number of resolved invited participants in response
+
 ## Changes in Zenya 7.2.0.0
 
 Change|Route|Remarks
