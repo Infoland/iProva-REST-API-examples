@@ -4,6 +4,115 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.3.0.0
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** attachments/stream | Added streaming for attachments
+Changed | **POST** bearer_tokens | Added parameter automatic_login ()
+Changed | **POST** bearer_tokens/invalidated | Updated API documentation
+Changed | **GET** campaigns | Added parameter include_shared (Whether or not to include the shared status in the response)
+Changed | **GET** campaigns/{campaign_id} | Added parameter include_shared (Whether or not to include the shared status in the response)
+Changed | **GET** campaigns/{campaign_id} | Added parameter include_last_share (Whether or not to include the last share in the response)
+Changed | **GET** campaigns/{campaign_id}/invited_participants | Made the response a paged response
+Changed | **ANY** campaigns/{campaign_id}/invited_participants | Added possibility to use an external invited participant
+Added | **ANY** campaigns/{campaign_id}/shares | Added API for sharing campaigns
+Changed | **GET** cases | Added parameter modified_since (filters on cases that have been modified since the given datetime)
+Added | **ANY** cases/attachments/stream | Added streaming for attachments
+Changed | **GET** events | Added filtering parameters for events
+Changed | **GET** frameworks | Added response code 403
+Changed | **GET** frameworks/{framework_id}/items | Added response code 403
+Changed | **GET** frameworks/{framework_id}/items | Added response code 404
+Changed | **GET** frameworks/items | Added response code 403
+Changed | **POST** frameworks/items/filter | Added response code 201
+Changed | **POST** frameworks/items/filter | Added response code 403
+Changed | **GET** frameworks/items/filter/{filter_id} | Added response code 403
+Changed | **GET** frameworks/items/filter/{filter_id} | Added response code 404
+Changed | **GET** identity_providers/{provider_id}/conflicts | Added response code 404
+Changed | **GET** identity_providers/{provider_id}/conflicts | Added response code 403
+Changed | **POST** identity_providers/{provider_id}/conflicts | Added response code 204
+Changed | **POST** identity_providers/{provider_id}/conflicts | Added response code 403
+Changed | **DELETE** identity_providers/{provider_id}/conflicts/{id} | Added response code 403
+Added | **ANY** main_processes | Added API for processes
+Added | **ANY** planning_activities/activity_types | Added activity types to the API
+Changed | **POST** risks/control_templates | Property 'use_processes' added
+Changed | **POST** risks/control_templates | Property 'use_code' added to enable the legacy code-field
+Changed | **PATCH** risks/control_templates/{control_template_id} | Property 'use_processes' added
+Changed | **PATCH** risks/control_templates/{control_template_id} | Property 'use_code' added
+Added | **ANY** risks/control_tests | Added API for control tests
+Changed | **GET** risks/controls | Added parameter minimum_role (returns only control for which the current user has at least the given role)
+Changed | **GET** risks/controls | Added parameter control_testing_enabled (only return controls for which control testing is enabled/disabled)
+Changed | **GET** risks/controls | Added parameter control_test_reviewing_enabled (only return controls for which control test reviewing is enabled/disabled)
+Changed | **POST** risks/controls | Property 'allow_ad_hoc_review' added
+Changed | **POST** risks/controls | Added ad-hoc review functionality
+Changed | **POST** risks/controls | Property 'process_ids' added
+Changed | **PATCH** risks/controls/{control_id} | Added ad-hoc review functionality
+Changed | **PATCH** risks/controls/{control_id} | Property 'process_ids' added
+Changed | **POST** risks/controls/filter | Added more filter options for control testing
+Changed | **POST** risks/controls/filter | Added minimum role filter
+Changed | **POST** risks/filter | Added archived filter
+Changed | **GET** risks/filter/{filter_id} | Added include flags
+Changed | **POST** risks/risk_templates | Property 'use_processes' added
+Changed | **PATCH** risks/risk_templates/{risk_template_id} | Property 'use_processes' added
+Added | **ANY** sanitizer | Added API to sanitize HTML
+Added | **ANY** tokens/sharing_content_api | Added token-creation functionality for the sharing content API
+Changed | **POST** bearer_tokens | Updated API documentation
+Changed | **DELETE** campaigns/{campaign_id} | Updated API documentation
+Changed | **DELETE** campaigns/invited_participants/{invited_participant_id} | Updated API documentation
+Changed | **DELETE** campaigns/roles/{campaign_role_id} | Updated API documentation
+Changed | **DELETE** campaigns/target_groups/{target_group_id} | Updated API documentation
+Changed | **DELETE** campaigns/timeline_events/{timeline_event_id} | Updated API documentation
+Changed | **DELETE** cases/{case_id} | Updated API documentation
+Changed | **DELETE** cases/to_dos/{to_do_id} | Updated API documentation
+Changed | **GET** events | Updated API documentation
+Changed | **DELETE** favorites/{favorite_id} | Updated API documentation
+Changed | **GET** frameworks | Updated API documentation
+Changed | **GET** frameworks/{framework_id}/items | Updated API documentation
+Changed | **GET** frameworks/items | Updated API documentation
+Changed | **POST** frameworks/items/filter | Updated API documentation
+Changed | **GET** frameworks/items/filter/{filter_id} | Updated API documentation
+Changed | **GET** identity_providers/{provider_id}/conflicts | Updated API documentation
+Changed | **POST** identity_providers/{provider_id}/conflicts | Updated API documentation
+Changed | **DELETE** identity_providers/{provider_id}/conflicts/{id} | Updated API documentation
+Changed | **DELETE** notifications/{notification_id} | Updated API documentation
+Removed | **ANY** portals/{portal_id}/content_items/{content_item_id}/details | Removed unsupported API route
+Changed | **DELETE** portals/{portal_id}/panels/{panel_id} | Updated API documentation
+Changed | **DELETE** portals/content_items/filter/{filter_id}/filter_fields/{filter_field_id} | Updated API documentation
+Changed | **DELETE** portals/news_articles/{news_article_id} | Updated API documentation
+Changed | **DELETE** portals/news_articles/{news_article_id}/portal_ids/{portal_id} | Updated API documentation
+Changed | **DELETE** risks/{risk_id} | Updated API documentation
+Changed | **DELETE** risks/causes/{cause_id} | Updated API documentation
+Changed | **DELETE** risks/controls/{control_id} | Updated API documentation
+Changed | **DELETE** risks/controls/{control_id}/custom_control_test_questions/{custom_control_test_question_id} | Updated API documentation
+Changed | **GET** risks/filter/{filter_id} | Updated API documentation
+Changed | **DELETE** risks/risk_templates/{risk_template_id} | Updated API documentation
+Changed | **DELETE** risks/views/{view_id} | Updated API documentation
+Changed | **GET** saml/saml2 | Updated API documentation
+Changed | **DELETE** teams/{team_id} | Updated API documentation
+Changed | **DELETE** teams/{team_id}/managers | Updated API documentation
+Changed | **DELETE** teams/{team_id}/memberships | Updated API documentation
+Changed | **POST** tokens | Updated API documentation
+Changed | **POST** tokens/support_access_token | Updated API documentation
+Changed | **GET** tokens/token | Updated API documentation
+Changed | **DELETE** user_groups/{user_group_id} | Updated API documentation
+Changed | **DELETE** users/{user_id} | Updated API documentation
+Changed | **DELETE** users/me/application_state/{key} | Updated API documentation
+Changed | **DELETE** users/me/favorites/{favorite_id} | Updated API documentation
+
+### Beta routes
+
+Added | **ANY** audits | Added API for audits
+Added | **ANY** finding_classifications | Added API for findings
+Added | **ANY** finding_classifications/{finding_classification_id} |
+Added | **ANY** finding_classifications/finding_classification_id |
+Added | **ANY** search |
+Added | **ANY** search/question |
+Added | **ANY** search/question/{question_id} |
+Added | **ANY** support/example_questions |
+Added | **ANY** support/questions |
+Added | **ANY** support/questions/{question_id} |
+Added | **ANY** support/questions/{question_id}/feedback |
+
+
 ## Changes in Zenya 7.2.0.3
 
 Change|Route|Remarks
