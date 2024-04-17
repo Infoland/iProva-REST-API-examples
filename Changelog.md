@@ -48,6 +48,8 @@ Removed | **ANY** portals/{portal_id}/content_items/{content_item_id}/details | 
 
 ### Beta routes
 
+Change|Route|Remarks
+|--|--|--|
 Added | **ANY** audits | Added API for audits
 Added | **ANY** finding_classifications | Added API for findings
 Added | **ANY** finding_classifications/{finding_classification_id} |
