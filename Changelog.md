@@ -46,22 +46,7 @@ Added | **ANY** sanitizer | Added API to sanitize HTML
 Added | **ANY** tokens/sharing_content_api | Added token-creation functionality for the sharing content API
 Removed | **ANY** portals/{portal_id}/content_items/{content_item_id}/details | Removed unsupported API route
 
-### Beta routes
-
-Change|Route|Remarks
-|--|--|--|
-Added | **ANY** audits | Added API for audits
-Added | **ANY** finding_classifications | Added API for findings
-Added | **ANY** finding_classifications/{finding_classification_id} |
-Added | **ANY** finding_classifications/finding_classification_id |
-Added | **ANY** search |
-Added | **ANY** search/question |
-Added | **ANY** search/question/{question_id} |
-Added | **ANY** support/example_questions |
-Added | **ANY** support/questions |
-Added | **ANY** support/questions/{question_id} |
-Added | **ANY** support/questions/{question_id}/feedback |
-
+> NB: during this release some routes were added which are only for beta features, which could be changed or dropped later on. These were regarding audits, a new way to search and a new way to get support. Don't use these routes because they are very likely to be not compatible with a new release.
 
 ## Changes in Zenya 7.2.0.3
 
