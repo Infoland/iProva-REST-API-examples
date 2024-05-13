@@ -4,6 +4,50 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.3.0.0
+
+A lot of routes had the documentation updated to match the code
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** attachments/stream | Added streaming for attachments
+Changed | **POST** bearer_tokens | Added parameter automatic_login ()
+Changed | **GET** campaigns | Added parameter include_shared (Whether or not to include the shared status in the response)
+Changed | **GET** campaigns/{campaign_id} | Added parameter include_shared (Whether or not to include the shared status in the response)
+Changed | **GET** campaigns/{campaign_id} | Added parameter include_last_share (Whether or not to include the last share in the response)
+Changed | **GET** campaigns/{campaign_id}/invited_participants | Made the response a paged response
+Changed | **ANY** campaigns/{campaign_id}/invited_participants | Added possibility to use an external invited participant
+Added | **ANY** campaigns/{campaign_id}/shares | Added API for sharing campaigns
+Changed | **GET** cases | Added parameter modified_since (filters on cases that have been modified since the given datetime)
+Added | **ANY** cases/attachments/stream | Added streaming for attachments
+Changed | **GET** events | Added filtering parameters for events
+Added | **ANY** main_processes | Added API for processes
+Added | **ANY** planning_activities/activity_types | Added activity types to the API
+Changed | **POST** risks/control_templates | Property 'use_processes' added
+Changed | **POST** risks/control_templates | Property 'use_code' added to enable the legacy code-field
+Changed | **PATCH** risks/control_templates/{control_template_id} | Property 'use_processes' added
+Changed | **PATCH** risks/control_templates/{control_template_id} | Property 'use_code' added
+Added | **ANY** risks/control_tests | Added API for control tests
+Changed | **GET** risks/controls | Added parameter minimum_role (returns only control for which the current user has at least the given role)
+Changed | **GET** risks/controls | Added parameter control_testing_enabled (only return controls for which control testing is enabled/disabled)
+Changed | **GET** risks/controls | Added parameter control_test_reviewing_enabled (only return controls for which control test reviewing is enabled/disabled)
+Changed | **POST** risks/controls | Property 'allow_ad_hoc_review' added
+Changed | **POST** risks/controls | Added ad-hoc review functionality
+Changed | **POST** risks/controls | Property 'process_ids' added
+Changed | **PATCH** risks/controls/{control_id} | Added ad-hoc review functionality
+Changed | **PATCH** risks/controls/{control_id} | Property 'process_ids' added
+Changed | **POST** risks/controls/filter | Added more filter options for control testing
+Changed | **POST** risks/controls/filter | Added minimum role filter
+Changed | **POST** risks/filter | Added archived filter
+Changed | **GET** risks/filter/{filter_id} | Added include flags
+Changed | **POST** risks/risk_templates | Property 'use_processes' added
+Changed | **PATCH** risks/risk_templates/{risk_template_id} | Property 'use_processes' added
+Added | **ANY** sanitizer | Added API to sanitize HTML
+Added | **ANY** tokens/sharing_content_api | Added token-creation functionality for the sharing content API
+Removed | **ANY** portals/{portal_id}/content_items/{content_item_id}/details | Removed unsupported API route
+
+> NB: during this release some routes were added which are only for beta features, which could be changed or dropped later on. These were regarding audits, a new way to search and a new way to get support. Don't use these routes because they are very likely to be not compatible with a new release.
+
 ## Changes in Zenya 7.2.0.3
 
 Change|Route|Remarks
