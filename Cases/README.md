@@ -24,6 +24,7 @@ The below table contains the format in which fields can be set by using the foll
 |LookupField|-|LookupField is not a settable field. It doesn't have a value
 |Numeric|a numeric value|`value: 5` or `"value": 6.67`
 |NumericList|int or string|`value: 5` or `"value": "option name"`
+|Organization unit|int or int[]|`value:10` or `value: [10,11]`
 |Period|-|Period is not a settable field. It is calculated according to the settings of the field
 |Position|Guid[]|<pre>"value": [<br>{<br>  "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"</br>}]</pre>
 |Risk matrix|-|Risk matrix is not a settable field. It is calculated according to the settings of the field
@@ -52,6 +53,7 @@ The below table contains the format in which fields are returned by the `GET` /a
 |LookupField|LookupField doesn't have a value
 |Numeric|`"value": 6.67`
 |NumericList|<pre>"value": {<br>  "list_option_id": 3,<br>  "name":"option 1"<br>}</pre>
+|Organization unit|<pre>"value": [<br>{<br>  "organization_unit_id": 1,<br>  "name":"OranizationUnitName"<br>},<br>{<br>  "organization_unit_id": 3,<br>  "name":"OranizationUnitName"<br>}]</pre>
 |Period|<pre>"value": {<br>  "value": 3,<br>  "period_unit":"days"<br>}</pre>
 |Position|<pre>"value": [<br>{<br>  "position_id": 3,<br>  "position_name":"position 1"<br>},<br>{<br>  "position_id": 25,<br>  "position_name":"position 2"<br>}]</pre>
 |Risk matrix|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
