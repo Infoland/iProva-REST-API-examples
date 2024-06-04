@@ -8,6 +8,8 @@ This page defines all the changes that were done in the API. There is a differen
 
 These were routes which were only for beta functionalities, check if they were finalized in this release.
 
+Added | **ANY** data | Added API for module formely known as iData / Card files
+
 > ### Beta routes
 
 Change|Route|Remarks
