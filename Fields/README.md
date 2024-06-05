@@ -10,7 +10,7 @@ The below table contains the format in which fields can be set by using the foll
 
 |FieldType| Allowed formats | Example(s) |
 |--|--|--|
-|Attachment|Guid, Guid[], attachment[] or 'mixed array'|<pre>"value": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"</pre> or <br><br><pre>"value": ["EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151", "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152"]</pre> or <br><br><pre>"value": [<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"<br>},<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152"}]</pre> or <br><br><pre>"value": [<br>"EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151", <br>"EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152"<br>{<br>  "id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D153",>},<br>{<br>  "id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D154",<br>}]</pre> Property file_name must contain _name_ and **extension**, e.g. _test_**.txt**
+|Attachment|Guid, Guid[], attachment[] or 'mixed array'|<pre>"value": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"</pre> or <br><br><pre>"value": ["EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151", "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152"]</pre> or <br><br><pre>"value": [<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"<br>},<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152"}]</pre> or <br><br><pre>"value": [<br>"EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151", <br>"EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D152"<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D153",>},<br>{<br>  "attachment_id": "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D154",<br>}]</pre> Property file_name must contain _name_ and **extension**, e.g. _test_**.txt**
 |Boolean|bool|`value:true` or `"value":false`
 |Card file|int or int[]|`value:10` or `value: [10,11]`
 |Date|string in yyyyMMdd format|`"value":"20211212"`
