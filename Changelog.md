@@ -4,6 +4,13 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.3.0 Update 3
+
+| Change  | Route                                                                    | Remarks                                             |
+| ------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
+| Added   | **GET** `/external_sources`                                              | Added a new property retrieve_data_after_selection (indicates if the full data should be retrieved after selection) and another property in the external_source_field_filter_mode (indicates if the field is hidden or not). |
+| Added   | **GET** `/external_sources/{external_source_id }`                       | Added a new property retrieve_data_after_selection (indicates if the full data should be retrieved after selection) and another property in the external_source_field_filter_mode (indicates if the field is hidden or not). |
+
 ## Changes in Zenya 7.3.0.0
 
 A lot of routes had the documentation updated to match the code
