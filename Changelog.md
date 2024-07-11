@@ -4,6 +4,12 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.3.0 Update 4
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** cases/attachments/{attachment_id}/download | Parameter external_actor_identification_id renamed to external_user_unique_key
+
 ## Changes in Zenya 7.3.0 Update 3
 
 | Change  | Route                                                                    | Remarks                                             |
