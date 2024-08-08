@@ -4,6 +4,15 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.3.0 Update 6
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** documents/{document_id}/v{version}/contents | Added route to get document(version) contents
+Added | **ANY** documents/{document_id}/v{version}/download | Added route to download the file of a document(version)
+Changed | **GET** users | Added parameter user_types (The user types to return when getting users)
+Changed | **POST** users/filter | Added parameter user_types (The user types to return when getting users)
+
 ## Changes in Zenya 7.3.0 Update 4
 
 Change|Route|Remarks
