@@ -8,12 +8,15 @@ This page defines all the changes that were done in the API. There is a differen
 
 These were routes which were only for beta functionalities, check if they were finalized in this release.
 
-Added | **ANY** data | Added API for module formely known as iData / Card files
+
 
 > ### Beta routes
 
+These routes are still subject to change.
+
 Change|Route|Remarks
 |--|--|--|
+Added | **ANY** data/ | Added API for module formely known as iData / Card files.
 Added | **ANY** audits | Added API for audits
 Added | **ANY** finding_classifications | Added API for findings
 Added | **ANY** finding_classifications/{finding_classification_id} |
