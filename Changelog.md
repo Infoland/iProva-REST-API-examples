@@ -13,14 +13,11 @@ These were routes which were only for beta functionalities, check if they were f
 > ### Beta routes
 
 These routes are still subject to change.
-
+Naar 750
 Change|Route|Remarks
 |--|--|--|
 Added | **ANY** data/ | Added API for module formely known as iData / Card files.
-Added | **ANY** audits | Added API for audits
-Added | **ANY** finding_classifications | Added API for findings
-Added | **ANY** finding_classifications/{finding_classification_id} |
-Added | **ANY** finding_classifications/finding_classification_id |
+
 Added | **ANY** search |
 Added | **ANY** search/question |
 Added | **ANY** search/question/{question_id} |
@@ -28,6 +25,13 @@ Added | **ANY** support/example_questions |
 Added | **ANY** support/questions |
 Added | **ANY** support/questions/{question_id} |
 Added | **ANY** support/questions/{question_id}/feedback |
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** audits | Added API for audits
+Added | **ANY** finding_classifications | Added API for findings
+Added | **ANY** finding_classifications/{finding_classification_id} |
+Added | **ANY** finding_classifications/finding_classification_id |
 
 ## Changes in Zenya 7.3.0.0
 
