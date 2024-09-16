@@ -27,7 +27,9 @@ Changed | **ANY** risks/controls/{control_id}/control_tests | Added support for 
 Changed | **POST** risks/controls/{control_id}/issues  | Added support for hyperlinks on issues
 Changed | **GET** risks/controls/filter/{filter_id} | Added include_custom_fields and include_custom_field_ids parameters to also include all or specific custom fields 
 Changed | **POST** risks/filter | Property 'main_risk_ids' added
-Added | **ANY** zenya_url_tokens | 
+Added | **ANY** zenya_url_tokens | Added route to create tokens which can validate if the call was really done by your Zenya
+Deleted | **ANY** card_files/sections | **Breaking change** section management was never used from the api
+
 
 
 
