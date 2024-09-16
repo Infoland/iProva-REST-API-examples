@@ -29,9 +29,15 @@ Changed | **GET** risks/controls/filter/{filter_id} | Added include_custom_field
 Changed | **POST** risks/filter | Property 'main_risk_ids' added
 Added | **ANY** zenya_url_tokens | Added route to create tokens which can validate if the call was really done by your Zenya
 Deleted | **ANY** card_files/sections | **Breaking change** section management was never used from the api
+------------------------------
+Beta routes in 740 these routes are still subject to change.
 
-
-
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** data/ | Added API for module formely known as iData / Card files.
+Added  | **ANY** compliance/ | Added api for compliance
+Added | **ANY** search | Added API for AI search functionality
+Added | **ANY** support/example_questions | // Added api for AI questions  functionality
 
 
 ## Changes in Zenya 7.3.0.0
