@@ -40,6 +40,28 @@ Added | **ANY** search | Added API for AI search functionality
 Added | **ANY** support/example_questions | Added api for AI questions  functionality
 Added | **GET** documents/{document_id}/contents/{language} | Get the contents of a document in a certain language
 
+=======
+## Changes in Zenya 7.3.0 Update 6
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** documents/{document_id}/v{version}/contents | Added route to get document(version) contents
+Added | **ANY** documents/{document_id}/v{version}/download | Added route to download the file of a document(version)
+Changed | **GET** users | Added parameter user_types (The user types to return when getting users)
+Changed | **POST** users/filter | Added parameter user_types (The user types to return when getting users)
+
+## Changes in Zenya 7.3.0 Update 4
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** cases/attachments/{attachment_id}/download | Parameter external_actor_identification_id renamed to external_user_unique_key
+
+## Changes in Zenya 7.3.0 Update 3
+
+| Change  | Route                                                                    | Remarks                                             |
+| ------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
+| Added   | **GET** `/external_sources`                                              | Added a new property retrieve_data_after_selection (indicates if the full data should be retrieved after selection) and another property in the external_source_field_filter_mode (indicates if the field is hidden or not). |
+| Added   | **GET** `/external_sources/{external_source_id }`                       | Added a new property retrieve_data_after_selection (indicates if the full data should be retrieved after selection) and another property in the external_source_field_filter_mode (indicates if the field is hidden or not). |
 
 ## Changes in Zenya 7.3.0.0
 
