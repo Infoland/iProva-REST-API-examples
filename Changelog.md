@@ -4,6 +4,43 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.4.0.0
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** audits and sub routes | Added API for audits
+Added | **ANY** findings and sub routes| Added API for findings
+Added | **ANY** finding_classifications and sub routes | Added API for finding classification
+Changed | **GET** hyperlinks | **Breaking change** Get a list of hyperlinks has been reimplemented to be faster and give more meta data
+Changed | **GET** risks | Added filter parameters main_risk_ids, added extension include_sub_risk_actions
+Changed | **POST** risks | Added property 'is_main_risk'
+Changed | **PATCH** risks/{risk_id} | Property 'overridden_main_risk_properties' added
+Added | **ANY** risks/{risk_id}/issues | Added issue management
+Changed | **ANY** risks/risk_templates | Added support for framework limitations on the risk templates
+Changed | **ANY** risks/control_templates | Added support for framework limitations on the control templates
+Changed | **ANY** risks/control_templates | Added support for actions on control tests and control test reviews on the control templates
+Added | **ANY** risks/control_tests/{control_test_id}/actions | Manage actions on tests
+Added | **ANY** risks/control_test_reviews/{control_test_review_id}/actions | Manage actions on reviews
+Changed | **GET** risks/control_tests | Added parameter include_actions, include_reviews and card_ids
+Changed | **ANY** risks/controls/{control_id}/control_tests | Added support for hyperlinks on tests
+Changed | **POST** risks/controls/{control_id}/issues  | Added support for hyperlinks on issues
+Changed | **GET** risks/controls/filter/{filter_id} | Added include_custom_fields and include_custom_field_ids parameters to also include all or specific custom fields 
+Changed | **POST** risks/filter | Property 'main_risk_ids' added
+Added | **ANY** zenya_url_tokens | Added route to create tokens which can validate if the call was really done by your Zenya
+Deleted | **ANY** card_files/sections | **Breaking change** section management was never used from the api
+Deleted | **ANY** card_files/{card_file_id}/sections | **Breaking change** section management was never used from the api
+------------------------------
+Beta routes; these are still subject to change.
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** data/ | Added API for module formely known as iData / Card files.
+Added  | **ANY** compliance/ | Added api for compliance
+Added | **ANY** search | Added API for AI search functionality
+Added | **ANY** support/example_questions | Added api for AI questions  functionality
+Added | **GET** documents/{document_id}/contents/{language} | Get the contents of a document in a certain language
+
+=======
 ## Changes in Zenya 7.3.0 Update 6
 
 Change|Route|Remarks
