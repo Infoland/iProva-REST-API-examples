@@ -40,7 +40,6 @@ Added | **ANY** search | Added API for AI search functionality
 Added | **ANY** support/example_questions | Added api for AI questions  functionality
 Added | **GET** documents/{document_id}/contents/{language} | Get the contents of a document in a certain language
 
-=======
 ## Changes in Zenya 7.3.0 Update 6
 
 Change|Route|Remarks
