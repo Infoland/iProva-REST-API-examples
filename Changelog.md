@@ -4,6 +4,16 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.4.0 Update 1
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** organization_units/{organization_unit_id} | Added the _legacy_mode_ flag: if set to false, it will return the new dto format
+Changed | **GET** organization_units | Added the _legacy_mode_ flag: if set to false, it will return the new dto format
+Changed | **GET** organization_units/filter/{filter_id} | Added the _legacy_mode_ flag: if set to false, it will return the new dto format
+Added | **POST** cases/{case_id:int}/correspondences | Adds new correspondence
+Added | **POST** cases/{case_id:int}/meetings | Adds new meeting
+
 ## Changes in Zenya 7.4.0.0
 
 Change|Route|Remarks
