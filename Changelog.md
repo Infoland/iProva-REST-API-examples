@@ -4,6 +4,16 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+
+## Changes in Zenya 7.4.0 Update 2
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** risks/controls/filter/{filter_id} | Added the _include_control_test_reviews_ parameter: includes the control test reviews for the control tests when include_latest_control_tests is true
+Changed | **GET** risks/controls | Added the _include_control_test_reviews_ parameter: includes the control test reviews for the control tests when include_latest_control_tests is true
+Changed | **GET** risks/controls/{control_id} | Added the _include_control_test_reviews_ parameter: includes the control test reviews for the control tests when include_latest_control_tests is true
+
+
 ## Changes in Zenya 7.4.0 Update 1
 
 Change|Route|Remarks
