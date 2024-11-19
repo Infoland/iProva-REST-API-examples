@@ -4,6 +4,11 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.4.0 Update 3
+
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** organization_units | Creates a new organization unit
 
 ## Changes in Zenya 7.4.0 Update 2
 
