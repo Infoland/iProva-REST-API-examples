@@ -4,6 +4,12 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.5.0
+
+Change|Route|Remarks
+|--|--|--|
+Deleted | **PUT** object/{object_id} | This was never correctly implemented and is replaced with a patch
+Changed | **PATCH** object/{object_id} | Added the possibility to set the permissions and permission mode
 
 ## Changes in Zenya 7.4.0 Update 2
 
