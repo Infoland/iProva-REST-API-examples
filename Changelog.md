@@ -4,6 +4,14 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.4.0 Update 4
+
+Change|Route|Remarks
+|--|--|--|
+ADDED | **PATCH** organization_units/{organization_unit_id} | Updates an organization unit
+ADDED | **DELETE** organization_units/{organization_unit_id} | Deletes an organization unit
+Changed | **GET** search | Added the following parameters: _searchScope_ (of type SearchScopeDto?), _collectionId_ (of type int?) and _continuationToken_ (of type string?)
+
 ## Changes in Zenya 7.4.0 Update 3
 
 Change|Route|Remarks
