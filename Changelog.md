@@ -4,6 +4,13 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.4.0 Update 5
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **PATCH** documents/{document_id}/v{version} | added the boolean property 'locked'. This can lock or unlock the document
+Changed | **GET** documents/{document_id}/v{version} | added the boolean parameter 'include_lock_info'. This will return whether the document is locked. If this is the case, it returns an object with lock information
+
 ## Changes in Zenya 7.4.0 Update 4
 
 Change|Route|Remarks
