@@ -8,19 +8,19 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
-CHANGED | **PATCH** documents/{document_id}/v{version} | Added the boolean property 'locked'. This can lock or unlock the document
-CHANGED | **GET** documents/{document_id}/v{version} | Added the boolean parameter 'include_lock_info'. This will return whether the document is locked. If this is the case, it returns an object with lock information
-ADDED | **GET** healthprobe/dashboarding | Returns "ok" to confirm dashboarding is up and running
-CHANGED | **GET** risks/dashboarding_wake_up | Returns an object of type DashboardingWakeUpDto instead of DateTime
-ADDED | **GET** organization_levels | Gets all organization levels
-ADDED | **GET** organization_levels/{organization_level_id} | Gets an organization level
+Changed | **PATCH** documents/{document_id}/v{version} | Added the boolean property 'locked'. This can lock or unlock the document
+Changed | **GET** documents/{document_id}/v{version} | Added the boolean parameter 'include_lock_info'. This will return whether the document is locked. If this is the case, it returns an object with lock information
+Added | **GET** healthprobe/dashboarding | Returns "ok" to confirm dashboarding is up and running
+Changed | **GET** risks/dashboarding_wake_up | Returns an object of type DashboardingWakeUpDto instead of DateTime
+Added | **GET** organization_levels | Gets all organization levels
+Added | **GET** organization_levels/{organization_level_id} | Gets an organization level
 
 ## Changes in Zenya 7.4.0 Update 4
 
 Change|Route|Remarks
 |--|--|--|
-ADDED | **PATCH** organization_units/{organization_unit_id} | Updates an organization unit
-ADDED | **DELETE** organization_units/{organization_unit_id} | Deletes an organization unit
+Added | **PATCH** organization_units/{organization_unit_id} | Updates an organization unit
+Added | **DELETE** organization_units/{organization_unit_id} | Deletes an organization unit
 Changed | **GET** search | Added the following parameters: _searchScope_ (of type SearchScopeDto?), _collectionId_ (of type int?) and _continuationToken_ (of type string?)
 
 ## Changes in Zenya 7.4.0 Update 3
