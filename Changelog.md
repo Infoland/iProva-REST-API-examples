@@ -8,8 +8,12 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
-Changed | **PATCH** documents/{document_id}/v{version} | added the boolean property 'locked'. This can lock or unlock the document
-Changed | **GET** documents/{document_id}/v{version} | added the boolean parameter 'include_lock_info'. This will return whether the document is locked. If this is the case, it returns an object with lock information
+Changed | **PATCH** documents/{document_id}/v{version} | Added the boolean property 'locked'. This can lock or unlock the document
+Changed | **GET** documents/{document_id}/v{version} | Added the boolean parameter 'include_lock_info'. This will return whether the document is locked. If this is the case, it returns an object with lock information
+ADDED | **GET** healthprobe/dashboarding | Returns "ok" to confirm dashboarding is up and running
+CHANGED | **GET** risks/dashboarding_wake_up | Returns an object of type DashboardingWakeUpDto instead of DateTime
+ADDED | **GET** organization_levels | Gets all organization levels
+ADDED | **GET** organization_levels/{organization_level_id} | Gets an organization level
 
 ## Changes in Zenya 7.4.0 Update 4
 
