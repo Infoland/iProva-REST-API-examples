@@ -4,6 +4,14 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.4.0 Update 6
+
+Change|Route|Remarks
+|--|--|--|
+CHANGED | **GET** campaigns/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto 
+CHANGED | **GET** documents/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto
+CHANGED | **GET** organization_units | Added a new string parameter called _external_ids_ to filter on external ids
+
 ## Changes in Zenya 7.4.0 Update 5
 
 Change|Route|Remarks
