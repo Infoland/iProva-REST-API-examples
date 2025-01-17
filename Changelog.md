@@ -10,7 +10,7 @@ Change|Route|Remarks
 |--|--|--|
 Deleted | **ANY** data | These were the beta routes for the new implementation of the `card file` module. 
 Added | **ANY** objects | These are routes for the new implementation of the `card file` module. NB: image_base64 property is still in beta
-Deprecated | **ANY** card_files | These are routes for the new implementation of the `card file` module. NB: we do not yet have an alternative for POST list_items.
+Deprecated | **ANY** card_files | These are routes for the old implementation of the `card file` module. NB: we do not yet have an alternative for POST list_items.
 Changed | **GET** card_files/cards/{card_id} | Removed parameter include_archived
 Changed | **PUT** cases/case_types/{case_type_id}/permissions | Added PUT operation (Sets case types subjects permissions)
 Added | **ANY** question_lists/question_list_templates | Get question list templates
