@@ -33,6 +33,39 @@ Changed | **GET** organization_units | Removed parameter mode and legacy_mode
 Changed | **GET** organization_units/{organization_unit_id} | Removed parameter legacy_mode
 Changed | **GET** organization_units/filter/{filter_id} | Removed parameter legacy_mode
 
+## Changes in Zenya 7.4.0 Update 6
+
+Change|Route|Remarks
+|--|--|--|
+CHANGED | **GET** campaigns/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto 
+CHANGED | **GET** documents/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto
+CHANGED | **GET** organization_units | Added a new string parameter called _external_ids_ to filter on external ids
+
+## Changes in Zenya 7.4.0 Update 5
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **PATCH** documents/{document_id}/v{version} | Added the boolean property 'locked'. This can lock or unlock the document
+Changed | **GET** documents/{document_id}/v{version} | Added the boolean parameter 'include_lock_info'. This will return whether the document is locked. If this is the case, it returns an object with lock information
+Added | **GET** healthprobe/dashboarding | Returns "ok" to confirm dashboarding is up and running
+Changed | **GET** risks/dashboarding_wake_up | Returns an object of type DashboardingWakeUpDto instead of DateTime
+Added | **GET** organization_levels | Gets all organization levels
+Added | **GET** organization_levels/{organization_level_id} | Gets an organization level
+
+## Changes in Zenya 7.4.0 Update 4
+
+Change|Route|Remarks
+|--|--|--|
+Added | **PATCH** organization_units/{organization_unit_id} | Updates an organization unit
+Added | **DELETE** organization_units/{organization_unit_id} | Deletes an organization unit
+Changed | **GET** search | Added the following parameters: _searchScope_ (of type SearchScopeDto?), _collectionId_ (of type int?) and _continuationToken_ (of type string?)
+
+## Changes in Zenya 7.4.0 Update 3
+
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** organization_units | Creates a new organization unit
+
 ## Changes in Zenya 7.4.0 Update 2
 
 Change|Route|Remarks
