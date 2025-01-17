@@ -29,12 +29,9 @@ Changed | **GET** risks | Removed parameter card_ids
 Changed | **GET** risks/control_tests | Removed parameter card_ids
 Changed | **GET** risks/controls | Removed parameter card_ids
 Changed | **GET** risks/controls/{control_id}/control_tests | Removed parameter card_ids
-Changed | **GET** organization_units | Removed parameter mode
-Changed | **GET** organization_units | Removed parameter legacy_mode
+Changed | **GET** organization_units | Removed parameter mode and legacy_mode
 Changed | **GET** organization_units/{organization_unit_id} | Removed parameter legacy_mode
 Changed | **GET** organization_units/filter/{filter_id} | Removed parameter legacy_mode
-
-
 
 ## Changes in Zenya 7.4.0 Update 2
 
