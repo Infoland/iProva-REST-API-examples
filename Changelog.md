@@ -12,23 +12,19 @@ Deleted | **ANY** data | These were the beta routes for the new implementation o
 Added | **ANY** objects | These are routes for the new implementation of the `card file` module. NB: image_base64 property is still in beta
 Deprecated | **ANY** card_files | These are routes for the old implementation of the `card file` module. NB: we do not yet have an alternative for POST list_items.
 Changed | **GET** card_files/cards/{card_id} | Removed parameter include_archived
-Changed | **PUT** cases/case_types/{case_type_id}/permissions | Added PUT operation (Sets case types subjects permissions)
+Changed | **PUT** cases/case_types/{case_type_id}/permissions | Added PUT operation
 Added | **ANY** question_lists/question_list_templates | Get question list templates
 Added | **ANY** question_lists/question_list_templates/{question_list_template_id} | Get a question list template
-Changed | **GET** risks | Added parameter object_ids (the ids of the cards to filter on)
+Changed | **GET** risks | Added parameter object_ids (Get only risks which have these cards) and removed parameter card_ids
 Changed | **POST** risks/control_templates | Properties 'control_test_data_type_ids', 'use_manual_field_order' and 'manual_field_order' added
 Changed | **PATCH** risks/control_templates/{control_template_id} | Properties 'control_test_data_type_ids', 'use_manual_field_order', 'manual_field_order' and 'clear_consequence_categories' added
-Changed | **GET** risks/control_tests | Added parameter object_ids (Get only control tests which have these cards)
-Changed | **GET** risks/controls | Added parameter object_ids (The ids of the objects to filter on)
+Changed | **GET** risks/control_tests | Added parameter object_ids (Get only control tests which have these cards) and removed parameter card_ids
+Changed | **GET** risks/controls | Added parameter object_ids (Get only controls which have these cards) and removed parameter card_ids
 Changed | **POST** risks/controls/{control_id}/control_tests | Property 'object_id' added 
 Changed | **GET** risks/controls/{control_id}/control_tests | Added parameter object_ids (Get only control tests which have these cards)
 Changed | **POST** risks/controls/filter | Property 'object_ids' added
 Changed | **POST** risks/filter | Property 'object_ids' added
 Changed | **POST** risks/risk_templates | limit_allowed_frameworks can now be null
-Changed | **GET** risks | Removed parameter card_ids
-Changed | **GET** risks/control_tests | Removed parameter card_ids
-Changed | **GET** risks/controls | Removed parameter card_ids
-Changed | **GET** risks/controls/{control_id}/control_tests | Removed parameter card_ids
 Changed | **GET** organization_units | Removed parameter mode and legacy_mode
 Changed | **GET** organization_units/{organization_unit_id} | Removed parameter legacy_mode
 Changed | **GET** organization_units/filter/{filter_id} | Removed parameter legacy_mode
@@ -37,9 +33,9 @@ Changed | **GET** organization_units/filter/{filter_id} | Removed parameter lega
 
 Change|Route|Remarks
 |--|--|--|
-CHANGED | **GET** campaigns/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto 
-CHANGED | **GET** documents/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto
-CHANGED | **GET** organization_units | Added a new string parameter called _external_ids_ to filter on external ids
+Changed | **GET** campaigns/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto 
+Changed | **GET** documents/dashboarding_wake_up | The return type was changed from DateTime to DashboardingWakeUpGetDto
+Changed | **GET** organization_units | Added a new string parameter called _external_ids_ to filter on external ids
 
 ## Changes in Zenya 7.4.0 Update 5
 
