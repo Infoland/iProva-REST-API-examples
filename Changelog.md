@@ -13,7 +13,7 @@ Added | **ANY** audits/dashboarding_wake_up | Wakes up the dashboarding for audi
 Added | **ANY** oauth/token | Token for the app registrations
 Changed | **GET** organization_units | Added parameter active (filters on active/inactive organization units)
 Changed | **PATCH** organization_units/{organization_unit_id} | Property 'active' added
-Changed | **POST** organization_units/filter | Property 'external_ids' added, type of property 'name_in' changed from 'string' to 'array', property 'active' added
+Changed | **POST** organization_units/filter | Property 'external_ids' added, property 'active' added
 
 ## Changes in Zenya 7.5.0
 
