@@ -4,6 +4,17 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.5.0 Update 1
+
+Change|Route|Remarks
+|--|--|--|
+Added | **ANY** app_registrations | API to manage the app registrations
+Added | **ANY** audits/dashboarding_wake_up | Wakes up the dashboarding for audits
+Added | **ANY** oauth/token | Token for the app registrations
+Changed | **GET** organization_units | Added parameter active (filters on active/inactive organization units)
+Changed | **PATCH** organization_units/{organization_unit_id} | Property 'active' added
+Changed | **POST** organization_units/filter | Property 'external_ids' added, property 'active' added
+
 ## Changes in Zenya 7.5.0
 
 Change|Route|Remarks
