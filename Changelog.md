@@ -4,6 +4,13 @@ This page defines all the changes that were done in the API. There is a differen
 
 [Pre 7.0.0 changes](ChangeLogs)
 
+## Changes in Zenya 7.5.0 Update 3
+
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** audits/{audit_id}/attachments/copy | Copy the attachment of an audit, to use in a different audit
+Changed | **GET** audits | Added parameter 'archived' (filter on archived audits)
+
 ## Changes in Zenya 7.5.0 Update 1
 
 Change|Route|Remarks
