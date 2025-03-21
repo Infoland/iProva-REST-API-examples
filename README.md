@@ -2,53 +2,38 @@
 This document describes the resources that make up the Zenya API v5. This document is structured in a way that the most important information is presented first.
 
 ## Versioning
-By default, all requests receive the default version of the Zenya API which is currently v4.
-
 We encourage to explicitly request a version via any of the following ways:
-
 - Via a header: `X-Api-Version: 5`.
 - Via the query string: `api/card_files/cards/1?api-version=5`.
 - Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=5`.
 
-The major versions might not be completely backwards compatible with older major versions. Minor versions denote only extensions in the API. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in the following major version.
+By default, all requests receive the default version of the Zenya API which is currently v4, but we encourage you to use the newest version of the api.
+
+The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following major version.
 
 ## Schema
+
 All API access is possible over the same protocols as the product.
 ```javascript
 var zenya = "https://zenya.yourcompany.nl";
 var api = "https://zenya.yourcompany.nl/api";
 ```
 
-Blank fields are included as `null` instead of being omitted.
-```javascript
-var card =
-{
-	"card_id" : 22,
-	"image" : null
-};
-```
-
-All resources and attributes of the resources are snake cased.
+All resources and attributes of the resources are snake cased. Dates are returned in format `yyyyMMdd`, times are returned in format `HHmmss` and date with times are returned in format `yyyyMMddHHmmss`. Dates are always in the UTC time zone and in ISO format. If an attribute is nullable and the value is null, the attribute will not be present in the resource.
 ```javascript
 var data_type =
 {
 	"data_type_id" : 512,
 	"singular_name" : "Car",
 	"plural_name" : "Cars",
-	"active" : true
+	"active" : true,
+  "inserted_date" : 19830409,
+	"start_datetime" : 200604240830,
+	"publish_time" : 091659,
+  // "archived" : null 
 };
 ```
 
-Dates are returned in format `yyyyMMdd`, times are returned in format `HHmmss` and date with times are returned in format `yyyyMMddHHmmss`.
-Dates are always in the UTC time zone and in ISO format.
-```javascript
-var example =
-{
-	"inserted_date" : 19830409,
-	"start_datetime" : 200604240830,
-	"publish_time" : 091659
-};
-```
 
 ### Summary representations
 When you fetch a list of resources, the response includes a subset of the attributes for that resource. This is the "summary" representation of the resource. Some attributes are computationally expensive for the API to provide. For performance reasons, the summary representation excludes those attributes. To obtain those attributes, fetch the "detailed" representation or, when supported, pass `include_<attribute>=true` via the query string.
@@ -99,35 +84,14 @@ The following HTTP status codes can be returned by the services. Check the docum
 When a 4xx or 500 HTTP status code is returned the response body contains a json object describing the error as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
 
 ## Authentication
-There are four ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned.
+There are five ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documenten in [Authentication][authentication].
 
-### Via Token (preferred authentication method for trusted applications)
-The token can be sent via the Authorization header with the string "token" followed by the token id. `Authorization: token e8f66f95-7ab2-404e-b557-879788b900de`.
-For more information about token authentication see [Tokens][Tokens]
+- Via an app registration (preferred authentication method for trusted applications)
+- Via JWT bearer token (preferred way of connecting as a specific user)
+- Via basic credentials
+- Via token (preferred authentication method to login via an url to a Zenya page)
+- Via cookie
 
-### Via Credentials (Basic authentication)
-If the username and password of a user are known these credentials can be directly used to authenticate the user via the Authorization header via basic authetication. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format `<username>:<password>` `Authorization: Basic ai50Lmtpcms6UEAkJHcwcmQ=`. See also https://datatracker.ietf.org/doc/html/rfc7617
-
-Of course the consumer should keep in mind that this would require the password to be sent via a http header, so only use this in combination with HTTPs.
-
-### Via a JWT bearer token (preferred way of connecting as a specific user)
-When a token is issued, you can use this token to authenticate the user. The header should contain the string "bearer" followed by the token. `Authorization: bearer <mytoken>`.
-
-Of course the consumer should keep in mind that this would require the token to be sent via a http header, so only use this in combination with HTTPs.
-
-For more information about JWT bearer token authentication see [Bearer Tokens][BearerTokens]
-
-
-### Via a cookie
-When the user is already logged in, the product has set an authentication cookie in the browser. When accessing the API when this cookie is set the API will automatically authenticate you using this cookie.
-
-### Two factor authentication
-To be able to make calls to the API with a user for which two factor authentication is enabled, you need to pass an extra Http header containing the current security code. This header is called "x-two-factor-code". The value of this header should be the current code.
-
-To avoid having to enter a new verification code each 30 seconds, you can use the bearer_tokens route to get a bearer token for the user with two factor authentication enabled. All subsequent calls can be authenticated using bearer authorization, without having to specify a security code anymore.
-
-### Query parameter
-When you go to a Zenya url you can pass a [token][Tokens] in the url `?token=<token>` which logs you in automatically.
 
 ## Icons
 Resources can have an icon. These are represented in two types: an icon dto or the name of the icon.
@@ -205,7 +169,7 @@ X-Pagination-Total: 1048
 
 However, because some proxy servers don't allow unknown headers and remove them from the response, and some client might not be able to access the response headers it is possible to get this metadata in the actual result of the call. This can be done by passing the `envelope` query string parameter and setting it to true.
 
-**Example**: `GET api/card_files/1/cards?limit=50&offset=10&envelope=true`
+**Example**: `GET api/objects?limit=50&offset=10&envelope=true`
 
 The result of this call will always be a generic wrapping envelope. This envelope contains two properties: "data" and "pagination". "data" contains the actual result of the request, and "pagination" contains the metadata about the pagination that would normally be present in the response headers:
 
@@ -223,7 +187,6 @@ The result of this call will always be a generic wrapping envelope. This envelop
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 [change_log]: <Changelog.md>
-[tokens]: <Tokens.md>
-[BearerTokens]: <BearerTokens.md>
-[verbs]: <Verbs.md>
-[client_errors]:<ClientErrors.md>
+
+[verbs]: <documentation/Verbs.md>
+[client_errors]:<documentation/ClientErrors.md>

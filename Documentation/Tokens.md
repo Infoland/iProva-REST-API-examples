@@ -18,5 +18,5 @@ For a real life example of calling the API using a token, see the authentication
 Tokens also support sliding expiration. To enable sliding expiration, you need to enable this option for your api-key in the product. Once sliding expiration is enabled, each call to the API using a generated token will reset the expiration time-out for the token. Once the token has expired, it will never become "active" again by calling the API again, and you need to request a new token. For an example on how to use sliding expiration see [Examples][ex_sliding]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
-[ex_insert_card]: <Examples.md#insert-a-card-into-card-file>
-[ex_sliding]: <Examples.md#sliding-token-expiration>
+[ex_insert_card]: <../Examples/Cards/Create card with jQuery.js>
+[ex_sliding]: <../Examples/Authentication//Sliding token expiration with jQuery.js>
