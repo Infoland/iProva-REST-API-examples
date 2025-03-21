@@ -23,14 +23,14 @@ All resources and attributes of the resources are snake cased. Dates are returne
 ```javascript
 var data_type =
 {
-	"data_type_id" : 512,
-	"singular_name" : "Car",
-	"plural_name" : "Cars",
-	"active" : true,
-  "inserted_date" : 19830409,
-	"start_datetime" : 200604240830,
-	"publish_time" : 091659,
-  // "archived" : null 
+  "data_type_id" : 512,
+  "singular_name" : "Car",
+  "plural_name" : "Cars",
+  "active" : true,
+  "inserted_date" : 19830409, // yyyyMMdd
+  "start_datetime" : 200604240830, // yyyyMMddHHmmss
+  "publish_time" : 091659, // HHmmss
+  // "archived" : null // No returned, because null
 };
 ```
 
