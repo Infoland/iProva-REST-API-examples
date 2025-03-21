@@ -1,8 +1,12 @@
 # Overview
 This document describes the resources that make up the Zenya API v5. This document is structured in a way that the most important information is presented first.
 
+## Base url
+
+All API access is possible over the same protocols as the product. So if your url looks like `https://zenya.yourcompany.nl`, your api url would look like this `https://zenya.yourcompany.nl/api`;
+
 ## Versioning
-We encourage to explicitly request a version via any of the following ways:
+We encourage to explicitly define the api version via any of the following ways:
 - Via a header: `X-Api-Version: 5`.
 - Via the query string: `api/card_files/cards/1?api-version=5`.
 - Via the accept header: `Accept: application/vnd.iprova.api+json+api-version=5`.
@@ -11,13 +15,16 @@ By default, all requests receive the default version of the Zenya API which is c
 
 The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following major version.
 
-## Schema
+## Authentication
+There are five ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documenten in [Authentication][authentication].
 
-All API access is possible over the same protocols as the product.
-```javascript
-var zenya = "https://zenya.yourcompany.nl";
-var api = "https://zenya.yourcompany.nl/api";
-```
+- Via an app registration (preferred authentication method for trusted applications)
+- Via JWT bearer token (preferred way of connecting as a specific user)
+- Via basic credentials
+- Via token (preferred authentication method to login via an url to a Zenya page)
+- Via cookie
+
+## Schema
 
 All resources and attributes of the resources are snake cased. Dates are returned in format `yyyyMMdd`, times are returned in format `HHmmss` and date with times are returned in format `yyyyMMddHHmmss`. Dates are always in the UTC time zone and in ISO format. If an attribute is nullable and the value is null, the attribute will not be present in the resource.
 ```javascript
@@ -34,19 +41,10 @@ var data_type =
 };
 ```
 
-
-### Summary representations
-When you fetch a list of resources, the response includes a subset of the attributes for that resource. This is the "summary" representation of the resource. Some attributes are computationally expensive for the API to provide. For performance reasons, the summary representation excludes those attributes. To obtain those attributes, fetch the "detailed" representation or, when supported, pass `include_<attribute>=true` via the query string.
-
-**Example**: When you get a list of cards the image attribute is not filled because this would send the image as a Base64 string. You can include the image by including a query string parameter `GET api/card_files/1/cards?include_image=true`.
-
-### Detailed representations
-When you fetch an individual resource, the response typically includes all attributes for that resource. This is the "detailed" representation of the resource.
-
-**Example**: When you get an individual repository, you get the detailed representation of the repository. Here, we fetch the a card `GET api/card_file/card/1`.
+Depending on the context of the routes less attributes could be return. For example when getting a resource the user has no or less permissions on, or when getting a list of resources. We do strive for the same resource in different contexts looking the same, except for missing attributes. In some cases you need to set an `include_` flag to true to get the information. This could be because the data could be big (for example a possible huge image in base64) or a heavy call on our system (for example sub resources like custom fields)
 
 ## Parameters
-Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter. For example: `GET api/card_files/card/1?include_image=true`.
+Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter. For example: `GET api/objects?include_image=true`.
 
 For POST, PUT, PATCH, and DELETE requests the model parameter should be put in the body. They should be encoded as JSON with a Content-Type of 'application/json'. For example: `POST api/card_files/card/1/image` with body `'{"name":"Hammer", "base64":""}'`.
 
@@ -82,15 +80,6 @@ The following HTTP status codes can be returned by the services. Check the docum
 
 ## Client Errors
 When a 4xx or 500 HTTP status code is returned the response body contains a json object describing the error as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
-
-## Authentication
-There are five ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documenten in [Authentication][authentication].
-
-- Via an app registration (preferred authentication method for trusted applications)
-- Via JWT bearer token (preferred way of connecting as a specific user)
-- Via basic credentials
-- Via token (preferred authentication method to login via an url to a Zenya page)
-- Via cookie
 
 
 ## Icons
