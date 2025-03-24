@@ -37,9 +37,10 @@ Currently you can only use end point if you have created an "App registration" i
     "token_type": "Bearer",
     "expires_in": 600,
   }
-```
+  ```
 
 Exampe of getting a Bearer Token using the OAuth Token EndPoint:
+
 
 ```curl
 curl -X 'POST' \
