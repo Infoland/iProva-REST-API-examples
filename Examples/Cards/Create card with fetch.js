@@ -5,6 +5,9 @@ This example shows how to create a card
 const _bearerToken = "bearer token"; // See authorization examples how to get a secure token
 const _apiBaseUrl = "https://customer.zenya.work/api";
 const _dataTypeId = 1;
+const _externalId = "E_1234";
+const _fieldId = 10005; // Field ID for the text field
+const _fieldValue = "text value"; // Value for the text field
 
 async function createCard() {
 	
@@ -21,11 +24,11 @@ async function createCard() {
 				"data_type_id": _dataTypeId,
 				"custom_field_values": [
 					{
-						"field_id": 10005,
-						"value": "text value"
+						"field_id": _fieldId,
+						"value": _fieldValue
 					}
 				],
-				"external_id": "E_1234"
+				"external_id": _externalId
 			})
 		});
 
