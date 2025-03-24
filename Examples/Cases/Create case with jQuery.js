@@ -15,7 +15,7 @@ In this example the following fields are used:
 For details on the format of the value of all field types, see README.md
 */
 
-var _credentials = "<credentials>"; // See authorization examples how to generate credentials
+const _bearerToken = "<bearer token>"; // See authorization examples how to get a secure token
 
 function createCase() {
 	// Create case for form with id '195'
@@ -23,9 +23,9 @@ function createCase() {
 		method: "POST",
 		url: "https://<customer>.zenya.work/api/cases",
 		beforeSend: function (request) {
-			request.setRequestHeader("Authorization", "Basic " + _credentials);
+			request.setRequestHeader("Authorization", "Bearer " + _bearerToken);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "3");
+			request.setRequestHeader("x-api-version", "5");
 		},
 		contentType: "application/json",
 		data: JSON.stringify(

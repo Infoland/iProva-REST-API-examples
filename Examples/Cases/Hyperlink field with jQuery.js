@@ -10,7 +10,7 @@ or
 For details on the format of a hyperlink field value, see README.md
 */
 
-var _credentials = "<credentials>"; // See authorization examples how to generate credentials
+const _bearerToken = "<bearer token>"; // See authorization examples how to get a secure token
 
 function createTemporaryHyperlink() {
 	// Create temporary hyperlink
@@ -18,9 +18,9 @@ function createTemporaryHyperlink() {
 		method: "POST",
 		url: "https://<customer>.zenya.work/api/hyperlinks",
 		beforeSend: function (request) {
-			request.setRequestHeader("Authorization", "Basic " + _credentials);
+			request.setRequestHeader("Authorization", "Bearer " + _bearerToken);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "3");
+			request.setRequestHeader("x-api-version", "5");
 		},
 		contentType: "application/json",
 		data: JSON.stringify(
@@ -45,9 +45,9 @@ function createCaseWithHyperlink(temporaryHyperlinkId) {
 		method: "POST",
 		url: "https://<customer>.zenya.work/api/cases",
 		beforeSend: function (request) {
-			request.setRequestHeader("Authorization", "Basic " + _credentials);
+			request.setRequestHeader("Authorization", "Bearer " + _bearerToken);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "3");
+			request.setRequestHeader("x-api-version", "5");
 		},
 		contentType: "application/json",
 		data: JSON.stringify(

@@ -2,18 +2,18 @@
 This example shows how to get the notifications of the logged in user.
 */
 
-var _tokenID = "get token"; // See authorization examples how to get a secure token
-
+const _bearerToken = "bearer token"; // See authorization examples how to get a secure token
+const _apiBaseUrl = "https://customer.zenya.work/api";
 function getNotifications()
 {
 	$.ajax({
 		method: "GET",
-		url: "http://iprova/api/users/me/notifications/",
+		url: `${_apiBaseUrl}/users/me/notifications/`,
 		beforeSend: function (request)
 		{
-			request.setRequestHeader("Authorization", "token " + _tokenID);
+			request.setRequestHeader("Authorization", "Bearer " + _bearerToken);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "1");
+			request.setRequestHeader("x-api-version", "5");
 		},
 		contentType: "application/json",
 		success: function (result)

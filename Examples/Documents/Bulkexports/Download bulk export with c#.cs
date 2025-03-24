@@ -12,8 +12,8 @@ async public Task<BulkExport> GetBulkExportDetailsAsync(string id)
     };
 
     // easily add HTTP Headers
-    message.Headers.Add("Authorization", $"bearer {token}");
-    message.Headers.Add("x-api-version", "1");
+    message.Headers.Add("Authorization", $"Bearer {token}");
+    message.Headers.Add("x-api-version", "5");
     message.Headers.Add("x-api_key", apiKey);
 
     var response = await client.SendAsync(message, HttpCompletionOption.ResponseHeadersRead);

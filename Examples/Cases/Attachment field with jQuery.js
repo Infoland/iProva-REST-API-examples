@@ -12,7 +12,7 @@ For details on the format of an attachment field value, see README.md
 
 */
 
-var _credentials = "<credentials>"; // See authorization examples how to generate credentials
+const _bearerToken = "<bearer token>"; // See authorization examples how to get a secure token
 
 function createTemporaryAttachment() {
 	// Create temporary attachment
@@ -20,9 +20,9 @@ function createTemporaryAttachment() {
 		method: "POST",
 		url: "https://<customer>.zenya.work/api/cases/attachments",
 		beforeSend: function (request) {
-			request.setRequestHeader("Authorization", "Basic " + _credentials);
+			request.setRequestHeader("Authorization", "Bearer " + _bearerToken);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "3");
+			request.setRequestHeader("x-api-version", "5");
 		},
 		contentType: "application/json",
 		data: JSON.stringify(
@@ -42,9 +42,9 @@ function createCaseWithAttachment(temporaryAttachmentId) {
 		method: "POST",
 		url: "https://<customer>.zenya.work/api/cases",
 		beforeSend: function (request) {
-			request.setRequestHeader("Authorization", "Basic " + _credentials);
+			request.setRequestHeader("Authorization", "Bearer " + _bearerToken);
 			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "3");
+			request.setRequestHeader("x-api-version", "5");
 		},
 		contentType: "application/json",
 		data: JSON.stringify(
