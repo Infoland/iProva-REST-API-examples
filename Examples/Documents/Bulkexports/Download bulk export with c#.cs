@@ -7,7 +7,7 @@ async public Task<BulkExport> GetBulkExportDetailsAsync(string id)
     var client = new HttpClient();
     var message = new HttpRequestMessage()
     {
-        RequestUri = new Uri($"http://iprova/api/documents/bulk_exports/{id}"),
+        RequestUri = new Uri($"http://customer.zenya.work/api/documents/bulk_exports/{id}"),
         Method = HttpMethod.Get
     };
 
@@ -37,7 +37,7 @@ async public Task<BulkExport> DownloadBulkExportAsync(string id, string zipPath)
     var client = new HttpClient();
     var message = new HttpRequestMessage()
     {
-        RequestUri = new Uri($"http://iprova/api/documents/bulk_exports/{id}/download"),
+        RequestUri = new Uri($"http://customer.zenya.work/api/documents/bulk_exports/{id}/download"),
         Method = HttpMethod.Get
     };
 

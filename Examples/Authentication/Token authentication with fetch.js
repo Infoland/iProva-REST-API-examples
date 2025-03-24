@@ -13,7 +13,7 @@ const handleFetchError = (error) => {
     alert(JSON.stringify(error));
 };
 
-// Create token and call function to get the iProva version
+// Create token and call function to get the Zenya version
 fetch("https://customer.zenya.work/api/tokens", {
     method: "POST",
     headers: {
@@ -34,11 +34,11 @@ fetch("https://customer.zenya.work/api/tokens", {
 })
 .then(result => {
     _tokenID = result;
-    displayIProvaVersion();
+    displayZenyaVersion();
 })
 .catch(handleFetchError);
 
-function displayIProvaVersion() {
+function displayZenyaVersion() {
     fetch("https://customer.zenya.work/api/versions/iprova", {
         method: "GET",
         headers: {

@@ -24,7 +24,7 @@ The below table contains the format in which fields can be set by using the foll
 |Score matrix 3D|-|Score matrix 3D is not a settable field. It is calculated according to the settings of the field
 |Time|string in time format (hh:mm)|`"value":"12:31"`
 "EEC6D86E-9CFE-4D50-8FFB-F51F9FA8D151"</br>}]</pre>
-|WebPage|string in format `<scheme>://<host>/<path>`|`"value":"https://www.infoland.nl/"`
+|WebPage|string in format `<scheme>://<host>/<path>`|`"value":"https://www.zenya-software.com/"`
 
 ## Field output format
 The below table contains the format in which fields are returned by the `GET` /api/cases/{case_id} route
@@ -41,4 +41,4 @@ The below table contains the format in which fields are returned by the `GET` /a
 |Risk matrix|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
 |Score matrix 3D|<pre>"value": {<br>  "value": 3,<br>  "text":"Section name"<br>}</pre>
 Time|`"value":"12:31"`
-|WebPage|`"value":"https://www.infoland.nl/"`
+|WebPage|`"value":"https://www.zenya-software.com/"`

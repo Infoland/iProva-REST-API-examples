@@ -3,11 +3,11 @@ This example shows how to implement a sliding token expiration system using the 
 Note: Never expose your apiKey in the front end.
 */
 
-const API_KEY = "set api key";
-const USERNAME = "j.t.kirk";
-let tokenId = null;
+const _apiBaseUrl = "https://customer.zenya.work/api";
+const _apiKey = "set api key";
+const _username = "j.t.kirk";
+let _tokenId = null;
 
-const API_BASE_URL = "https://customer.zenya.work/api";
 const API_HEADERS = {
     "x-api-version": "5",
     "Accept": "application/vnd.example.api+json"
@@ -15,17 +15,17 @@ const API_HEADERS = {
 
 async function ensureToken(forceTokenRefresh = false) {
     if (forceTokenRefresh || !tokenId) {
-        const response = await fetch(`${API_BASE_URL}/tokens`, {
+        const response = await fetch(`${_apiBaseUrl}/tokens`, {
             method: "POST",
             headers: {
                 ...API_HEADERS,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ api_key: API_KEY, username: USERNAME })
+            body: JSON.stringify({ api_key: _apiKey, username: _username })
         });
-        tokenId = await response.json();
+        _tokenId = await response.json();
     }
-    return tokenId;
+    return _tokenId;
 }
 
 async function executeAPICall({ method, url, forceTokenRefresh = false }) {
@@ -36,7 +36,7 @@ async function executeAPICall({ method, url, forceTokenRefresh = false }) {
             method,
             headers: {
                 ...API_HEADERS,
-                "Authorization": `Token ${tokenId}`,
+                "Authorization": `Token ${_tokenId}`,
                 "Content-Type": "application/json"
             }
         });
@@ -62,11 +62,11 @@ async function getiProvaVersion() {
     try {
         const result = await executeAPICall({
             method: "GET",
-            url: `${API_BASE_URL}/versions/iprova`
+            url: `${_apiBaseUrl}/versions/iprova`
         });
-        console.log("iProva version:", result);
+        console.log("Zenya version:", result);
         return result;
     } catch (error) {
-        console.error("Failed to get iProva version:", error);
+        console.error("Failed to get Zenya version:", error);
     }
 } 
