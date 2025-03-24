@@ -2,8 +2,8 @@
 
 This page defines all the changes that were done in the API. There is a difference between the version of the API and the version of Zenya. A new major API version will only be created when we have to introduce breaking changes to the API. New routes, enhanced routes and bug fixes can be introduced with a new Zenya version without creating a new API version.
 
-[Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
-[Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
+- [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
+- [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
 ## Changes in Zenya 7.5.0 Update 1
 
