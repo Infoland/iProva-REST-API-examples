@@ -24,6 +24,8 @@ X-Pagination-Returned: 50
 X-Pagination-Total: 1048
 ```
 
+[Example of implementation][ex_generic].
+
 However, because some proxy servers don't allow unknown headers and remove them from the response, and some client might not be able to access the response headers it is possible to get this metadata in the actual result of the call. This can be done by passing the `envelope` query string parameter and setting it to true.
 
 **Example**: `GET api/objects?limit=50&offset=10&envelope=true`
@@ -41,3 +43,9 @@ The result of this call will always be a generic wrapping envelope. This envelop
   }
 }
 ```
+
+[Example of implementation][ex_env].
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
+[ex_env]: <../Examples/Generic/Pagination/Pagination manipulation with fetch.js>
+[ex_generic]: <../Examples/Generic/Pagination/Pagination results with fetch.js>
