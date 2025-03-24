@@ -89,6 +89,15 @@ These changes required developers to:
 - base64 image properties => should be replaced with the attachment system.
 - Removed `POST list_items` => no replacement, because assesed not to be used outside Zenya.
 
+
+These routes have been changed in V4 after being deprecated since 7.5.0. These have been used outside of Zenya
+- `ANY users`
+- `ANY user_groups`
+
+These changes required developers to:
+- Start using V5 of the api (or later)
+- Double check the properties used of the `user` and `user_group` resource used.
+
 ### Zenya 7.5.0
 
 These were changed without a transition period because it gave a weird result.

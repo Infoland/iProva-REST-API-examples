@@ -1,12 +1,11 @@
 /*
 This example shows how credential authentication is handled with fetch API.
-Of course you should never expose your apiKey in the front end.
 Also a token can expire after a while. It is possible to implement a sliding token expiration system. There is a different example for that.
 */
 
-const _apiKey = "set api key";
 const _userName = "j.t.kirk";
 const _password = "set password";
+const _apiBaseUrl = "https://customer.zenya.work/api";
 let _bearerTokenID;
 
 // Create token and call function to get the iProva version
@@ -14,9 +13,8 @@ fetch("http://iprova/api/bearer_tokens", {
     method: "POST",
     headers: {
         "x-api-version": "5",
-        "x-api_key": _apiKey,
         "Accept": "application/vnd.example.api+json",
-        "Authorization": `credentials u:${_userName} pwd:${_password}`,
+        "Authorization": `Basic u:${_userName} pwd:${_password}`,
         "Content-Type": "application/json"
     }
 })
