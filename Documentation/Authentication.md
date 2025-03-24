@@ -37,9 +37,9 @@ Currently you can only use end point if you have created an "App registration" i
     "token_type": "Bearer",
     "expires_in": 600,
   }
-  ```
+```
 
-  Exampe:
+Exampe:
 ```curl
 curl -X 'POST' \
   'https://customer.zenya.work/api/oauth/token' \
@@ -82,6 +82,7 @@ curl -X 'POST' \
   "api_key": "<api key>",
   "username": "<login code of a user>"
 }'
+```
 
 The response is a token string.
 
