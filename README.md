@@ -16,9 +16,7 @@ By default, all requests receive the default version of the Zenya API which is c
 The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following version.
 
 ## Authentication
-There are two ways to authenticate against the api. When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documented in detail in [Authentication][authentication].
-
-- Via bearer token (preferred way)
+Bearer tokens are the preferred way to authenticate against the api. You can generate a bearertoken in several ways.  When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documented in detail in [Authentication][authentication].
 
 ## Schema
 
@@ -76,7 +74,6 @@ The following HTTP status codes can be returned by the services. Check the docum
 
 ## Client Errors
 When a 4xx or 500 HTTP status code is returned the response body contains a json object describing the error as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
-
 
 ## Icons
 Resources can have an icon. These are represented in two types: an icon dto or the name of the icon.
