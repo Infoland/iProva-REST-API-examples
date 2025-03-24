@@ -107,4 +107,4 @@ The response is a Bearer Token string.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 [ex_sliding]: <../Examples/Authentication//Sliding token expiration with jQuery.js>
-[BearerTokenExample]: <../Examples/Authentication/BearerToken%20authentication%20with%20jQuery.js>
+[BearerTokenExample]: <../Examples/Authentication/BearerToken authentication with javascript.js>
