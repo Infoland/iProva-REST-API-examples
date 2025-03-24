@@ -39,7 +39,8 @@ Currently you can only use end point if you have created an "App registration" i
   }
 ```
 
-Exampe:
+Exampe of getting a Bearer Token using the OAuth Token EndPoint:
+
 ```curl
 curl -X 'POST' \
   'https://customer.zenya.work/api/oauth/token' \
