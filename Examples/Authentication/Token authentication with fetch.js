@@ -6,12 +6,6 @@ Also a token can expire after a while. It is possible to implement a sliding tok
 
 const _apiKey = "set api key";
 const _userName = "j.t.kirk";
-let _tokenID;
-
-// Helper function to handle fetch errors
-const handleFetchError = (error) => {
-    alert(JSON.stringify(error));
-};
 
 // Create token and call function to get the Zenya version
 fetch("https://customer.zenya.work/api/tokens", {
@@ -33,28 +27,9 @@ fetch("https://customer.zenya.work/api/tokens", {
     return response.json();
 })
 .then(result => {
-    _tokenID = result;
-    displayZenyaVersion();
+    console.log(result)
 })
-.catch(handleFetchError);
+.catch(error => {
+    alert(error);
+});
 
-function displayZenyaVersion() {
-    fetch("https://customer.zenya.work/api/versions/iprova", {
-        method: "GET",
-        headers: {
-            "Authorization": "token " + _tokenID,
-            "Accept": "application/vnd.example.api+json",
-            "x-api-version": "1"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(result => {
-        alert(result.version);
-    })
-    .catch(handleFetchError);
-}

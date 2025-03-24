@@ -24,7 +24,7 @@ There are 2 methods to generate a bearer token:
 
 ## 1. OAuth Token Endpoint
 
-Currently you can only use end point if you have created an "App registration" in Zenya for "machine to machine" communication.
+Currently you can only use end point if you have created an "App registration" in Zenya for "machine to machine" communication. For more information about the OAuth 2.0 standard see this [web page][oauth2standard]
 
 - **Endpoint**: `POST /oauth/token`
 - **Content-Type**: `application/x-www-form-urlencoded`
@@ -75,11 +75,9 @@ curl --location --request POST 'https://customer.zenya.work/api/bearer_tokens' \
 ### 2.2 With One Time Password
 There is also an older system which is used to generate something like an "One Time Password" (OTP), an token based on an api key and a user name. This is used in cases that a system wants to automaticly log a user into Zenya. [Example of implementation][tokenexample].
 
-Tokens are linked to an api-key. api-keys can be created within the product and are needed to access the API. Tokens can only be generated using an api-key for which "token generation" has been enabled in the product. The usage of the API key can be restricted on a set of IP Address ranges (IPv4 and IPv6) and/or on a set of user names.
+Tokens are linked to an Api Key, defined as a resource in Zenya. Tokens can only be generated using an api-key for which "token generation" has been enabled in the product. The usage of the API key can be restricted on a set of IP Address ranges (IPv4 and IPv6) and/or on a set of user names.
 
 Tokens are time limited. This means they expire after a short amount of time. This means that you cannot infinitely re-use a token. 
-
-Tokens also support sliding expiration. To enable sliding expiration, you need to enable this option for your api-key in the product. Once sliding expiration is enabled, each call to the API using a generated token will reset the expiration time-out for the token. Once the token has expired, it will never become "active" again by calling the API again, and you need to request a new token. [Example of implementation][ex_sliding]
 
 Example of getting a token:
 ```c
@@ -111,4 +109,5 @@ The response is a Bearer Token string.
 [BearerTokenExample]: <../Examples/Authentication/BearerTokenExample.js>
 [tokenexample]: <../Examples/Authentication/Token authentication with fetch.js>
 [oathexample]: <../Examples/Authentication/OAuth with fetch.js>
-[basicexample]: <../Examples/Authentication/Basic authentication with fetch.js.js>
+[basicexample]: <../Examples/Authentication/Basic authentication with fetch.js>
+[oauth2standard]: <https://oauth.net/2/>
