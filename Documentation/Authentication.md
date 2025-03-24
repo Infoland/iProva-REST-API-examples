@@ -3,13 +3,15 @@
 
 Our API uses Bearer Token authentication to secure endpoints. Clients must include a valid token in the `Authorization` header of each request, formatted as `Authorization: Bearer <token>`.
 
+Bearer Tokens have a fixed expiration date of 2 weeks after generation. However, using the bearer token, you can request a new bearer token. So by getting a new bearer token within 2 weeks, it is possible to implement your own sliding expiration
+
 Example:
 ```
 curl -X GET https://customer.zenya.work/api/<some_resources>> \
   -H "Authorization: Bearer <generated-token>"
 ```
 
-[More information](BearerTokens.md)
+For a real life example of calling the API using a token, see [Bearer token example][BearerTokenExample].
 
 # Obtaining a Bearer Token
 
@@ -70,7 +72,13 @@ curl --location --request POST 'https://customer.zenya.work/api/bearer_tokens' \
 ```
 
 ### 2.2 With One Time Password
-There is also an older system which is used to generate something like an "One Time Password" (OTP), an token based on an api key and a user name. This is used in cases that a system wants to automaticly log a user into Zenya. [More information](Tokens.md)
+There is also an older system which is used to generate something like an "One Time Password" (OTP), an token based on an api key and a user name. This is used in cases that a system wants to automaticly log a user into Zenya.
+
+Tokens are linked to an api-key. api-keys can be created within the product and are needed to access the API. Tokens can only be generated using an api-key for which "token generation" has been enabled in the product. The usage of the API key can be restricted on a set of IP Address ranges (IPv4 and IPv6) and/or on a set of user names.
+
+Tokens are time limited. This means they expire after a short amount of time. This means that you cannot infinitely re-use a token. 
+
+Tokens also support sliding expiration. To enable sliding expiration, you need to enable this option for your api-key in the product. Once sliding expiration is enabled, each call to the API using a generated token will reset the expiration time-out for the token. Once the token has expired, it will never become "active" again by calling the API again, and you need to request a new token. [Example of implementation][ex_sliding]
 
 Example of getting a token:
 ```c
@@ -96,3 +104,7 @@ curl --location --request POST 'https://customer.zenya.work/api/bearer_tokens' \
 ```
 
 The response is a Bearer Token string.
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
+[ex_sliding]: <../Examples/Authentication//Sliding token expiration with jQuery.js>
+[BearerTokenExample]: <../Examples/Authentication/BearerToken%20authentication%20with%20jQuery.js>
