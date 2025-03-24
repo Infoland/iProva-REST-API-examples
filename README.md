@@ -3,7 +3,7 @@ This document describes the resources that make up the Zenya API v5. This docume
 
 ## Base url
 
-All API access is possible over the same protocols as the product. So if your url looks like `https://zenya.yourcompany.nl`, your api url would look like this `https://zenya.yourcompany.nl/api`;
+All API access is possible over the same protocols as the product. So if your url looks like `https://yourcompany.zenya.work`, your api url would look like this `https://yourcompany.zenya.work/api`;
 
 ## Versioning
 We encourage to explicitly define the api version via any of the following ways:
@@ -88,40 +88,7 @@ The following packs are used
 - [Material symbol](https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp)
 
 ## Filtering
-Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request.
-
-If a route filtering it will always have implemented both ways.
-
-If there are multiple filter rules, they are applied as an "and" operator.
-
-### Filtering via the querystring
-Filtering via the querystring is as easy as setting the optional filter rules. The notation is always `rule_name=value`.
-
-**Example**: `GET api/entities?name=JCI&entity_ids=1,2,3,4`
-
-The value has a certain notation for its type.
-
-| Type | Format | Examples
-|--|--|--|
-| **text** | text value | name=John%20Doe
-| **list** | Comma separated values | entity_ids=1,2,3,4
-
-This is very easy, but can be limiting when you want to filter on a lot of values. In that case you can use the stored filter mechanism.
-
-### Filtering via stored filter
-Using the filter mechanism consists of two steps: creating the filter and retrieving the items with the filter id. The paths always consists of the normal route used to filter via the querystring appended  with "/filter".
-
-`POST api/entities/filter` with a filter object as post data:
-
-```javascript
-{
-  "entity_ids" : [1,2,3],
-  "name": "John Doe"
-}
-```
-
-This returns a Created (201) response with the id of the filter and 'location' header with the route for retrieving the entities using the filter:
-`GET api/enitities/filter/9289c2bd-26bc-422e-ba68-3d2768489bea`
+Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request. If there are multiple filter rules, they are applied as an "and" operator. [More information] (Filtering)
 
 ## Pagination
 Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters.
@@ -169,7 +136,8 @@ The result of this call will always be a generic wrapping envelope. This envelop
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 [change_log]: <Changelog.md>
-
+[breakingchanges]: <BreakingChanges.md>
 [verbs]: <Documentation/Verbs.md>
 [client_errors]:<Documentation/ClientErrors.md>
 [Authentication]:<Documentation/Authentication.md>
+[Filtering]:<Documentation/Filtering.md>
