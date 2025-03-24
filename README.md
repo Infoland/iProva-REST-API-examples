@@ -37,10 +37,29 @@ var data_type =
 
 Depending on the context of the routes less attributes could be return. For example when getting a resource the user has no or less permissions on, or when getting a list of resources. We do strive for the same resource in different contexts looking the same, except for missing attributes. In some cases you need to set an `include_` flag to true to get the information. This could be because the data could be big (for example a possible huge image in base64) or a heavy call on our system (for example sub resources like custom fields)
 
-## Parameters
+### Parameters
 Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter. For example: `GET api/objects?include_image=true`.
 
 For POST, PUT, PATCH, and DELETE requests the model parameter should be put in the body. They should be encoded as JSON with a Content-Type of 'application/json'. For example: `POST api/card_files/card/1/image` with body `'{"name":"Hammer", "base64":""}'`.
+
+### Filtering
+Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request. If there are multiple filter rules, they are applied as an "and" operator. [More information][Filtering]
+
+### Pagination
+Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. [More information][Pagination]
+
+### Icon attributes
+Resources can have an icon. These are represented in two types: an icon dto or the name of the icon.
+
+The icon dto contains the name, color and which icon pack is used. 
+
+When only the name is used, the route documentation or the property name should indicate the variant used. When both are not supplied, you may assume MI and MDI to be the default.
+
+The following packs are used
+- [Material Icon](https://fonts.google.com/icons/)
+- [Material design icon](https://materialdesignicons.com/)
+- [Material symbol](https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp)
+
 
 ## HTTP Verbs
 The following verbs are used in the API. See the [Verbs][verbs] page for further information.
@@ -75,23 +94,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 ## Client Errors
 When a 4xx or 500 HTTP status code is returned the response body contains a json object describing the error as specific as possible without exposing too much information. See the [Client errors][client_errors] page for detailed information per client error.
 
-## Icons
-Resources can have an icon. These are represented in two types: an icon dto or the name of the icon.
 
-The icon dto contains the name, color and which icon pack is used. 
-
-When only the name is used, the route documentation or the property name should indicate the variant used. When both are not supplied, you may assume MI and MDI to be the default.
-
-The following packs are used
-- [Material Icon](https://fonts.google.com/icons/)
-- [Material design icon](https://materialdesignicons.com/)
-- [Material symbol](https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp)
-
-## Filtering
-Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request. If there are multiple filter rules, they are applied as an "and" operator. [More information][Filtering]
-
-## Pagination
-Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters. [More information][Pagination]
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 [change_log]: <Changelog.md>
