@@ -13,16 +13,12 @@ We encourage to explicitly define the api version via any of the following ways:
 
 By default, all requests receive the default version of the Zenya API which is currently v4, but we encourage you to use the newest version of the api.
 
-The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following major version.
+The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following version.
 
 ## Authentication
-There are five ways to authenticate yourself. When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documenten in [Authentication][authentication].
+There are two ways to authenticate against the api. When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documented in detail in [Authentication][authentication].
 
-- Via an app registration (preferred authentication method for trusted applications)
-- Via JWT bearer token (preferred way of connecting as a specific user)
-- Via basic credentials
-- Via token (preferred authentication method to login via an url to a Zenya page)
-- Via cookie
+- Via bearer token (preferred way)
 
 ## Schema
 
@@ -179,3 +175,4 @@ The result of this call will always be a generic wrapping envelope. This envelop
 
 [verbs]: <Documentation/Verbs.md>
 [client_errors]:<Documentation/ClientErrors.md>
+[Authentication]:<Documentation/Authentication.md>
