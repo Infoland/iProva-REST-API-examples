@@ -88,7 +88,7 @@ The following packs are used
 - [Material symbol](https://fonts.google.com/icons?icon.set=Material+Symbols&icon.style=Sharp)
 
 ## Filtering
-Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request. If there are multiple filter rules, they are applied as an "and" operator. [More information] (Filtering)
+Filtering is implemented in two ways. Both are RESTful and will filter in completely the same way. The difference is that one uses querystring parameters for each filter rule and the other one stores a filter which can be applied to a follow up request. If there are multiple filter rules, they are applied as an "and" operator. [More information][Filtering]
 
 ## Pagination
 Some api paths have been implemented using paginated results. This means that when getting the results, you only get a subset of the result, representing a single page of results. You can influence the data being returned by using the "limit" and "offset" querystring parameters.
