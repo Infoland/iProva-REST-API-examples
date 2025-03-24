@@ -90,7 +90,7 @@ These changes required developers to:
 - Removed `POST list_items` => no replacement, because assesed not to be used outside Zenya.
 
 
-These routes have been changed in V4 after being deprecated since 7.5.0. These have been used outside of Zenya
+These routes have been removed in V4 after being deprecated since 7.2.0. These have been used outside of Zenya.
 - `ANY users`
 - `ANY user_groups`
 
