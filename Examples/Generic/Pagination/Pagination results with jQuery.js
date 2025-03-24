@@ -6,42 +6,51 @@ When set to true the pagination information will be wrapped into an envelope tog
 By default the envelope is false, but it can be enabled to get the pagination through certain firewall and policy setups
 */
 
-var _tokenID = "get token"; // See authorization examples how to get a secure token
+const _bearerToken = "get token"; // See authorization examples how to get a secure token
+const _apiBaseUrl = "https://customer.zenya.work/api";
+const _dataTypeId = 1;
 
-function getCards(envelope)
-{
-	if (envelope !== true || envelope !== false)
-		envelope = false;
+async function getObjects(envelope = false) {
+    try {
+        const params = new URLSearchParams({
+            data_type_ids: _dataTypeId,
+            limit: 10,
+            offset: 0,
+            include_total_count: true,
+			envelope: envelope
+        });
 
-	// Get cards of card file with id '1'
-	var cardFileID = 1;
-	var cardID;
-	$.ajax({
-		method: "GET",
-		url: "http://iprova/api/card_files/" + cardFileID + "/cards?envelope=" + envelope,
-		beforeSend: function (request) 
+        const response = await fetch(`${_apiBaseUrl}/objects?${params}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${_bearerToken}`,
+                'Accept': 'application/vnd.example.api+json',
+                'x-api-version': '5'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+		var totalNumber; 
+		var returnedNumber;
+		if (envelope)
 		{
-			request.setRequestHeader("Authorization", "token " + _tokenID);
-			request.setRequestHeader("Accept", "application/vnd.example.api+json");
-			request.setRequestHeader("x-api-version", "1");
-		},
-		contentType: "application/json",
-		success: function (result, textStatus, jqXHR)
-		{			
-			var totalNumber; 
-			var returnedNumber;
-			if (envelope)
-			{
-				totalNumber = result.pagination.total;
-				returnedNumber = result.pagination.returned;
-			}
-			else
-			{
-				totalNumber = jqXHR.getResponseHeader("X-Pagination-Total");
-				returnedNumber = result.length ;
-			}
-
-			alert("Number of cards: " + returnedNumber + " of " + totalNumber);
+			totalNumber = result.pagination.total;
+			returnedNumber = result.pagination.returned;
 		}
-	});
+		else
+		{
+			totalNumber = jqXHR.getResponseHeader("X-Pagination-Total");
+			returnedNumber = result.length ;
+		}
+
+		alert("Number of cards: " + returnedNumber + " of " + totalNumber);
+    } catch (error) {
+        console.error('Error fetching objects:', error);
+        alert('Error fetching objects: ' + error.message);
+    }
 }
+
