@@ -13,7 +13,7 @@ We encourage to explicitly define the api version via any of the following ways:
 
 By default, all requests receive the default version of the Zenya API which is currently v4, but we encourage you to use the newest version of the api.
 
-The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following version.
+The major versions are not backwards compatible with older major versions. The changelog can be found at [this location][change_log], it contains information about the changes and also will describe candidates which are marked to become deprecated in a following version. More information about [breaking changes][breakingchanges] can be found here.
 
 ## Authentication
 Bearer tokens are the preferred way to authenticate against the api. You can generate a bearertoken in several ways.  When the authentication fails a 401 Unauthorized HTTP status code wil be returned. The ways to authenticate are documented in detail in [Authentication][authentication].
