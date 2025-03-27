@@ -52,7 +52,7 @@ curl -X 'POST' \
   -d 'grant_type=client_credentials&client_id=d4fd4842-e80e-417f-b5e5-78f5e413448d&client_secret=%23S8rKlE%2BVJW%21e%29KNbHWSi%23%26-6s52%26u_PqAUoS2Q%2BDGtEYhd%5Eg%2BjxbEaFvF3rZOJH'
 ```
 
-[Example of implementation][oauthexample].
+[Example of implementation][oathexample].
 
 ## 2. Bearer Token EndPoint (for user to machine authentication)
 - **Endpoint**: `POST /bearer_tokens`
