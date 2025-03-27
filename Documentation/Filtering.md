@@ -10,13 +10,14 @@ Some resources support multiple ways of filtering; see the OpenAPI documentation
 
 ## Filtering via the query string using $filter in an OData style
 
-Filtering via the query string using `$filter` follows the OData style. This allows for more complex filtering expressions, such as `or` operators, parentheses between predicate operations, or `lt`, `gt`, `contains(property, 'value')`.
+Filtering via the query string using `$filter` follows the OData style. This allows for more complex filtering expressions, such as `or` operators, parentheses between predicate operations, or `lt`, `gt`, `contains(property, 'value')`. This is the only way to filter on values of a custom fields.
 
 **Example**: `GET api/entities?$filter=(name eq 'John Doe' or contains(name, 'Jane')) and age lt 42`
+**Example**: `GET api/entities?$filter=custom_field123 eq 'John Doe'`
 
 Be aware that our API is not an OData API and we do not support all OData functionalities.
 
-### Supported Data Types and Operators
+### Supported data types and operators
 
 | Data Type | Operators | Examples |
 |-----------|-----------|----------|
