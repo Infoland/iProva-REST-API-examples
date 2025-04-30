@@ -10,9 +10,9 @@ Some resources support multiple ways of filtering; see the OpenAPI documentation
 
 ## Filtering via the query string using $filter in an OData style
 
-Filtering via the query string using `$filter` follows the OData style. This allows for more complex filtering expressions, such as `or` operators, parentheses between predicate operations, or `lt`, `gt`, `contains(property, 'value')`. This is the only way to filter on values of a custom fields.
+Filtering via the query string using `$filter` follows the OData style. This allows for more complex filtering expressions, such as `or` operators, parentheses between predicate operations, or `lt`, `gt`, `contains(property, 'value')`. This is the only way to filter on values of custom fields.
 
-- **Example filtering on static attributes**: `GET api/entities?$filter=(name eq 'John Doe' or contains(name, 'Jane')) and age lt 42`
+- **Example filtering on attributes**: `GET api/entities?$filter=(name eq 'John Doe' or contains(name, 'Jane')) and age lt 42`
 - **Example filtering on a custom text field**: `GET api/entities?$filter=custom_field123 eq 'John Doe'`
 
 Be aware that our API is not an OData API and we do not support all OData functionalities. So always check the OpenApi documention for what is possible.
@@ -26,7 +26,7 @@ Be aware that our API is not an OData API and we do not support all OData functi
 
 ## Filtering via the query string with specific properties
 
-Filtering via the query string is as easy as setting the optional filter rules. The notation is always `rule_name=value`.
+Filtering via the query string can be done by adding the supported filter rule name with value to the query string. The notation is always `rule_name=value`. The OpenAPI documentation shows which filter rules are supported.
 
 **Example**: `GET api/entities?name=JCI&entity_ids=1,2,3,4`
 
