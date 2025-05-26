@@ -83,14 +83,14 @@ These routes have been removed after being deprecated since 7.4.0. These have be
 - **Deleted**: `data` routes (beta routes for new `card file` module implementation)
 - **Deprecated**: `card_files` routes (old implementation of `card file` module)
 
-These changes required developers to:
+These changes require developers to make changes:
 - Change `ANY card_files` => `ANY objects/data_types` or `ANY objects/custom_fields`.
 - Change `ANY cards` => `ANY objects`.
 - base64 image properties => should be replaced with the attachment system.
 - Removed `POST list_items` => no replacement, because assesed not to be used outside Zenya.
+- Change `GET audits/findings/{finding_id}/attachments/{attachment_id}/download` to `GET audits/{audit_id}/findings/{finding_id}/attachments/{attachment_id}/download`
 
-
-These routes have been removed in V4 after being deprecated since 7.2.0. These have been used outside of Zenya.
+These routes have removed in V4 after being deprecated since 7.2.0. Use V5 instead. These have been used outside of Zenya.
 - `ANY users`
 - `ANY user_groups`
 

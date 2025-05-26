@@ -5,6 +5,25 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.6.0
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** campaigns and  campaigns/{campaign_id}  | Added parameters include_auto_generate_subjects and include_unsubscribe_mode
+Added | **ANY** compliance/views | For compliance (in beta)
+Changed | **GET** documents | Added GET operation
+Added | **ANY** objects/{object_id}/change_proposals | Added new change proposal system to cards
+Changed | **GET** objects/{object_id}/documents | Added parameter include_involved_persons
+Changed | **GET** objects/data_types and objects/data_types/{data_type_id} | Added parameters include_list_definitions and include_import_field
+Changed | **GET** objects/{object_id}/question_lists | Removed parameter include_final_verdict (because this is always returned)
+Added | **GET** question_lists  and  question_lists/{question_list_id}| Added GET operation
+Added | **GET** question_lists/survey_studies | Added GET operation
+Changed | **GET** question_lists/survey_studies/{survey_study_id} | Added parameters include_subjects and include_actors and removed parameter include_question_list
+Added | **GET** audits/{audit_id}/findings/{finding_id}/attachments/{attachment_id}/download | Download an attachment from a finding of an audit
+Removed | **GET** audits/findings/{finding_id}/attachments/{attachment_id}/download | Removed this route to download an attachment from a finding of an audit
+
+
+
 ## Changes in Zenya 7.5.0 Update 3
 
 Change|Route|Remarks
@@ -131,7 +150,7 @@ Beta routes; these are still subject to change.
 Change|Route|Remarks
 |--|--|--|
 Added | **ANY** data/ | Added API for module formely known as iData / Card files.
-Added  | **ANY** compliance/ | Added api for compliance
+Added  | **ANY** compliance/ | Added api for compliance (in beta)
 Added | **ANY** search | Added API for AI search functionality
 Added | **ANY** support/example_questions | Added api for AI questions  functionality
 Added | **GET** documents/{document_id}/contents/{language} | Get the contents of a document in a certain language
