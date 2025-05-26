@@ -11,14 +11,11 @@ Change|Route|Remarks
 |--|--|--|
 Added | **ANY** audits/{audit_id}/findings/{finding_id}/attachments/{attachment_id}/download |
 Changed | **GET** campaigns and  campaigns/{campaign_id}  | Added parameters include_auto_generate_subjects and include_unsubscribe_mode
-Changed | **GET** | Added parameter include_auto_generate_subjects (Whether or not to include the auto generate subjects in the response)
-Changed | **GET** campaigns/{campaign_id} | Added parameter include_unsubscribe_mode ()
 Added | **ANY** compliance/views | For compliance (in beta)
 Changed | **GET** documents | Added GET operation
 Added | **ANY** objects/{object_id}/change_proposals | Added new change proposal system to cards
 Changed | **GET** objects/{object_id}/documents | Added parameter include_involved_persons (Include the involved persons)
-Changed | **GET** objects/data_types | Added parameters include_list_definitions and include_import_field
-Changed | **GET** objects/data_types and objects/data_types/{data_type_id} | Added parameter include_import_field (Whether or not to include the import field)
+Changed | **GET** objects/data_types and objects/data_types/{data_type_id} | Added parameters include_list_definitions and include_import_field
 Added | **GET** question_lists  and  question_lists/{question_list_id}| Added GET operation
 Added | **GET** question_lists/survey_studies | Added GET operation
 Changed | **GET** question_lists/survey_studies/{survey_study_id} | Added parameters include_subjects and include_actors and removed parameter include_question_list
