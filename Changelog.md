@@ -13,9 +13,9 @@ Changed | **GET** campaigns and  campaigns/{campaign_id}  | Added parameters inc
 Added | **ANY** compliance/views | For compliance (in beta)
 Changed | **GET** documents | Added GET operation
 Added | **ANY** objects/{object_id}/change_proposals | Added new change proposal system to cards
-Changed | **GET** objects/{object_id}/documents | Added parameter include_involved_persons (Include the involved persons)
+Changed | **GET** objects/{object_id}/documents | Added parameter include_involved_persons
 Changed | **GET** objects/data_types and objects/data_types/{data_type_id} | Added parameters include_list_definitions and include_import_field
-Changed | **GET** objects/{object_id}/question_lists | Removed parameter include_final_verdict (because this is always returns
+Changed | **GET** objects/{object_id}/question_lists | Removed parameter include_final_verdict (because this is always returned)
 Added | **GET** question_lists  and  question_lists/{question_list_id}| Added GET operation
 Added | **GET** question_lists/survey_studies | Added GET operation
 Changed | **GET** question_lists/survey_studies/{survey_study_id} | Added parameters include_subjects and include_actors and removed parameter include_question_list
