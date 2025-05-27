@@ -9,7 +9,6 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
-Changed | **GET** campaigns and  campaigns/{campaign_id}  | Added parameters include_auto_generate_subjects and include_unsubscribe_mode
 Added | **ANY** compliance/views | For compliance (in beta)
 Changed | **GET** documents | Added GET operation
 Added | **ANY** objects/{object_id}/change_proposals | Added new change proposal system to cards
