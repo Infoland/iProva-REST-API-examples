@@ -22,6 +22,12 @@ Added | **GET** audits/{audit_id}/findings/{finding_id}/attachments/{attachment_
 Removed | **GET** audits/findings/{finding_id}/attachments/{attachment_id}/download | Removed this route to download an attachment from a finding of an audit
 
 
+## Changes in Zenya 7.5.0 Update 9
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **POST** organization_units/filter | The returned object now includes a new property: 'ParentIds'
+Changed | **GET** organization_units | Added parameter 'parent_ids' (parent ids to filter on)
 
 ## Changes in Zenya 7.5.0 Update 3
 
