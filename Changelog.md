@@ -5,6 +5,10 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.6.0.1
+
+The default api version has changed from 4 to 5. Since all breaking changes between these versions were in the users or user_groups api's, which have been removed in 7.6, we can safely change the default api version now.
+
 ## Changes in Zenya 7.6.0
 
 Change|Route|Remarks
