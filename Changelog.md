@@ -10,7 +10,7 @@ This page defines all the changes that were done in the API. There is a differen
 Change|Route|Remarks
 |--|--|--|
 Changed | **PATCH** compliance/views/{view_id} | Added PATCH operation (Updates a view)
-Added | **ANY** settings/show_linked_risks_in_my_control_tests | Added a setting indicating whether to show linked risks in control tests
+Added | **ANY** settings/show_linked_risks_in_my_control_tests | Added a setting indicating whether to show linked risks in "My control tests"
 
 ## Changes in Zenya 7.6.0 Update 1
 
