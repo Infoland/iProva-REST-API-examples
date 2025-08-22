@@ -24,7 +24,7 @@ There are 2 methods to generate a bearer token:
 
 ## 1. OAuth Token Endpoint
 
-Currently you can only use end point if you have created an "App registration" in Zenya for "machine to machine" communication. For more information about the OAuth 2.0 standard see this [web page][oauth2standard]
+Currently, you can only use the endpoint if you have created an app registration in Zenya. An app registration is a resource used for machine-to-machine communication and can be created through Application Management. For more information about the OAuth 2.0 standard, see this [web page][oauth2standard].
 
 - **Endpoint**: `POST /oauth/token`
 - **Content-Type**: `application/x-www-form-urlencoded`
@@ -75,9 +75,7 @@ curl --location --request POST 'https://customer.zenya.work/api/bearer_tokens' \
 ### 2.2 With One Time Password
 There is also an older system which is used to generate something like an "One Time Password" (OTP), an token based on an api key and a user name. This is used in cases that a system wants to automaticly log a user into Zenya. [Example of implementation][tokenexample].
 
-Tokens are linked to an Api Key, defined as a resource in Zenya. Tokens can only be generated using an api-key for which "token generation" has been enabled in the product. The usage of the API key can be restricted on a set of IP Address ranges (IPv4 and IPv6) and/or on a set of user names.
-
-Tokens are time limited. This means they expire after a short amount of time. This means that you cannot infinitely re-use a token. 
+Tokens are linked to an Api Key, defined as a resource in Zenya. Tokens can only be generated using an api-key for which "token generation" has been enabled in the product. The usage of the API key can be restricted on a set of IP Address ranges (IPv4 and IPv6) and/or on a set of user names. Tokens are time-limited and, by default, expire after 5 minutes. The API key can be configured for sliding expiration, which extends validity while in use. Always assume a token has expired and request a new one when needed.
 
 Example of getting a token:
 ```c
