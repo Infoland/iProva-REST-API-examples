@@ -61,7 +61,7 @@ curl -X 'POST' \
 - **Response**: a string with the bearer token
 
 ### 2.1 With Basic Http Authentication
-Submit your credentials via Basic Auth to receive a bearer token. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format <username>:<password>. See also https://datatracker.ietf.org/doc/html/rfc7617. [Example of implementation][basicexample].
+Submit your credentials via Basic Auth to receive a bearer token. The header should contain the string "Basic" followed by a base64 encoded string containing the credentials in the following format `<username>:<password>`. See also https://datatracker.ietf.org/doc/html/rfc7617. [Example of implementation][basicexample].
 
 
 Example of getting a Bearer Token with basic http authentication
