@@ -24,7 +24,7 @@ There are 2 methods to generate a bearer token:
 
 ## 1. OAuth Token Endpoint
 
-Currently, you can only use the endpoint if you have created an app registration in Zenya. An app registration is a resource used for machine-to-machine communication and can be created through Application Management. For more information about the OAuth 2.0 standard, see this [web page][oauth2standard].
+Currently, you can only use the endpoint if you have created an app registration in Zenya. An _app registration_ is a resource used for machine-to-machine communication and can be created through _Application Management_. For more information about the OAuth 2.0 standard, see this [web page][oauth2standard].
 
 - **Endpoint**: `POST /oauth/token`
 - **Content-Type**: `application/x-www-form-urlencoded`
