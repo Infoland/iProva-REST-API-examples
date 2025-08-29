@@ -5,6 +5,13 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.6.0 Update 5
+
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** question_lists/filter | Stores a filter to be used to get question lists in a follow up call
+Added | **GET** question_lists/filter/{filter_id} | Retrieve question lists using a previously defined filter
+
 ## Changes in Zenya 7.6.0 Update 3
 
 Change|Route|Remarks
