@@ -26,6 +26,12 @@ There are 2 methods to generate a bearer token:
 
 Currently, you can only use the endpoint if you have created an app registration in Zenya. An _app registration_ is a resource used for machine-to-machine communication and can be created through _Application Management_. For more information about the OAuth 2.0 standard, see this [web page][oauth2standard].
 
+We support two authentication methods in the client credentials flow:
+- client_id + client_secret (RFC 6749)
+- client_id + client_assertion (RFC 7523, JWT client assertion).
+
+Route details:
+
 - **Endpoint**: `POST /oauth/token`
 - **Content-Type**: `application/x-www-form-urlencoded`
 - **Request Body Parameters**:
@@ -41,7 +47,18 @@ Currently, you can only use the endpoint if you have created an app registration
   }
   ```
 
-Exampe of getting a Bearer Token using the OAuth Token EndPoint:
+Exampe of getting a Bearer Token using the OAuth Token EndPoint, using a client secret (RFC 6749):
+
+```curl
+curl -X 'POST' \
+  'https://customer.zenya.work/api/oauth/token' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'x-api-version: 5' \
+  -d 'grant_type=client_credentials&client_id=d4fd4842-e80e-417f-b5e5-78f5e413448d&client_secret=%23S8rKlE%2BVJW%21e%29KNbHWSi%23%26-6s52%26u_PqAUoS2Q%2BDGtEYhd%5Eg%2BjxbEaFvF3rZOJH'
+```
+
+Exampe of getting a Bearer Token using the OAuth Token EndPoint, using a client assertion (RFC 7523):
 
 ```curl
 curl -X 'POST' \
