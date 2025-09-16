@@ -9,7 +9,7 @@ This page defines all the changes that were done in the API. There is a differen
 
 Change|Route|Remarks
 |--|--|--|
-Added | **ANY** cases/{caseId}/field_prompt_requests |
+Added | **ANY** cases/{caseId}/field_prompt_requests | Create a request to execute a prompt on a part of case and get the result
 Added | **ANY** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/evidence_suggestions |
 Changed | **GET** compliance/framework_item_configurations | Added parameter include_owners (Indicates that you want the owners)
 Changed | **GET** compliance/framework_item_configurations/{framework_item_id} | Added parameter include_owners (Indicates that you want the owners)
