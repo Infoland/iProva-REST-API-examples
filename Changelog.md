@@ -5,6 +5,16 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.5.0 Update 7
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** portals/{portal_id}/content_items | Added parameter include_permissions
+Changed | **GET** portals/content_items | Added parameter include_content_chunks
+Changed | **GET** portals/content_items | Added parameter include_permissions
+Added | **ANY** settings/show_ip_in_activity_log | Exposed setting about showing  the IP address column in the activity log
+Added | **ANY** settings/show_user_in_activity_log | Exposed setting about showing the username column int the activity log
+
 ## Changes in Zenya 7.6.0 Update 6
 
 Change|Route|Remarks
