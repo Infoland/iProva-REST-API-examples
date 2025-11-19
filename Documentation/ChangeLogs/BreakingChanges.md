@@ -78,9 +78,9 @@ If you encounter issues with breaking changes or need assistance updating your a
 ## Breaking Changes Overview
 
 ### Zenya 7.7.0
-- **Deleted**: GET `properties` routes and sub routes of 'user_groups' and `users` resources have been deleted. The information present in those properties had been moved to the respective dto's a while ago.
-- **Moved** | **ANY** consequence_categories | Moved to risks/consequence_categories
-- **Replace** | **PATCH** finding_classifications/finding_classification_id?finding_classification_id={finding_classification_id} | Was fixed to finding_classifications/{finding_classification_id}
+- **Deleted**: GET `properties` routes and sub routes of `user_groups` and `users` resources have been deleted. The information present in those properties had been moved to the respective dto's a while ago.
+- **Moved** | **ANY** `consequence_categories` | Moved to risks/consequence_categories
+- **Replace** | **PATCH** `finding_classifications/finding_classification_id?finding_classification_id={finding_classification_id}` | Was fixed to `finding_classifications/{finding_classification_id}`
 - **Replace** | **POST** audits/{audit_id}/attachments/copy | Moved to `audits/{audit_id}/attachments`
 
 ### Zenya 7.6.0
