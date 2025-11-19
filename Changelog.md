@@ -67,8 +67,9 @@ Added | **PUT** settings/enabled_ai_summary_documents | Enable/disable AI summar
 Added | **PUT** settings/enabled_ai_translate_documents | Enable/disable AI translation of interactive documents
 Added | **PUT** settings/enabled_timeline_event_ai_image | Enable/disable AI image generation for timeline events
 Changed | **GET** users | Added parameter external_ids, managers_id, positions_ids, organization_unit_ids, is_manager
-Changed | **PATCH** finding_classifications/finding_classification_id | Moved to finding_classifications/{finding_classification_id}
+Changed | **PATCH** finding_classifications/finding_classification_id | Moved to `finding_classifications/{finding_classification_id}`
 Changed | **ANY** consequence_categories | Moved to risks/consequence_categories
+Changed | **POST** audits/{audit_id}/attachments/copy | Moved to `audits/{audit_id}/attachments`
 Removed | **ANY** user_groups/properties | Removed route(s)
 Removed | **ANY** user_groups/properties/{property_name} | Removed route(s)
 Removed | **ANY** users/properties | Removed route(s)
