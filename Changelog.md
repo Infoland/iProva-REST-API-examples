@@ -12,10 +12,8 @@ Change|Route|Remarks
 Changed | **GET** audits | Added parameters include_custom_fields and include_custom_field_ids
 Changed | **GET** audits/{audit_id} | Added parameters include_custom_fields and include_custom_field_ids
 Added | **POST** audits/{audit_id}/custom_fields | Sets the valiue of the given custom fields for an audit
-Added | **GET** audits/custom_fields | Gets the custom fields for audits
-Added | **POST** audits/custom_fields | Creates a new audit custom field
-Added | **PATCH** audits/custom_fields/{field_id} | Updates an audit custom field
-Added | **DELETE** audits/custom_fields/{field_id} | Deletes an audit custom field
+Added | **GET**, **POST** audits/custom_fields | Custom field support for audits
+Added | **PATCH**, **DELETE** audits/custom_fields/{field_id} | Updates or deletes an audit custom field
 Added | **GET** audits/custom_fields/{field_id}/list_items | Gets the list items for an audit custom field which has list items
 Added | **POST** campaigns/{campaign_id}/timeline_events/ generate_image_requests | Generates an image request for a timeline event
 Added | **GET** campaigns/{campaign_id}/timeline_events/ generate_image_requests/{image_generation_request_id} | Gets a specific image generation request
@@ -49,24 +47,18 @@ Changed | **GET** positions/filter/{filter_id} | Added parameters offset, limit,
 Added | **POST** question_lists/filter/{filter_id}/generate_analysis_requests | Start generation of analysis for question lists matching the filter
 Added | **GET** question_lists/filter/{filter_id}/generate_analysis_requests/{request_id} | Gets the status of a question list generation request
 Added | **POST** question_lists/filter/{filter_id}/generate_analysis_requests/{request_id}/feedback | Submit feedback for AI-generated summary of question lists
-Added | **GET** risks/consequence_categories | Returns the consequence categories
-Added | **POST** risks/consequence_categories | Creates a new consequnce category
-Added | **PATCH** risks/consequence_categories/{consequence_category_id} | Updates a consequence category
-Added | **DELETE** risks/consequence_categories/{consequence_category_id} | Deletes a consequence category
+Added | **GET**, **POST** risks/consequence_categories | Consequence category support for risks
+Added | **PATCH**, **DELETE** risks/consequence_categories/{consequence_category_id} | Updates or deleted a consequence category
 Added | **GET** risks/control_test_schedule_occurrences | Gets control test schedule occurrences
 Changed | **GET** risks/custom_fields | Added parameter field_ids, include_list_items 
 Added | **POST** risks/custom_fields | Creates a new risk field
-Added | **GET** risks/custom_fields/{field_id} | Gets the custom fields for risks
-Added | **POST** risks/custom_fields/{field_id} | Creates a new custom field for risks
+Added | **GET**, **POST** risks/custom_fields/{field_id} | Custom fields support for risks
 Added | **POST** risks/risk_categories | Create a new risk category
-Added | **PATCH** risks/risk_categories/{risk_category_id} | Updates a risk category
-Added | **DELETE** risks/risk_categories/{risk_category_id} | Delets a risk category
+Added | **PATCH**, **DELETE** risks/risk_categories/{risk_category_id} | Updates or deletes a risk category
 Added | **POST** risks/risk_matrices | Creates a new risk matrix
-Added | **DELETE** risks/risk_matrices/{risk_matrix_id} | Deletes a risk matrix
-Added | **PATCH** risks/risk_matrices/{risk_matrix_id} | Updates a risk matrix
+Added | **PATCH**, **DELETE** risks/risk_matrices/{risk_matrix_id} | Updates or deletes a risk matrix
 Added | **POST** risks/score_sections | Creates a new score section
-Added | **DELETE** risks/score_sections/{score_section_id} | Delets a score section
-Added | **PATCH** risks/score_sections/{scoreSectionId} | Updates a score section
+Added | **PATCH**, **DELETE** risks/score_sections/{score_section_id} | Updates or deletes a score section
 Added | **PUT** settings/enabled_ai_analyze_findings_audit | Enable/disable AI analysis of audit findings
 Added | **PUT** settings/enabled_ai_evidence_scout | Enable/disable Evidence Scout integration
 Added | **PUT** settings/enabled_ai_execute_flow_open_prompt | Enable/disable AI open prompt excecution for Flow
@@ -75,8 +67,8 @@ Added | **PUT** settings/enabled_ai_summary_documents | Enable/disable AI summar
 Added | **PUT** settings/enabled_ai_translate_documents | Enable/disable AI translation of interactive documents
 Added | **PUT** settings/enabled_timeline_event_ai_image | Enable/disable AI image generation for timeline events
 Changed | **GET** users | Added parameter external_ids, managers_id, positions_ids, organization_unit_ids, is_manager
-Removed | **ANY** consequence_categories | Moved to risks/consequence_categories
-Removed | **ANY** finding_classifications/finding_classification_id | Removes route(s)
+Changed | **PATCH** finding_classifications/finding_classification_id | Moved to finding_classifications/{finding_classification_id}
+Changed | **ANY** consequence_categories | Moved to risks/consequence_categories
 Removed | **ANY** user_groups/properties | Removed route(s)
 Removed | **ANY** user_groups/properties/{property_name} | Removed route(s)
 Removed | **ANY** users/properties | Removed route(s)
