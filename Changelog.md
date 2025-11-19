@@ -5,7 +5,77 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
-## Changes in Zenya 7.5.0 Update 7
+## Changes in Zenya 7.7.0
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** audits | Added parameters include_custom_fields and include_custom_field_ids
+Changed | **GET** audits/{audit_id} | Added parameters include_custom_fields and include_custom_field_ids
+Added | **POST** audits/{audit_id}/custom_fields | Sets the valiue of the given custom fields for an audit
+Added | **GET**, **POST** audits/custom_fields | Custom field support for audits
+Added | **PATCH**, **DELETE** audits/custom_fields/{field_id} | Updates or deletes an audit custom field
+Added | **GET** audits/custom_fields/{field_id}/list_items | Gets the list items for an audit custom field which has list items
+Added | **POST** campaigns/{campaign_id}/timeline_events/ generate_image_requests | Generates an image request for a timeline event
+Added | **GET** campaigns/{campaign_id}/timeline_events/ generate_image_requests/{image_generation_request_id} | Gets a specific image generation request
+Added | **POST** campaigns/{campaign_id}/timeline_events/ image_generation_prompt_suggestion_requests | Create a prompt suggestion request for generating an optimized image generation prompt
+Added | **GET** campaigns/{campaign_id}/timeline_events/ image_generation_prompt_suggestion_requests/{prompt_suggestion_request_id} | Get a specific prompt suggestion request
+Added | **POST** campaigns/timeline_events/ image_generation_requests/{image_generation_request_id}/feedback | Submit feedback for AI-generated image in a timeline
+Changed | **GET** cases | Added parameter include_field_ids
+Changed | **GET** cases/{case_id} | Added parameter include_field_ids
+Added | **GET** cases/fields/{field_id}/list_items | Get the list items for a specific field that has list items
+Added | **GET** compliance/dashboarding_wake_up | Wake up iccube
+Changed | **GET** documents | Added parameters include_check_info, include_read_roles, include_writer_invitations
+Added | **POST** documents/{document_id}/v{version}/generate_comparison_requests | Generate a comparison request for the specified document version
+Added | **GET** documents/{document_id}/v{version}/ generate_comparison_requests/{document_comparison_generation_request_id} | Get a specific comparison generation request
+Added | **POST** documents/{document_id}/v{version}/generate_summary_requests | Generate a summary request for the specified document version
+Added | **GET** documents/{document_id}/v{version}/ generate_summary_requests/{document_summary_generation_request_id} | Get a specific generation generation request
+Added | **GET** documents/custom_fields | Get a list of custom fields for document versions
+Added | **GET** documents/custom_fields/{field_id}/list_items | Get the list items for a specific field that has list items
+Changed | **PATCH** finding_classifications/{finding_classification_id} | Updates a finding classification
+Changed | **GET** hyperlinks | Added parameter hyperlink_ids
+Changed | **GET** objects/{object_id}/cases | Added parameters include_fields, include_field_ids
+Changed | **GET** objects/{object_id}/documents | Added parameter include_check_info, include_read_roles, include_writer_invitations, include_custom_fields, include_custom_field_ids
+Changed | **GET** objects/{object_id}/objects | Added parameters include_custom_fields, include_custom_field_ids
+Changed | **GET** objects/{object_id}/scheduled_tasks | Added parameter include_attachments
+Changed | **GET** objects/{object_id}/schedules | Added parameters include_hyperlinks, include_permissions, include_planning, include_recurrence_pattern
+Changed | **GET** objects/custom_fields | Added parameter include_list_items
+Changed | **GET** objects/data_types | Added parameter usage_allowed_in
+Changed | **GET** organization_units | Added parameter include_managers
+Changed | **GET** organization_units/{organization_unit_id} | Added parameter include_managers
+Changed | **GET** positions | Added parameters offset, limit, envelope, include_total
+Changed | **GET** positions/filter/{filter_id} | Added parameters offset, limit, envelope, include_total
+Added | **POST** question_lists/filter/{filter_id}/generate_analysis_requests | Start generation of analysis for question lists matching the filter
+Added | **GET** question_lists/filter/{filter_id}/generate_analysis_requests/{request_id} | Gets the status of a question list generation request
+Added | **POST** question_lists/filter/{filter_id}/generate_analysis_requests/{request_id}/feedback | Submit feedback for AI-generated summary of question lists
+Added | **GET**, **POST** risks/consequence_categories | Consequence category support for risks
+Added | **PATCH**, **DELETE** risks/consequence_categories/{consequence_category_id} | Updates or deleted a consequence category
+Added | **GET** risks/control_test_schedule_occurrences | Gets control test schedule occurrences
+Changed | **GET** risks/custom_fields | Added parameter field_ids, include_list_items 
+Added | **POST** risks/custom_fields | Creates a new risk field
+Added | **GET**, **POST** risks/custom_fields/{field_id} | Custom fields support for risks
+Added | **POST** risks/risk_categories | Create a new risk category
+Added | **PATCH**, **DELETE** risks/risk_categories/{risk_category_id} | Updates or deletes a risk category
+Added | **POST** risks/risk_matrices | Creates a new risk matrix
+Added | **PATCH**, **DELETE** risks/risk_matrices/{risk_matrix_id} | Updates or deletes a risk matrix
+Added | **POST** risks/score_sections | Creates a new score section
+Added | **PATCH**, **DELETE** risks/score_sections/{score_section_id} | Updates or deletes a score section
+Added | **PUT** settings/enabled_ai_analyze_findings_audit | Enable/disable AI analysis of audit findings
+Added | **PUT** settings/enabled_ai_evidence_scout | Enable/disable Evidence Scout integration
+Added | **PUT** settings/enabled_ai_execute_flow_open_prompt | Enable/disable AI open prompt excecution for Flow
+Added | **PUT** settings/enabled_ai_summary_check | Enable/disable AI summary for question lists
+Added | **PUT** settings/enabled_ai_summary_documents | Enable/disable AI summary for documents
+Added | **PUT** settings/enabled_ai_translate_documents | Enable/disable AI translation of interactive documents
+Added | **PUT** settings/enabled_timeline_event_ai_image | Enable/disable AI image generation for timeline events
+Changed | **GET** users | Added parameter external_ids, managers_id, positions_ids, organization_unit_ids, is_manager
+Changed | **PATCH** finding_classifications/finding_classification_id | Moved to `finding_classifications/{finding_classification_id}`
+Changed | **ANY** consequence_categories | Moved to risks/consequence_categories
+Changed | **POST** audits/{audit_id}/attachments/copy | Moved to `audits/{audit_id}/attachments`
+Removed | **ANY** user_groups/properties | Removed route(s)
+Removed | **ANY** user_groups/properties/{property_name} | Removed route(s)
+Removed | **ANY** users/properties | Removed route(s)
+Removed | **ANY** users/properties/{property_name} | Removed route(s)
+
+## Changes in Zenya 7.6.0 Update 7
 
 Change|Route|Remarks
 |--|--|--|
