@@ -82,7 +82,7 @@ If you encounter issues with breaking changes or need assistance updating your a
 These changes require developers to make changes:
 - **Replace** | GET `objects/custom_fields` had a response which contains the `required` and `require_unique_values` fields, these have been moved to the `settings` field.
 - **Moved** | **ANY** `consequence_categories` | Moved to risks/consequence_categories
-- **Replace** | **PATCH** `finding_classifications/finding_classification_id?finding_classification_id={finding_classification_id}` | Was fixed to `finding_classifications/{finding_classification_id}`-
+- **Replace** | **PATCH** `finding_classifications/finding_classification_id?finding_classification_id={finding_classification_id}` | Was fixed to `finding_classifications/{finding_classification_id}`
 - **Replace** | **POST** `audits/{audit_id}/attachments/copy` | Moved to `audits/{audit_id}/attachments`
  
 These routes have removed after being deprecated since 7.2.0.
