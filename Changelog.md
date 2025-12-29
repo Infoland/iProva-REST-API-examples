@@ -5,6 +5,15 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.7.0 Update 2
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** cases/case_types/{case_type_id}/fields | Added parameter is_system_field
+Changed | **GET** cases/fields | Added parameter is_system_field
+Added | **PUT** settings/enabled_ai_compare_previous_changes_documents | Set whether AI Compare Previous Changes is enabled or disabled for the environment
+Removed | **GET** documents/{document_id}/searchtext | Removed route
+
 ## Changes in Zenya 7.7.0
 
 Change|Route|Remarks
