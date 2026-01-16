@@ -5,6 +5,12 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes is Zenya 7.7.0 Update 3
+
+Change|Route|Remarks
+|--|--|--|
+Added | **PATCH** objects/custom_fields/{field_id} | Updates a custom field
+
 ## Changes in Zenya 7.7.0 Update 2
 
 Change|Route|Remarks
