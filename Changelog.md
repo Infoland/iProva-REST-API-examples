@@ -5,7 +5,16 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
-## Changes is Zenya 7.7.0 Update 3
+## Changes in Zenya 7.7.0 Update 4
+
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** risks/{risk_id}/attachments/{attachment_id}/download | Downloads an attachment for a risk custom field
+Added | **GET** risks/controls/{control_id}/attachments/{attachment_id}/download | Downloads an attachment for a control custom field
+Changed | **GET** users | Added parameter login_codes
+Changed | **GET** users | Removed parameter login_code
+
+## Changes in Zenya 7.7.0 Update 3
 
 Change|Route|Remarks
 |--|--|--|
