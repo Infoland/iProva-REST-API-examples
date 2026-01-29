@@ -77,6 +77,10 @@ If you encounter issues with breaking changes or need assistance updating your a
 
 ## Breaking Changes Overview
 
+### Zenya 7.7.0.4
+These changes require developers to make changes:
+- **Replace** | GET `users` had a filter on `login_code`, this has been replaced by `login_codes`
+
 ### Zenya 7.7.0
 
 These changes require developers to make changes:
