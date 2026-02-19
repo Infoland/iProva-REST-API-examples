@@ -5,6 +5,13 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.7.0 Update 5
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** users/me/tasks | Added parameter include_total
+Changed | **GET** documents/folders/{folder_id} | Removed parameter is_delegate_user
+
 ## Changes in Zenya 7.7.0 Update 4
 
 Change|Route|Remarks
