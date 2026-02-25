@@ -1,55 +1,44 @@
-async public Task<BulkExport> GetBulkExportDetailsAsync(string id)
+public class ZenyaApiClient
 {
-    var token = "<bearertoken>";
-    Console.WriteLine("reading bulkexport " + id + " from API");
-    var client = new HttpClient();
-    var message = new HttpRequestMessage()
+    private readonly HttpClient _client;
+
+    public ZenyaApiClient(string baseUrl, string token, string apiVersion)
     {
-        RequestUri = new Uri($"http://customer.zenya.work/api/documents/bulk_exports/{id}"),
-        Method = HttpMethod.Get
-    };
-    message.Headers.Add("Authorization", $"Bearer {token}");
-    message.Headers.Add("x-api-version", "5");
-    var response = await client.SendAsync(message, HttpCompletionOption.ResponseHeadersRead);
-    if (response.IsSuccessStatusCode)
+        _client = new HttpClient
+        {
+            BaseAddress = new Uri(baseUrl)
+        };
+        _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+        _client.DefaultRequestHeaders.Add("x-api-version", apiVersion);
+    }
+
+    public async Task<BulkExport> GetBulkExportDetailsAsync(string id)
     {
+        Console.WriteLine("reading bulkexport " + id + " from API");
+        var response = await _client.GetAsync($"/api/documents/bulk_exports/{id}", HttpCompletionOption.ResponseHeadersRead);
+        if (!response.IsSuccessStatusCode)
+            throw new Exception($"Failed to get bulk export details for id {id}. Status code: {response.StatusCode}");
+
         var strData = await response.Content.ReadAsStringAsync();
         return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkExport>(strData);
     }
-    else
-        return null;
-}
 
-async public Task<BulkExport> DownloadBulkExportAsync(string id, string zipPath)
-{
-    var token = "<bearertoken>";
-    Console.WriteLine("reading bulkexport " + id + " from API");
-    var client = new HttpClient();
-    var message = new HttpRequestMessage()
+    public async Task DownloadBulkExportAsync(string id, string zipPath)
     {
-        RequestUri = new Uri($"http://customer.zenya.work/api/documents/bulk_exports/{id}/download"),
-        Method = HttpMethod.Get
-    };
-    message.Headers.Add("Authorization", $"Bearer {token}");
-    message.Headers.Add("x-api-version", "1");
-    var response = await client.SendAsync(message, HttpCompletionOption.ResponseHeadersRead);
-    if (response.IsSuccessStatusCode)
-    {
+        Console.WriteLine("downloading bulkexport " + id + " from API");
+        var response = await _client.GetAsync($"/api/documents/bulk_exports/{id}/download", HttpCompletionOption.ResponseHeadersRead);
+        if (!response.IsSuccessStatusCode)
+            throw new Exception($"Failed to download bulk export for id {id}. Status code: {response.StatusCode}");
+
         using (var fileStream = new FileStream(zipPath, FileMode.Create))
         {
             await response.Content.CopyToAsync(fileStream);
-            if (fileStream.Length > 0)
-            {
-                blnSuccess = true;
-            }
-            else
-            {
-                blnSuccess = false;
-            }
+            if (fileStream.Length == 0)
+                throw new Exception($"Downloaded bulk export zip for id {id} is empty.");
+
+            // success
         }
     }
-    else
-        return null;
 }
 
 public class BulkExport
