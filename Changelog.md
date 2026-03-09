@@ -5,6 +5,19 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.7.0 Update 6
+
+Change|Route|Remarks
+|--|--|--|
+Changed | **PATCH** / **DELETE** cases/{case_id} | Added parameter case_secret
+Changed | **PUT** cases/{case_id}/fields | Added parameter case_secret
+Changed | **PUT** cases/{case_id}/fields/{field_id} | Added parameter case_secret
+Changed | **PUT** cases/{case_id}/fields/{field_name} | Added parameter case_secret
+Added | **PUT** settings/enabled_ai_search_results | Enable/disable AI Search and Browse modes
+Added | **PUT** settings/enabled_ai_search_results_in_compliance | Enable/disable AI Evidence Suggestion in Compliance
+Added | **PUT** settings/enabled_ai_search_results_with_answers | Enable/disable AI answers in search results
+Removed | **PUT** settings/enabled_ai_evidence_scout | Replaced by **PUT** settings/enabled_ai_search_results_in_compliance.
+
 ## Changes in Zenya 7.7.0 Update 5
 
 Change|Route|Remarks
