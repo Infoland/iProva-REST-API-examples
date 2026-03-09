@@ -16,7 +16,7 @@ Changed | **PUT** cases/{case_id}/fields/{field_name} | Added parameter case_sec
 Added | **PUT** settings/enabled_ai_search_results | Enable/disable AI Search and Browse modes
 Added | **PUT** settings/enabled_ai_search_results_in_compliance | Enable/disable AI Evidence Suggestion in Compliance
 Added | **PUT** settings/enabled_ai_search_results_with_answers | Enable/disable AI answers in search results
-Removed | **PUT** settings/enabled_ai_evidence_scout |
+Removed | **PUT** settings/enabled_ai_evidence_scout | Replaced by **PUT** settings/enabled_ai_search_results_in_compliance.
 
 ## Changes in Zenya 7.7.0 Update 5
 
