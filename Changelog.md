@@ -5,6 +5,13 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.7.0 Update 7
+
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** risks/{risk_id}/attachments | Copies an attachment for a risk custom field, creating a temporary attachment
+Added | **POST** risks/controls/{control_id}/attachments | Copies an attachment for a control custom field, creating a temporary attachment
+
 ## Changes in Zenya 7.7.0 Update 6
 
 Change|Route|Remarks
