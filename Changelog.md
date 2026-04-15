@@ -5,6 +5,45 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** .well-known/jwks.json | Returns the JSON Web Key Set (JWKS) for the current tenant
+Added | **GET** .well-known/openid-configuration | Returns the OpenID Connect discovery document for the current tenant
+Added | **GET**, **POST** agents | Gets or adds a agent
+Added | **DELETE**, **GET**, **PATCH** agents/{agent_id} | Deletes, gets or updates an agent
+Added | **POST** agents/{agent_id}/chat | AG-UI chat endpoint for a specific agent
+Added | **POST** agents/chat | AG-UI chat endpoint that can redirect the conversation to the most appropriate agent
+Changed | **GET** audits/{audit_id}/findings | Added parameters include_actions, include_linked_entities
+Changed | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings | Added parameters include_actions, include_linked_entities
+Changed | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id} | Added parameters include_actions, include_linked_entities
+Added | **POST** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/actions | Creates a new action for the given compliance cell finding
+Added | **DELETE** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/actions/{action_id} | Removes an action from the given compliance cell finding
+Added | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/attachments/{attachment_id}/download | Downloads an attachment for a compliance cell finding
+Added | **POST** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/comments | Create a new comment for a finding
+Added | **GET**, **PATCH** compliance/settings |
+Added | **GET** conversations | Gets all conversations ordered by last activity
+Added | **DELETE** conversations/{conversation_id} | Deletes a specific conversation by ID
+Added | **GET**, **POST** conversations/{conversation_id}/feedback |
+Added | **DELETE**, **PATCH** conversations/{conversation_id}/feedback/{conversation_feedback_id} |
+Added | **GET** conversations/{conversation_id}/messages | Gets the messages for the given conversation
+Added | **GET**, **PUT** documents/{document_id}/v{version_number}/contents |
+Added | **GET**, **POST** favorite_groups |
+Added | **DELETE**, **PATCH** favorite_groups/{favorite_group_id} |
+Changed | **GET** favorites | Added parameter include_groups
+Changed | **GET** findings | Added parameters framework_item_ids, include_actions, include_linked_entities, organization_unit_ids
+Added | **POST** findings/{finding_id}/linked_entities | Adds a linked entity to a finding
+Added | **DELETE** findings/{finding_id}/linked_entities/{linked_entity_id} | Removes a linked entity from a finding
+Changed | **GET** objects/data_types/{data_type_id} | Added parameter include_cases_configuration
+Changed | **GET** user_groups/{user_group_id} | Added parameter include_jit_eligible_members
+Changed | **GET** users/me/favorites | Added parameter include_groups
+Added | **GET**, **POST** users/me/jit_activations |
+Added | **GET**, **PATCH** users/me/jit_activations/{jit_activation_id} |
+Added | **GET** users/me/jit_eligible_user_groups | Gets user groups for which the current user is eligible for JIT access
+Changed | **GET** audits/{audit_id}/findings | Removed parameter includeActions
+Changed | **GET** findings | Removed parameter includeActions
+
+
 ## Changes in Zenya 7.7.0 Update 7
 
 Change|Route|Remarks
