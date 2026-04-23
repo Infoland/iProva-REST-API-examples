@@ -18,11 +18,6 @@ Added | **DELETE** compliance/compliance_cells/{framework_item_id}/{organization
 Added | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/attachments/{attachment_id}/download | Downloads an attachment for a compliance cell finding
 Added | **POST** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/comments | Create a new comment for a finding
 Added | **GET**, **PATCH** compliance/settings | Gets or updates compliance settings
-Added | **GET** conversations | Gets all conversations ordered by last activity
-Added | **DELETE** conversations/{conversation_id} | Deletes a specific conversation by ID
-Added | **GET**, **POST** conversations/{conversation_id}/feedback | Gets or adds feedback
-Added | **DELETE**, **PATCH** conversations/{conversation_id}/feedback/{conversation_feedback_id} | Deletes or updates feedback
-Added | **GET** conversations/{conversation_id}/messages | Gets the messages for the given conversation
 Added | **GET**, **POST** favorite_groups | Gets or adds favorite groups
 Added | **DELETE**, **PATCH** favorite_groups/{favorite_group_id} | Deletes or updates a favorite group
 Changed | **GET** favorites | Added parameter include_groups
