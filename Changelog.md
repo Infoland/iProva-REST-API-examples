@@ -5,6 +5,35 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** .well-known/jwks.json | Returns the JSON Web Key Set (JWKS) for the current tenant
+Added | **GET** .well-known/openid-configuration | Returns the OpenID Connect discovery document for the current tenant
+Changed | **GET** audits/{audit_id}/findings | Added parameters include_actions, include_linked_entities
+Changed | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings | Added parameters include_actions, include_linked_entities
+Changed | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id} | Added parameters include_actions, include_linked_entities
+Added | **POST** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/actions | Creates a new action for the given compliance cell finding
+Added | **DELETE** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/actions/{action_id} | Removes an action from the given compliance cell finding
+Added | **GET** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/attachments/{attachment_id}/download | Downloads an attachment for a compliance cell finding
+Added | **POST** compliance/compliance_cells/{framework_item_id}/{organization_unit_id}/findings/{finding_id}/comments | Create a new comment for a finding
+Added | **GET**, **PATCH** compliance/settings | Gets or updates compliance settings
+Added | **GET**, **POST** favorite_groups | Gets or adds favorite groups
+Added | **DELETE**, **PATCH** favorite_groups/{favorite_group_id} | Deletes or updates a favorite group
+Changed | **GET** favorites | Added parameter include_groups
+Changed | **GET** findings | Added parameters framework_item_ids, include_actions, include_linked_entities, organization_unit_ids
+Added | **POST** findings/{finding_id}/linked_entities | Adds a linked entity to a finding
+Added | **DELETE** findings/{finding_id}/linked_entities/{linked_entity_id} | Removes a linked entity from a finding
+Changed | **GET** objects/data_types/{data_type_id} | Added parameter include_cases_configuration
+Changed | **GET** user_groups/{user_group_id} | Added parameter include_jit_eligible_members
+Changed | **GET** users/me/favorites | Added parameter include_groups
+Added | **GET**, **POST** users/me/jit_activations | Gets or adds JIT activations for a user
+Added | **GET**, **PATCH** users/me/jit_activations/{jit_activation_id} | Gets or updates a specific JIT activation for a user
+Added | **GET** users/me/jit_eligible_user_groups | Gets user groups for which the current user is eligible for JIT access
+Changed | **GET** audits/{audit_id}/findings | Removed parameter includeActions
+Changed | **GET** findings | Removed parameter includeActions
+
+
 ## Changes in Zenya 7.7.0 Update 7
 
 Change|Route|Remarks
