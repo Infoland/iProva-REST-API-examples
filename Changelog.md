@@ -5,6 +5,16 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0 Update 5
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** custom_fields | Get a paged list of custom fields (across all modules).
+Changed | **GET** documents/{document_id}/v{version_number}/contents | Added parameter legacy_mode
+Changed | **PUT** documents/{document_id}/v{version_number}/contents | Added parameter legacy_mode
+Added | **POST** documents/media_folders/{media_folder_id}/media_items | Creates a media item from an already-uploaded attachment
+Added | **POST** documents/media_items/{media_item_id}/versions | Creates a new version of an existing media item from an already-uploaded attachment
+
+
 ## Changes in Zenya 7.8.0
 Change|Route|Remarks
 |--|--|--|
