@@ -23,6 +23,7 @@ Be aware that our API is not an OData API and we do not support all OData functi
 |-----------|-----------|----------|
 | text | `contains`, `eq`, `substring` | `contains(name, 'Jane')`, `name eq 'John Doe'`, `substring(name, 1, 4)` |
 | number | `lt`, `gt`, `eq` | `age lt 42`, `age gt 18`, `age eq 30` |
+| date / datetime | `lt`, `le`, `gt`, `ge`, `eq`, `ne`, `year`, `month`, `day`, `hour`, `minute`, `second`, `date` | `modified_date_time ge 2026-07-01T00:00:00Z`, `modified_date_time ge 2026-07-01T08:30:00+02:00`, `date(modified_date_time) eq 2026-07-23`, `month(modified_date_time) in (6, 7, 8)`
 
 ## Filtering via the query string with specific properties
 
