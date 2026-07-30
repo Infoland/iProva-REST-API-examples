@@ -8,6 +8,12 @@ This page defines all the changes that were done in the API. There is a differen
 ## Changes in Zenya 7.8.0 Update 5
 Change|Route|Remarks
 |--|--|--|
+Added | oData style filtering on date and date times | Get a paged list of custom fields (across all modules).
+Changed | **GET** objects | Added $filter querystring parameter, for oData styled filtering. Added `last_modified_date_time` member to the dto. Added `last_modified_date_time` as valid value for `sort_on` querystring parameter,
+
+## Changes in Zenya 7.8.0 Update 5
+Change|Route|Remarks
+|--|--|--|
 Added | **GET** custom_fields | Get a paged list of custom fields (across all modules).
 Changed | **GET** documents/{document_id}/v{version_number}/contents | Added parameter legacy_mode
 Changed | **PUT** documents/{document_id}/v{version_number}/contents | Added parameter legacy_mode
