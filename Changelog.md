@@ -5,7 +5,7 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
-## Changes in Zenya 7.8.0 Update 5
+## Changes in Zenya 7.8.0 Update 6
 Change|Route|Remarks
 |--|--|--|
 Added | oData style filtering on date and date times | Get a paged list of custom fields (across all modules).
