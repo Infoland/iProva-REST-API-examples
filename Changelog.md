@@ -5,6 +5,12 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0 Update 6
+Change|Route|Remarks
+|--|--|--|
+Added | oData style filtering on date and date times | See [filtering documentation](Documentation/Filtering.md)
+Changed | **GET** objects | Added $filter querystring parameter, for oData styled filtering. Added `last_modified_date_time` member to the dto. Added `last_modified_date_time` as valid value for `sort_on` querystring parameter,
+
 ## Changes in Zenya 7.8.0 Update 5
 Change|Route|Remarks
 |--|--|--|
