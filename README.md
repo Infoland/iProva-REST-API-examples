@@ -78,7 +78,7 @@ The following HTTP status codes can be returned by the services. Check the docum
 
 |Code|Name|Explanation|
 |--|--|--|
-|**200**|OK|Always returned when route did not create resources and a response payload is returned.|
+|**200**|OK|Returned when the request succeeds and a response payload is returned, unless a resource was created (in which case 201 is returned).|
 |**201**|Created|Returned when one or more resources are created.|
 |**202**|Accepted|Asynchronous route is accepted. Used for fire and forget routes.|
 |**204**|No Content|Returned when route did not create resources and no response payload returned.|
