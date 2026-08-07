@@ -10,6 +10,21 @@ Change|Route|Remarks
 |--|--|--|
 Added | oData style filtering on date and date times | See [filtering documentation](Documentation/Filtering.md)
 Changed | **GET** objects | Added $filter querystring parameter, for oData styled filtering. Added `last_modified_date_time` member to the dto. Added `last_modified_date_time` as valid value for `sort_on` querystring parameter,
+Added | **GET** documents/{document_id}/media_items | Gets the metadata of all media items linked to the current (published) document version
+Added | **GET** documents/{document_id}/media_items/{document_media_id} | Gets the metadata of a media item linked to the current (published) document version
+Added | **GET** documents/{document_id}/v{version}/media_items | Gets the metadata of all media items linked to a specific document version
+Added | **GET** documents/{document_id}/v{version}/media_items/{document_media_id} | Gets the metadata of a media item linked to a specific document version
+Added | **GET** documents/{media_item_id}/versions | Gets all versions of a media item, ordered by version number descending
+Added | **GET** documents/{media_item_id}/versions/{media_item_version_id} | Gets a specific version of a media itemB
+Added | **GET** documents/media_folders/{media_folder_id}/media_items | Gets a paged list of media items in a media folder
+Added | **GET** documents/media_items/{media_item_id} | Gets a single media item, with its current version's metadata
+<!-- Changed | **GET** agents | Added parameter include_open_feedback_count
+Changed | **GET** agents/{agent_id} | Added parameter include_open_feedback_count
+Added | **GET**, **POST** agents/conversation_feedback |
+Added | **DELETE**, **GET**, **PATCH** agents/conversation_feedback/{conversation_feedback_id} |
+Added | **GET** agents/conversations | Gets all conversations ordered by last activity
+Added | **DELETE** agents/conversations/{conversation_id} | Deletes a specific conversation by ID
+Added | **GET** agents/conversations/{conversation_id}/messages | Gets the messages for the given conversation -->
 
 ## Changes in Zenya 7.8.0 Update 5
 Change|Route|Remarks
