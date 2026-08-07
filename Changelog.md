@@ -39,6 +39,8 @@ Added | **POST** documents/media_items/{media_item_id}/versions | Creates a new 
 ## Changes in Zenya 7.8.0
 Change|Route|Remarks
 |--|--|--|
+Added | **POST** oauth/authorize/login | Validates a user's credentials against a public app registration and returns a short-lived authorization code (authorization code flow with PKCE)
+Changed | **POST** oauth/token | Added support for grant_type authorization_code (parameters code, redirect_uri, code_verifier, set_cookie) and a refresh_token in the response
 Added | **GET** .well-known/jwks.json | Returns the JSON Web Key Set (JWKS) for the current tenant
 Added | **GET** .well-known/openid-configuration | Returns the OpenID Connect discovery document for the current tenant
 Changed | **GET** audits/{audit_id}/findings | Added parameters include_actions, include_linked_entities
