@@ -5,6 +5,13 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0 Update 7
+Change|Route|Remarks
+|--|--|--|
+Added | **PATCH** agents/conversations/{conversation_id} | Updates a conversation. Only the owner may rename it; auto-generated titles are not
+special-cased, so a manual title can itself be renamed again.
+Added | **GET**, **PUT** documents/document_types/{document_type_id}/contents | Gets or puts the default content of a modern structured document type
+
 ## Changes in Zenya 7.8.0 Update 6
 Change|Route|Remarks
 |--|--|--|
