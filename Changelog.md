@@ -16,6 +16,10 @@ Added | oData-style filtering on `hyperlink_id` and `description` from a hyperli
 Added | oData-style filtering on `object_id` and `display_name` from a data type custom field | See [filtering documentation](Documentation/Filtering.md)
 Added | oData-style filtering on `position_id` and `position_name` from a position custom field | See [filtering documentation](Documentation/Filtering.md)
 Added | oData-style filtering on `list_item_id` from a list custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | **PATCH** agents/conversations/{conversation_id} | Updates a conversation. Only the owner may rename it; auto-generated titles are not
+special-cased, so a manual title can itself be renamed again.
+Added | **GET**, **PUT** documents/document_types/{document_type_id}/contents | Gets or puts the default content of a modern structured document type
+
 
 ## Changes in Zenya 7.8.0 Update 6
 Change|Route|Remarks
