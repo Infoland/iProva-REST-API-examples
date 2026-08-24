@@ -5,6 +5,18 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0 Update 7
+Change|Route|Remarks
+|--|--|--|
+Added | oData style filtering on email_address, formatted_text and checkbox custom field types | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `organization_unit_id` and `name` from an organization unit custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `user_id` and `user_name` from an user custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `attachment_id` and `file_name` from an attachments custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `hyperlink_id` and `description` from a hyperlinks custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `object_id` and `display_name` from a data type custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `position_id` and `position_name` from a position custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `list_item_id` from a list custom field | See [filtering documentation](Documentation/Filtering.md)
+
 ## Changes in Zenya 7.8.0 Update 6
 Change|Route|Remarks
 |--|--|--|

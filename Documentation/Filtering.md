@@ -21,9 +21,19 @@ Be aware that our API is not an OData API and we do not support all OData functi
 
 | Data Type | Operators | Examples |
 |-----------|-----------|----------|
-| text | `contains`, `eq`, `substring` | `contains(name, 'Jane')`, `name eq 'John Doe'`, `substring(name, 1, 4)` |
-| number | `lt`, `gt`, `eq` | `age lt 42`, `age gt 18`, `age eq 30` |
-| date / datetime | `lt`, `le`, `gt`, `ge`, `eq`, `ne`, `year`, `month`, `day`, `hour`, `minute`, `second`, `date` | `modified_date_time ge 2026-07-01T00:00:00Z`, `modified_date_time ge 2026-07-01T08:30:00+02:00`, `date(modified_date_time) eq 2026-07-23`, `month(modified_date_time) in (6, 7, 8)`
+| text | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `contains(name, 'Jane')`, `name eq 'John Doe'`, `substring(name, 1, 4)` |
+| formatted_text | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `length(formatted_text) gt 20`, `formatted_text eq '<html-editor><b>abc</b></html-editor>'`, `endswith(formatted_text, 'bc</html-editor>')` |
+| email_address | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `contains(email_address, 'abc.com')`, `email_address eq 'info@abc.nl'`, `startswith(email_address, 'info')` |
+| number | `eq`, `ne`, `gt`, `ge`, `lt`, `le` | `age lt 42`, `age gt 18`, `age eq 30` |
+| date / datetime | `eq`, `ne`, `gt`, `ge`,`lt`, `le`, `year`, `month`, `day`, `hour`, `minute`, `second`, `date` | `modified_date_time ge 2026-07-01T00:00:00Z`, `modified_date_time ge 2026-07-01T08:30:00+02:00`, `date(modified_date_time) eq 2026-07-23`, `month(modified_date_time) in (6, 7, 8)` |
+| checkbox | `eq`, `ne` | `is_active eq true`, `is_active ne false` |
+| organizational_unit | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `organizational_unit/any(i: i/name eq 'Sales')`, `organizational_unit/any(i: contains(i/name, 'Sales'))` |
+| user | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `user/any(i: i/user_name eq 'John Doe')`, `user/any(i: i/user_id ne 'A65080EC-6C03-4E00-8E50-E4608E70CDF8')`, `user/any(i: contains(i/user_name, 'Joh'))` |
+| attachments | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `attachments/any(i: startswith(i/file_name, 'http'))`, `attachments/any(i: i/attachment_id eq '2466dee5-df41-496c-bb61-1066576ba0a3')` |
+| hyperlinks | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `hyperlinks/any(i: i/hyperlink_id eq '7ff9871f-4a35-44ed-8ed5-9d375d0fb6f1')`, `hyperlinks/any(i: contains(i/description, 'Portal'))` |
+| data_type | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `data_type/any(i: i/object_id eq 1234)`, `data_type/any(i: contains(i/display_name, 'some'))` |
+| position | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `position/any(i: i/position_id eq '56d136ad-5bf9-432f-921c-2222e499e9ad')`, `position/any(i: i/position_name eq 'Development')` |
+| list | `eq`, `ne` | `list/any(i: i/list_item_id eq 1234)` |
 
 ## Filtering via the query string with specific properties
 
