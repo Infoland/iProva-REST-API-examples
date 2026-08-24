@@ -33,7 +33,6 @@ Be aware that our API is not an OData API and we do not support all OData functi
 | hyperlinks | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `hyperlinks/any(i: i/hyperlink_id eq '7ff9871f-4a35-44ed-8ed5-9d375d0fb6f1')`, `hyperlinks/any(i: contains(i/description, 'Portal'))` |
 | data_type | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `data_type/any(i: i/object_id eq 1234)`, `data_type/any(i: contains(i/display_name, 'some'))` |
 | position | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `position/any(i: i/position_id eq '56d136ad-5bf9-432f-921c-2222e499e9ad')`, `position/any(i: i/position_name eq 'Development')` |
-| list | `eq`, `ne` | `list/any(i: i/list_item_id eq 1234)` |
 
 ## Filtering via the query string with specific properties
 
