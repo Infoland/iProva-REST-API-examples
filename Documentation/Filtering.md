@@ -13,6 +13,7 @@ Some resources support multiple ways of filtering; see the OpenAPI documentation
 Filtering via the query string using `$filter` follows the OData style. This allows for more complex filtering expressions, such as `or` operators, parentheses between predicate operations, or `lt`, `gt`, `contains(property, 'value')`. This is the only way to filter on values of custom fields.
 
 - **Example filtering on attributes**: `GET api/entities?$filter=(name eq 'John Doe' or contains(name, 'Jane')) and age lt 42`
+- **Example filtering on objects**: `GET api/entities?$filter=qr_code/code eq 'D49251C6-44A9-4A18-AF28-AEE1D91D95C7'` or `GET api/entities?$filter=statistics/number_of_open_cases eq 1 or statistics/number_of_open_corrective_actions gt 0`
 - **Example filtering on a custom text field**: `GET api/entities?$filter=custom_field123 eq 'John Doe'`
 
 Be aware that our API is not an OData API and we do not support all OData functionalities. So always check the OpenApi documention for what is possible.
@@ -33,6 +34,7 @@ Be aware that our API is not an OData API and we do not support all OData functi
 | hyperlinks | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `hyperlinks/any(i: i/hyperlink_id eq '7ff9871f-4a35-44ed-8ed5-9d375d0fb6f1')`, `hyperlinks/any(i: contains(i/description, 'Portal'))` |
 | data_type | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `data_type/any(i: i/object_id eq 1234)`, `data_type/any(i: contains(i/display_name, 'some'))` |
 | position | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `position/any(i: i/position_id eq '56d136ad-5bf9-432f-921c-2222e499e9ad')`, `position/any(i: i/position_name eq 'Development')` |
+| list | `eq`, `ne`, `contains`, `startswith`, `endswith`, `substring`, `length` | `list/any(i: i/name eq 'Jane')`, `list/any(i: i/list_item_id eq 143)`, `list/any(i: i/list_item_id eq null)` |
 
 ## Filtering via the query string with specific properties
 
