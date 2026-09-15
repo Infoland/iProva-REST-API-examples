@@ -5,6 +5,15 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0 Update 9
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** objects | Added `attention_required` member to the dto and oData-style filtering.
+Changed | **GET** objects | Added `qr_code/code` oData-style filtering.
+Changed | **GET** objects | Added `statistics/number_of_open_cases`, `statistics/number_of_open_scheduled_tasks` and `statistics/number_of_open_corrective_actions` members to the dto and oData-style filtering
+Changed | **GET** objects/data_types | Added parameters include_lookup_definitions
+Added | oData-style filtering on `list_item_id` and `name` from a list custom field | See [filtering documentation](Documentation/Filtering.md)
+
 ## Changes in Zenya 7.8.0 Update 8
 Change|Route|Remarks
 |--|--|--|
