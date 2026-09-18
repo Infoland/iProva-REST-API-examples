@@ -8,11 +8,15 @@ This page defines all the changes that were done in the API. There is a differen
 ## Changes in Zenya 7.8.0 Update 9
 Change|Route|Remarks
 |--|--|--|
+Added | **GET** agents/conversations/{conversation_id} | Gets a single conversation. Its state names the case the conversation created; the case
+itself (draft or sent, its fields) is read from the cases API.
+Added | oData-style filtering on `list_item_id` and `name` from a list custom field | See [filtering documentation](Documentation/Filtering.md)
+Changed | **GET** cases/{case_id}/case_forms/{case_form_id} | Added parameter include_fields
 Changed | **GET** objects | Added `attention_required` member to the dto and oData-style filtering.
 Changed | **GET** objects | Added `qr_code/code` oData-style filtering.
 Changed | **GET** objects | Added `statistics/number_of_open_cases`, `statistics/number_of_open_scheduled_tasks` and `statistics/number_of_open_corrective_actions` members to the dto and oData-style filtering
 Changed | **GET** objects/data_types | Added parameters include_lookup_definitions
-Added | oData-style filtering on `list_item_id` and `name` from a list custom field | See [filtering documentation](Documentation/Filtering.md)
+Changed | **GET** objects/data_types/{data_type_id} | Added parameter include_lookup_definition
 
 ## Changes in Zenya 7.8.0 Update 8
 Change|Route|Remarks
