@@ -5,6 +5,18 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.8.0 Update 10
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** documents/{document_id}/document_type/contents | Get the default contents stored on the document type of a document's published version, which a new
+document of that type starts with
+Added | **GET** documents/{document_id}/v{version_number}/document_type/contents | Get the default contents stored on the document type of a specific document version, which a new
+document of that type starts with
+Changed | **GET** documents/{document_id}/v{version_number}/contents | Added parameter revision
+Changed | **PUT** documents/{document_id}/v{version_number}/contents | Added parameter revision
+Changed | **GET** documents/{document_id}/v{version}/media_items/{document_media_id}/download | Added parameter revision
+<!-- Changed | **GET** documents/{document_id}/v{version_number}/contents | Added response code 400 -->
+
 ## Changes in Zenya 7.8.0 Update 9
 Change|Route|Remarks
 |--|--|--|
