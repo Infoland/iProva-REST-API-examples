@@ -5,6 +5,56 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.9.0
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** cases/{case_id}/field_prompt_requests | 
+Added | **GET** cases/{case_id}/field_prompt_requests/{field_prompt_request_id} | 
+Added | **GET** documents/{document_id}/contents/pages/{page_number} | Get a single page of the published process document
+Added | **GET** documents/{document_id}/contents/pages/{page_number}/download | Download the SVG for a page of the published process document
+Added | **GET** documents/{document_id}/contents/pages/{pagenumber}/process_shapes | Get process shapes for a specific page of the published document version
+Added | **GET** documents/{document_id}/contents/process_shapes | Get all process shapes for the published document version
+Added | **GET** documents/{document_id}/contents/process_shapes/{process_shape_id} | Get a specific process shape by id for the published document version
+Added | **GET** documents/{document_id}/v{version_number}/contents/pages/{page_number}/download | Download the SVG for a page of the requested version of the process document
+Added | **GET** documents/{document_id}/v{version_number}/contents/pages/{pagenumber}/process_shapes | Get process shapes for a specific page of the document version
+Added | **GET** documents/{document_id}/v{version_number}/contents/process_shapes | Get all process shapes for the document version
+Added | **GET** documents/{document_id}/v{version_number}/contents/process_shapes/{process_shape_id} | Get a specific process shape by id for the document version
+Added | **GET** documents/document_types/{document_type_id}/matrix_roles | Gets matrix roles for a document type
+Added | **GET** documents/document_types/{document_type_id}/matrix_roles/{matrix_role_id}/image/download | Downloads the image for a matrix role
+Added | **GET** documents/process_shape_definitions | Get all process shape definitions
+Added | **GET** documents/process_shape_definitions/{process_shape_definition_id} | Get a specific process shape definition
+Added | **GET** documents/process_shape_definitions/{process_shape_definition_id}/images/{image_type}/download | Download a process shape definition image
+Added | **POST** oauth/authorize/login | Validates user credentials against a registered public OAuth client and returns a short-lived authorization code. The code is intended to be immediately exchanged for tokens via POST /oauth/token; it is not a token itself.
+Added | **POST** oauth/revoke | Revokes a refresh token or an access token, as described by RFC 7009. Revocation is idempotent: an unknown, expired or already revoked token is accepted as well, so the endpoint cannot be used to probe which tokens exist.
+Added | **PATCH** risks/score_sections/{score_section_id} | Updates a score section
+Added | **POST** saml2 | Post a SAML login attempt
+Added | **PUT** settings/allow_disabling_captcha | Allow/disallow survey study administrators and case type managers to turn the CAPTCHA off for individual survey studies and mobile forms
+Changed | **GET** bearer_tokens/saml2/data | Added parameters client_id, code_challenge, redirect_uri
+Changed | **GET** cases/subject_trees/{subject_tree_id}/subjects | Added parameter include_deactivated
+Changed | **POST** oauth/token | Property 'code' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'redirect_uri' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'code_verifier' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'set_cookie' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'persistent_cookie' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'refresh_token' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **GET** organization_units | Added parameter include_users
+Changed | **GET** organization_units/{organization_unit_id} | Added parameter include_users
+Changed | **GET** organization_units/filter/{filter_id} | Added parameters include_managers, include_users
+Changed | **GET** saml/saml2 | Added parameters client_id, code_challenge, redirect_uri
+Changed | **GET** users | Added parameters email_addresses, manager_ids, position_ids
+Changed | **GET** users | Removed parameters managers_ids, positions_ids
+Removed | **POST** cases/{caseId}/field_prompt_requests | Removed
+Removed | **GET** cases/{caseId}/field_prompt_requests/{field_prompt_request_id} | Removed
+Removed | **PATCH** risks/score_sections/{scoreSectionId} | Removed
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 204 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 400 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 403 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 404 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 429 -->
+<!-- Changed | **GET** app_registrations | Removed response code 403 -->
+<!-- Changed | **GET** app_registrations/{app_registration_id} | Removed response code 403 -->
+<!-- Changed | **POST** event | Removed response code 200 -->
+
 ## Changes in Zenya 7.8.0 Update 10
 Change|Route|Remarks
 |--|--|--|
