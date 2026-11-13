@@ -5,6 +5,11 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.9.0.1
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** objects | Added parameters gps_latitude, gps_longitude, gps_range_in_meters
+
 ## Changes in Zenya 7.9.0
 Change|Route|Remarks
 |--|--|--|
