@@ -5,11 +5,135 @@ This page defines all the changes that were done in the API. There is a differen
 - [Pre 7.0.0 changes](Documentation/ChangeLogs/Pre%20700.md)
 - [Breaking changes](Documentation/ChangeLogs/BreakingChanges.md)
 
+## Changes in Zenya 7.9.0
+Change|Route|Remarks
+|--|--|--|
+Added | **POST** cases/{case_id}/field_prompt_requests | 
+Added | **GET** cases/{case_id}/field_prompt_requests/{field_prompt_request_id} | 
+Added | **GET** documents/{document_id}/contents/pages/{page_number} | Get a single page of the published process document
+Added | **GET** documents/{document_id}/contents/pages/{page_number}/download | Download the SVG for a page of the published process document
+Added | **GET** documents/{document_id}/contents/pages/{pagenumber}/process_shapes | Get process shapes for a specific page of the published document version
+Added | **GET** documents/{document_id}/contents/process_shapes | Get all process shapes for the published document version
+Added | **GET** documents/{document_id}/contents/process_shapes/{process_shape_id} | Get a specific process shape by id for the published document version
+Added | **GET** documents/{document_id}/v{version_number}/contents/pages/{page_number}/download | Download the SVG for a page of the requested version of the process document
+Added | **GET** documents/{document_id}/v{version_number}/contents/pages/{pagenumber}/process_shapes | Get process shapes for a specific page of the document version
+Added | **GET** documents/{document_id}/v{version_number}/contents/process_shapes | Get all process shapes for the document version
+Added | **GET** documents/{document_id}/v{version_number}/contents/process_shapes/{process_shape_id} | Get a specific process shape by id for the document version
+Added | **GET** documents/document_types/{document_type_id}/matrix_roles | Gets matrix roles for a document type
+Added | **GET** documents/document_types/{document_type_id}/matrix_roles/{matrix_role_id}/image/download | Downloads the image for a matrix role
+Added | **GET** documents/process_shape_definitions | Get all process shape definitions
+Added | **GET** documents/process_shape_definitions/{process_shape_definition_id} | Get a specific process shape definition
+Added | **GET** documents/process_shape_definitions/{process_shape_definition_id}/images/{image_type}/download | Download a process shape definition image
+Added | **POST** oauth/authorize/login | Validates user credentials against a registered public OAuth client and returns a short-lived authorization code. The code is intended to be immediately exchanged for tokens via POST /oauth/token; it is not a token itself.
+Added | **POST** oauth/revoke | Revokes a refresh token or an access token, as described by RFC 7009. Revocation is idempotent: an unknown, expired or already revoked token is accepted as well, so the endpoint cannot be used to probe which tokens exist.
+Added | **PATCH** risks/score_sections/{score_section_id} | Updates a score section
+Added | **POST** saml2 | Post a SAML login attempt
+Added | **PUT** settings/allow_disabling_captcha | Allow/disallow survey study administrators and case type managers to turn the CAPTCHA off for individual survey studies and mobile forms
+Changed | **GET** bearer_tokens/saml2/data | Added parameters client_id, code_challenge, redirect_uri
+Changed | **GET** cases/subject_trees/{subject_tree_id}/subjects | Added parameter include_deactivated
+Changed | **POST** oauth/token | Property 'code' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'redirect_uri' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'code_verifier' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'set_cookie' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'persistent_cookie' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **POST** oauth/token | Property 'refresh_token' added to RequestBody for schema 'application/x-www-form-urlencoded' ()
+Changed | **GET** organization_units | Added parameter include_users
+Changed | **GET** organization_units/{organization_unit_id} | Added parameter include_users
+Changed | **GET** organization_units/filter/{filter_id} | Added parameters include_managers, include_users
+Changed | **GET** saml/saml2 | Added parameters client_id, code_challenge, redirect_uri
+Changed | **GET** users | Added parameters email_addresses, manager_ids, position_ids
+Changed | **GET** users | Removed parameters managers_ids, positions_ids
+Removed | **POST** cases/{caseId}/field_prompt_requests | Removed
+Removed | **GET** cases/{caseId}/field_prompt_requests/{field_prompt_request_id} | Removed
+Removed | **PATCH** risks/score_sections/{scoreSectionId} | Removed
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 204 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 400 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 403 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 404 -->
+<!-- Changed | **POST** documents/{document_id}/v{version}/email | Added response code 429 -->
+<!-- Changed | **GET** app_registrations | Removed response code 403 -->
+<!-- Changed | **GET** app_registrations/{app_registration_id} | Removed response code 403 -->
+<!-- Changed | **POST** event | Removed response code 200 -->
+
+## Changes in Zenya 7.8.0 Update 10
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** documents/{document_id}/document_type/contents | Get the default contents stored on the document type of a document's published version, which a new
+document of that type starts with
+Added | **GET** documents/{document_id}/v{version_number}/document_type/contents | Get the default contents stored on the document type of a specific document version, which a new
+document of that type starts with
+Changed | **GET** documents/{document_id}/v{version_number}/contents | Added parameter revision
+Changed | **PUT** documents/{document_id}/v{version_number}/contents | Added parameter revision
+Changed | **GET** documents/{document_id}/v{version}/media_items/{document_media_id}/download | Added parameter revision
+<!-- Changed | **GET** documents/{document_id}/v{version_number}/contents | Added response code 400 -->
+
+## Changes in Zenya 7.8.0 Update 9
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** agents/conversations/{conversation_id} | Gets a single conversation. Its state names the case the conversation created; the case
+itself (draft or sent, its fields) is read from the cases API.
+Added | oData-style filtering on `list_item_id` and `name` from a list custom field | See [filtering documentation](Documentation/Filtering.md)
+Changed | **GET** cases/{case_id}/case_forms/{case_form_id} | Added parameter include_fields
+Changed | **GET** objects | Added `attention_required` member to the dto and oData-style filtering.
+Changed | **GET** objects | Added `qr_code/code` oData-style filtering.
+Changed | **GET** objects | Added `statistics/number_of_open_cases`, `statistics/number_of_open_scheduled_tasks` and `statistics/number_of_open_corrective_actions` members to the dto and oData-style filtering
+Changed | **GET** objects/data_types | Added parameters include_lookup_definitions
+Changed | **GET** objects/data_types/{data_type_id} | Added parameter include_lookup_definition
+
+## Changes in Zenya 7.8.0 Update 8
+Change|Route|Remarks
+|--|--|--|
+Changed | **GET** agents/conversations | Added parameter conversation_ids
+
+## Changes in Zenya 7.8.0 Update 7
+Change|Route|Remarks
+|--|--|--|
+Added | oData style filtering on email_address, formatted_text and checkbox custom field types | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `organization_unit_id` and `name` from an organization unit custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `user_id` and `user_name` from an user custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `attachment_id` and `file_name` from an attachments custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `hyperlink_id` and `description` from a hyperlinks custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `object_id` and `display_name` from a data type custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | oData-style filtering on `position_id` and `position_name` from a position custom field | See [filtering documentation](Documentation/Filtering.md)
+Added | **PATCH** agents/conversations/{conversation_id} | Updates a conversation. Only the owner may rename it; auto-generated titles are not
+special-cased, so a manual title can itself be renamed again.
+Added | **GET**, **PUT** documents/document_types/{document_type_id}/contents | Gets or puts the default content of a modern structured document type
+
+
+## Changes in Zenya 7.8.0 Update 6
+Change|Route|Remarks
+|--|--|--|
+Added | oData style filtering on date and date times | See [filtering documentation](Documentation/Filtering.md)
+Changed | **GET** objects | Added $filter querystring parameter, for oData styled filtering. Added `last_modified_date_time` member to the dto. Added `last_modified_date_time` as valid value for `sort_on` querystring parameter,
+Added | **GET** documents/{document_id}/media_items | Gets the metadata of all media items linked to the current (published) document version
+Added | **GET** documents/{document_id}/media_items/{document_media_id} | Gets the metadata of a media item linked to the current (published) document version
+Added | **GET** documents/{document_id}/v{version}/media_items | Gets the metadata of all media items linked to a specific document version
+Added | **GET** documents/{document_id}/v{version}/media_items/{document_media_id} | Gets the metadata of a media item linked to a specific document version
+Added | **GET** documents/{media_item_id}/versions | Gets all versions of a media item, ordered by version number descending
+Added | **GET** documents/{media_item_id}/versions/{media_item_version_id} | Gets a specific version of a media itemB
+Added | **GET** documents/media_folders/{media_folder_id}/media_items | Gets a paged list of media items in a media folder
+Added | **GET** documents/media_items/{media_item_id} | Gets a single media item, with its current version's metadata
+<!-- Changed | **GET** agents | Added parameter include_open_feedback_count
+Changed | **GET** agents/{agent_id} | Added parameter include_open_feedback_count
+Added | **GET**, **POST** agents/conversation_feedback |
+Added | **DELETE**, **GET**, **PATCH** agents/conversation_feedback/{conversation_feedback_id} |
+Added | **GET** agents/conversations | Gets all conversations ordered by last activity
+Added | **DELETE** agents/conversations/{conversation_id} | Deletes a specific conversation by ID
+Added | **GET** agents/conversations/{conversation_id}/messages | Gets the messages for the given conversation -->
+
+## Changes in Zenya 7.8.0 Update 5
+Change|Route|Remarks
+|--|--|--|
+Added | **GET** custom_fields | Get a paged list of custom fields (across all modules).
+Changed | **GET** documents/{document_id}/v{version_number}/contents | Added parameter legacy_mode
+Changed | **PUT** documents/{document_id}/v{version_number}/contents | Added parameter legacy_mode
+Added | **POST** documents/media_folders/{media_folder_id}/media_items | Creates a media item from an already-uploaded attachment
+Added | **POST** documents/media_items/{media_item_id}/versions | Creates a new version of an existing media item from an already-uploaded attachment
+
+
 ## Changes in Zenya 7.8.0
 Change|Route|Remarks
 |--|--|--|
-Added | **POST** oauth/authorize/login | Validates a user's credentials against a public app registration and returns a short-lived authorization code (authorization code flow with PKCE)
-Changed | **POST** oauth/token | Added support for grant_type authorization_code (parameters code, redirect_uri, code_verifier, set_cookie) and a refresh_token in the response
 Added | **GET** .well-known/jwks.json | Returns the JSON Web Key Set (JWKS) for the current tenant
 Added | **GET** .well-known/openid-configuration | Returns the OpenID Connect discovery document for the current tenant
 Changed | **GET** audits/{audit_id}/findings | Added parameters include_actions, include_linked_entities

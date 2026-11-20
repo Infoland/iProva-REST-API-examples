@@ -96,7 +96,7 @@ The PATCH verb is idempotent in the API, except in some cases, see the "idempote
 May return a 400 when the product is in "read only" mode.
 
 ### PUT
-The PUT verb is used to fully update or replace a resource. It will return 204 No Content status codes on success.
+On success, it returns a 204 No Content status code. In some cases, it may return 200 OK with a response body — for example, when the PUT route supports an include flag.
 
 The PUT verb is idempotent, except in some cases, see the "idempotence" chapter.
 
