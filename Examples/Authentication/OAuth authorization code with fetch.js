@@ -51,7 +51,7 @@ async function getAuthorizationCode(loginCode, password, codeChallenge) {
             password: password,
             client_id: _clientId,
             redirect_uri: _redirectUri,
-            code_challenge: codeChallenge
+            code_challenge: codeChallenge,
             // two_factor_code: "123456" // include when the response was 401 two_factor_required
         })
     });
@@ -88,7 +88,8 @@ async function exchangeCodeForToken(code, codeVerifier) {
     });
 
     if (!response.ok) {
-        throw new Error(`token exchange failed! status: ${response.status}`);
+        const problem = await response.json().catch(() => ({}));
+        throw new Error(`token exchange failed! status: ${response.status}, error: ${problem.error} (${problem.error_description})`);
     }
 
     return await response.json(); // { access_token, token_type, expires_in, refresh_token }
