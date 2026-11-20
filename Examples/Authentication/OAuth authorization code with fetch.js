@@ -47,18 +47,19 @@ async function getAuthorizationCode(loginCode, password, codeChallenge) {
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            loginCode: loginCode,
+            login_code: loginCode,
             password: password,
-            clientId: _clientId,
-            redirectUri: _redirectUri,
-            codeChallenge: codeChallenge
-            // twoFactorCode: "123456" // include when two-factor authentication is required
+            client_id: _clientId,
+            redirect_uri: _redirectUri,
+            code_challenge: codeChallenge
+            // two_factor_code: "123456" // include when the response was 401 two_factor_required
         })
     });
 
     if (!response.ok) {
-        // Errors use the OAuth { error, error_description } convention.
-        throw new Error(`authorize/login failed! status: ${response.status}`);
+        // The body's "error" property tells why, e.g. invalid_credentials or two_factor_required.
+        const problem = await response.json().catch(() => ({}));
+        throw new Error(`authorize/login failed! status: ${response.status}, error: ${problem.error}`);
     }
 
     const result = await response.json();
@@ -75,7 +76,6 @@ async function exchangeCodeForToken(code, codeVerifier) {
     formData.append("code", code);
     formData.append("redirect_uri", _redirectUri);
     formData.append("code_verifier", codeVerifier);
-    // formData.append("set_cookie", "true"); // WebForms flow: set auth cookies instead of returning tokens in the body
 
     const response = await fetch(`${_baseUrl}/oauth/token`, {
         method: "POST",
